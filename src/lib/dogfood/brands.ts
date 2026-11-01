@@ -86,6 +86,8 @@ export interface Brand {
   name: string;
   officialSite: string;
   logo: string;
+  /** Optional max logo height (px) on cards, for visually heavy wordmarks. Default 80. */
+  logoMaxH?: number;
   affiliateUrl: string;
   rank: number;
   score: number;
@@ -166,6 +168,7 @@ export const BRANDS: Brand[] = [
     name: "Ollie",
     officialSite: "https://www.myollie.com",
     logo: "/logos/ollie.svg",
+    logoMaxH: 42,
     affiliateUrl: "https://www.myollie.com",
     rank: 2,
     score: 9.4,

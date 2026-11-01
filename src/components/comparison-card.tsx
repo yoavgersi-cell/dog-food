@@ -65,7 +65,7 @@ export function ComparisonCard({ brand, rank = brand.rank, hideRank, refLb = 25,
       <div className="hidden sm:flex sm:min-h-[196px] sm:flex-row">
         <div className="flex items-center justify-center px-6 sm:w-[220px] sm:shrink-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={brand.logo} alt={`${brand.name} logo`} width={160} height={44} className="mx-auto block max-h-[80px] w-auto max-w-[170px] object-contain" />
+          <img src={brand.logo} alt={`${brand.name} logo`} width={160} height={44} className="mx-auto block w-auto max-w-[170px] object-contain" style={{ maxHeight: brand.logoMaxH ?? 80 }} />
         </div>
 
         <div className="flex-1 px-6 py-5">
@@ -109,7 +109,7 @@ export function ComparisonCard({ brand, rank = brand.rank, hideRank, refLb = 25,
         <div className="flex items-start justify-between">
           <div className="flex h-[64px] w-[150px] items-center justify-start">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={brand.logo} alt={`${brand.name} logo`} width={150} height={41} className="max-h-full max-w-full object-contain" />
+            <img src={brand.logo} alt={`${brand.name} logo`} width={150} height={41} className="max-h-full max-w-full object-contain" style={brand.logoMaxH ? { maxHeight: Math.round(brand.logoMaxH * 0.8) } : undefined} />
           </div>
           <RatingBadge rating={brand.score} label={brand.scoreLabel} starRating={brand.stars} />
         </div>

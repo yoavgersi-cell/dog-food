@@ -74,9 +74,10 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-[1200px] px-4 pb-6 pt-4">
+        {/* Heading sits above the two-column row so the #1 card and the sidebar share a top edge. */}
+        <h2 className="mb-4 pt-2 text-[22px] font-bold text-[#191919]">Our 2026 ranking</h2>
         <div className="flex items-start gap-6">
           <div className="min-w-0 flex-1 space-y-4">
-            <h2 className="pt-2 text-[22px] font-bold text-[#191919]">Our 2026 ranking</h2>
             {brands.map((b) => (
               <ComparisonCard key={b.slug} brand={b} refLb={REF_LB} />
             ))}
