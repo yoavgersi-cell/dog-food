@@ -15,7 +15,7 @@ import { pageReviewSchema } from "@/data/reviewers";
 
 export const revalidate = 3600;
 
-const TITLE = `Best Fresh Dog Food Delivery Services of ${HERO_MONTH} - 7 Brands Compared`;
+const TITLE = `Best Fresh Dog Food Delivery Services of ${HERO_MONTH}`;
 const DESCRIPTION =
   "The Farmer's Dog, Ollie, Spot & Tango, We Feed Raw, Maxbone, The Pets Table and Redbarn compared on dry-matter protein, cost per day by weight, AAFCO compliance and plan flexibility.";
 const REF_LB = 25;
