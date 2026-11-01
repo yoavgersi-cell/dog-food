@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { Calculator, FlaskConical, ShieldCheck } from "lucide-react";
+import { BowlIcon, FreshIcon, RubricIcon, ScaleIcon } from "./hero-icons";
 
 interface HeroSectionProps {
   backgroundImageUrl: string;
@@ -25,7 +25,7 @@ export function HeroSection({
   maxTextWidth = "640px",
 }: HeroSectionProps) {
   return (
-    <section className="relative w-full py-5 sm:py-0 sm:h-[260px] lg:h-[290px] overflow-hidden bg-[#FFFBEB] border-b border-[#FEF3C7]">
+    <section className="relative w-full py-5 sm:py-0 sm:min-h-[260px] lg:min-h-[290px] overflow-hidden bg-[#FFFBEB] border-b border-[#FEF3C7]">
       {/* Hero image positioned on the right (omitted when no image is set) */}
       {backgroundImageUrl && (
         <div className="absolute right-[380px] top-0 h-full w-[50%] hidden sm:block">
@@ -46,7 +46,7 @@ export function HeroSection({
           textAlign === "center" && "items-center text-center"
         )}
       >
-        <div className="max-w-[640px] lg:max-w-[900px]" style={{ maxWidth: maxTextWidth !== "640px" ? maxTextWidth : undefined }}>
+        <div className="max-w-[640px] lg:max-w-[1040px]" style={{ maxWidth: maxTextWidth !== "640px" ? maxTextWidth : undefined }}>
           {updatedLabel && (
             <span className="mb-2.5 sm:mb-3 inline-flex items-center gap-1.5 text-[13px] text-gray-600">
               <svg className="h-4 w-4 text-[#A16207]" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" /></svg>
@@ -70,18 +70,19 @@ export function HeroSection({
             </p>
           )}
 
-          <div className="mt-4 sm:mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5 sm:gap-5">
+          <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5 sm:mt-5 sm:flex sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-3">
             {[
-              { label: "Dry-Matter Nutrition Data", icon: FlaskConical },
-              { label: "Cost per Day by Weight", icon: Calculator },
-              { label: "Published Scoring Rubric", icon: ShieldCheck },
+              { label: "7 Fresh & Raw Brands", icon: FreshIcon },
+              { label: "Dry-Matter Nutrition Data", icon: BowlIcon },
+              { label: "Cost per Day by Weight", icon: ScaleIcon },
+              { label: "Open Scoring Rubric", icon: RubricIcon },
             ].map(({ label, icon: Icon }) => (
-              <span key={label} className="flex items-center gap-1 text-[11px] sm:text-[13px] font-medium text-gray-500 whitespace-nowrap">
-                <Icon className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0 text-[#A16207]" strokeWidth={1.5} />
+              <li key={label} className="flex items-center gap-2 text-[13px] font-medium leading-tight text-[#3B2A10] sm:gap-2.5 sm:text-[15px] lg:whitespace-nowrap">
+                <Icon className="h-7 w-7 shrink-0 text-[#5C3B0E] sm:h-8 sm:w-8" />
                 {label}
-              </span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
     </section>
