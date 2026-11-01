@@ -37,26 +37,24 @@ function dataStrip(brand: Brand, refLb: number): StripItem[] {
     brand.storage === "freezer + fridge"
       ? { icon: Snowflake, text: "Ships frozen" }
       : brand.storage === "pantry"
-        ? { icon: Package, text: "No freezer needed" }
-        : { icon: Package, text: "Frozen or pantry" },
-    { icon: Leaf, text: brand.formats.map((f) => FORMAT_LABEL[f].replace(/ \(.*\)$/, "")).join(" + ") },
+        ? { icon: Package, text: "No freezer" }
+        : { icon: Package, text: "Frozen or dry" },
+    { icon: Leaf, text: FORMAT_LABEL[brand.formats[0]].replace(/ \(.*\)$/, "") },
   ];
   return candidates.filter((c): c is StripItem => !!c).slice(0, 3);
 }
 
-/** One row of 3 facts: icon over a short label, three equal columns - never a second row. */
+/** One row of 3 facts, icon and label inline on the same line. */
 function StripRow({ items, className = "" }: { items: StripItem[]; className?: string }) {
   return (
-    <div className={className}>
-      <ul className="grid grid-cols-3 gap-x-2">
-        {items.map(({ icon: Icon, text }) => (
-          <li key={text} className="flex min-w-0 flex-col items-start gap-1 text-[11.5px] font-semibold leading-tight text-[#191919]">
-            <Icon className="h-4 w-4 shrink-0 text-[#A16207]" strokeWidth={1.75} />
-            <span>{text}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul className={`flex flex-nowrap items-center justify-between gap-x-1.5 sm:justify-start sm:gap-x-4 ${className}`}>
+      {items.map(({ icon: Icon, text }) => (
+        <li key={text} className="flex min-w-0 items-center gap-1 whitespace-nowrap text-[11px] font-semibold text-[#191919] max-[370px]:text-[10.5px] sm:text-[12px]">
+          <Icon className="h-3.5 w-3.5 shrink-0 text-[#A16207]" strokeWidth={2} />
+          {text}
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -123,7 +121,7 @@ export function ComparisonCard({ brand, rank = brand.rank, hideRank, refLb = 25,
       </div>
 
       {/* ===== MOBILE ===== */}
-      <div className="flex flex-col p-5 pt-12 sm:hidden">
+      <div className="flex flex-col px-4 pb-5 pt-12 sm:hidden">
         <div className="flex items-start justify-between">
           <div className="flex h-[64px] w-[150px] items-center justify-start">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -144,7 +142,7 @@ export function ComparisonCard({ brand, rank = brand.rank, hideRank, refLb = 25,
             </li>
           ))}
         </ul>
-        <StripRow items={strip} className="mt-3 rounded-lg bg-[#FEFCE8] px-3 py-2.5" />
+        <StripRow items={strip} className="mt-3 border-t border-dashed border-gray-200 pt-3" />
         {cta("mt-4 flex h-[48px] w-full items-center justify-center gap-2 rounded-lg bg-[#A16207] text-[16px] font-bold text-white transition-colors hover:bg-[#854D0E]")}
         <Link href={`/reviews/${brand.slug}`} className="mt-3 text-center text-[13px] font-semibold text-[#A16207] underline-offset-2 hover:underline">
           Read the full {brand.name} review
