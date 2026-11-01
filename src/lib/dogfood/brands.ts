@@ -305,11 +305,11 @@ export const BRANDS: Brand[] = [
     toVerify: ["offer", "proteins", "subscriptionRequired", "humanGrade", "delivery", "nutrition", "price", "aafcoStatement"],
   },
   {
-    slug: "the-pet-table",
-    name: "The Pet Table",
-    officialSite: "https://www.thepettable.com",
-    logo: "/logos/the-pet-table.webp",
-    affiliateUrl: "https://www.thepettable.com",
+    slug: "the-pets-table",
+    name: "The Pets Table",
+    officialSite: "https://www.thepetstable.com",
+    logo: "/logos/the-pets-table.webp",
+    affiliateUrl: "https://www.thepetstable.com",
     rank: 6,
     score: 8.5,
     scoreLabel: "Very Good",
@@ -336,8 +336,8 @@ export const BRANDS: Brand[] = [
     pros: ["Four plan types, including topper-only", "Two-box intro discount (brand offer)", "Large logistics backer (HelloFresh)"],
     cons: ["Subscription only", "Newer brand - shorter track record"],
     summary:
-      "The Pet Table is the most flexible plan menu in the set: full fresh, air-dried, a mix, or toppers only. That makes it the easiest way to add fresh food on a fixed budget. It ranks below the specialists because it's newer and has a shorter public formulation record.",
-    toVerify: ["offer", "proteins", "humanGrade", "delivery", "nutrition", "price", "aafcoStatement"],
+      "The Pets Table is the most flexible plan menu in the set: full fresh, air-dried, a mix, or toppers only. That makes it the easiest way to add fresh food on a fixed budget. It ranks below the specialists because it's newer and has a shorter public formulation record.",
+    toVerify: ["officialSite", "offer", "proteins", "humanGrade", "delivery", "nutrition", "price", "aafcoStatement"],
   },
   {
     slug: "redbarn",

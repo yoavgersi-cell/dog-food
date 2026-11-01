@@ -44,7 +44,7 @@ export function organizationSchema() {
       "Spot & Tango",
       "We Feed Raw",
       "Maxbone",
-      "The Pet Table",
+      "The Pets Table",
       "Redbarn",
     ],
     publishingPrinciples: `${SITE_URL}/how-we-rank`,

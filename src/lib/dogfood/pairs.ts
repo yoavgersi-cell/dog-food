@@ -16,7 +16,7 @@ export const PRIORITY = [
   "ollie",
   "spot-and-tango",
   "we-feed-raw",
-  "the-pet-table",
+  "the-pets-table",
   "maxbone",
   "redbarn",
 ] as const;
@@ -63,8 +63,8 @@ export const PAIRS: Pair[] = [
     d("Which suits a committed raw feeder?", "we-feed-raw", "It is the only complete raw subscription in our set."),
     d("Which is lower in carbohydrate?", "we-feed-raw", "Raw formulations typically carry less carbohydrate - confirmed per recipe once analyses are verified."),
   ]),
-  p("the-farmers-dog", "the-pet-table", "The Pet Table sells topper and air-dried plans for smaller budgets; The Farmer's Dog is full-meal fresh only.", "the-farmers-dog", [
-    d("Which is easier on a fixed budget?", "the-pet-table", "Topper and mixed plans cut the fresh share of the bowl."),
+  p("the-farmers-dog", "the-pets-table", "The Pets Table sells topper and air-dried plans for smaller budgets; The Farmer's Dog is full-meal fresh only.", "the-farmers-dog", [
+    d("Which is easier on a fixed budget?", "the-pets-table", "Topper and mixed plans cut the fresh share of the bowl."),
     d("Which has the longer track record?", "the-farmers-dog", "Longer-established brand with more published formulation detail."),
     d("Which is better as a full daily diet?", "the-farmers-dog", "Single-format, calorie-targeted full meals."),
   ]),
@@ -88,10 +88,10 @@ export const PAIRS: Pair[] = [
     d("Which is the raw pick?", "we-feed-raw", "Complete raw diet delivered."),
     d("Which has a shelf-stable backup?", "tie", "Ollie (baked) and We Feed Raw (freeze-dried) both do."),
   ]),
-  p("ollie", "the-pet-table", "The two most flexible plan menus: Ollie mixes fresh + baked, The Pet Table mixes fresh + air-dried or toppers.", "ollie", [
-    d("Which is cheaper to start with?", "the-pet-table", "Topper plans and a two-box intro offer."),
+  p("ollie", "the-pets-table", "The two most flexible plan menus: Ollie mixes fresh + baked, The Pets Table mixes fresh + air-dried or toppers.", "ollie", [
+    d("Which is cheaper to start with?", "the-pets-table", "Topper plans and a two-box intro offer."),
     d("Which is the better full fresh diet?", "ollie", "Ranks higher on formulation and portioning."),
-    d("Which offers a topper-only plan?", "the-pet-table", "Explicit topper plan."),
+    d("Which offers a topper-only plan?", "the-pets-table", "Explicit topper plan."),
   ]),
   p("ollie", "maxbone", "Personalized fresh-and-baked subscription vs. pantry freeze-dried without lock-in.", "ollie", [
     d("Which personalizes portions?", "ollie", "Portions set per dog."),
@@ -108,9 +108,9 @@ export const PAIRS: Pair[] = [
     d("Which is the raw choice?", "we-feed-raw", "Only raw option of the two."),
     d("Which is easier for households with vulnerable people?", "spot-and-tango", "No raw-meat handling."),
   ]),
-  p("spot-and-tango", "the-pet-table", "Both sell two formats; Spot & Tango's second format is fresh-dry, The Pet Table's is air-dried plus toppers.", "spot-and-tango", [
+  p("spot-and-tango", "the-pets-table", "Both sell two formats; Spot & Tango's second format is fresh-dry, The Pets Table's is air-dried plus toppers.", "spot-and-tango", [
     d("Which shelf-stable format is closer to fresh?", "spot-and-tango", "Fresh-dry UnKibble."),
-    d("Which has a topper-only plan?", "the-pet-table", "Explicit topper plan."),
+    d("Which has a topper-only plan?", "the-pets-table", "Explicit topper plan."),
     d("Which ranks higher overall?", "spot-and-tango", "Higher on formulation transparency in our rubric."),
   ]),
   p("spot-and-tango", "maxbone", "Two pantry-stable premium formats: fresh-dry UnKibble vs. freeze-dried.", "spot-and-tango", [
@@ -123,10 +123,10 @@ export const PAIRS: Pair[] = [
     d("Which is personalized?", "spot-and-tango", "Per-dog plans."),
     d("Which is pantry-stable?", "tie", "UnKibble and Redbarn's air-dried/rolled foods both are."),
   ]),
-  p("we-feed-raw", "the-pet-table", "Complete raw vs. a flexible cooked menu with toppers.", "we-feed-raw", [
+  p("we-feed-raw", "the-pets-table", "Complete raw vs. a flexible cooked menu with toppers.", "we-feed-raw", [
     d("Which is the raw choice?", "we-feed-raw", "Only raw option of the two."),
-    d("Which is cheaper to try?", "the-pet-table", "Topper plans and a two-box offer."),
-    d("Which is easier for raw-cautious households?", "the-pet-table", "Cooked and air-dried formats only."),
+    d("Which is cheaper to try?", "the-pets-table", "Topper plans and a two-box offer."),
+    d("Which is easier for raw-cautious households?", "the-pets-table", "Cooked and air-dried formats only."),
   ]),
   p("we-feed-raw", "maxbone", "Raw frozen (plus freeze-dried) subscription vs. freeze-dried pantry food without lock-in.", "we-feed-raw", [
     d("Which is personalized per dog?", "we-feed-raw", "Plans portioned to the dog."),
@@ -138,15 +138,15 @@ export const PAIRS: Pair[] = [
     d("Which can I buy in a store?", "redbarn", "Retail distribution."),
     d("Which is personalized?", "we-feed-raw", "Per-dog portions."),
   ]),
-  p("the-pet-table", "maxbone", "Flexible fresh / air-dried / topper subscription vs. freeze-dried without lock-in.", "maxbone", [
-    d("Which has the most plan types?", "the-pet-table", "Fresh, air-dried, mixed and topper."),
+  p("the-pets-table", "maxbone", "Flexible fresh / air-dried / topper subscription vs. freeze-dried without lock-in.", "maxbone", [
+    d("Which has the most plan types?", "the-pets-table", "Fresh, air-dried, mixed and topper."),
     d("Which avoids a subscription?", "maxbone", "Buy once or subscribe."),
     d("Which is better for travel?", "maxbone", "Light, pantry-stable freeze-dried."),
   ]),
-  p("the-pet-table", "redbarn", "The air-dried head-to-head: a subscription with portioning vs. retail bags.", "the-pet-table", [
-    d("Which personalizes portions?", "the-pet-table", "Per-dog plans."),
+  p("the-pets-table", "redbarn", "The air-dried head-to-head: a subscription with portioning vs. retail bags.", "the-pets-table", [
+    d("Which personalizes portions?", "the-pets-table", "Per-dog plans."),
     d("Which can I buy in a store?", "redbarn", "Retail distribution."),
-    d("Which also offers fresh-cooked?", "the-pet-table", "Fresh and mixed plans."),
+    d("Which also offers fresh-cooked?", "the-pets-table", "Fresh and mixed plans."),
   ]),
   p("maxbone", "redbarn", "The two shelf-stable, no-subscription brands: freeze-dried vs. air-dried and rolled.", "maxbone", [
     d("Which is easier to find in stores?", "redbarn", "Wider retail distribution."),

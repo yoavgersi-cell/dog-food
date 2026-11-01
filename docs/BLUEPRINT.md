@@ -67,7 +67,7 @@ The aim is to be the Wirecutter / Consumer Reports of fresh dog food: the same r
 | **Verdict phrasing** | "Best for [specific dog / owner situation]: [Brand]." Each verdict names **one** winner. Ties are allowed only when the numbers are within the stated tolerance (±3% cost, ±1.5 pts DM protein). |
 | **Hedging budget** | At most one "may/might/could" per section, and only where evidence is genuinely mixed. Say *why* it is mixed. |
 | **Health language** | "supports", "is formulated for", "has lower fat than". Never "treats", "cures", "prevents", "heals". |
-| **Brand names** | Use official styling: The Farmer's Dog, Ollie, Spot & Tango, We Feed Raw, The Pet Table, Maxbone, Redbarn. |
+| **Brand names** | Use official styling: The Farmer's Dog, Ollie, Spot & Tango, We Feed Raw, The Pets Table, Maxbone, Redbarn. |
 | **Person** | "We" for the editorial team. "You" for the reader. "Your dog". Never "fur baby", "pupper", "doggo". |
 | **Banned filler** | "In today's world", "when it comes to", "look no further", "game-changer", "it's important to note", "at the end of the day", "furry friend". `seo:audit` flags these as lint warnings. |
 | **Sentences** | Median ≤ 20 words. Paragraphs ≤ 4 sentences. One idea per paragraph. |
@@ -142,7 +142,7 @@ Typography: Geist (already in the template) via `next/font` with `display: swap`
 | Trailing slash | **None** (Next default). Slash variants 308 → slashless. |
 | Case | Lowercase only. Uppercase variants 308. |
 | Separators | Hyphens. No underscores, no dates in URLs. |
-| Brand slugs | `the-farmers-dog`, `ollie`, `spot-and-tango`, `we-feed-raw`, `the-pet-table`, `maxbone`, `redbarn` |
+| Brand slugs | `the-farmers-dog`, `ollie`, `spot-and-tango`, `we-feed-raw`, `the-pets-table`, `maxbone`, `redbarn` |
 | Year in URL | Never. The year goes in `<title>` and the H1 only, so URLs survive yearly refreshes. |
 | Query params | Filter state (`?format=raw&sort=price`) is never indexable. `<link rel=canonical>` points to the clean URL. |
 
@@ -422,7 +422,7 @@ Target: 100–130 unique internal links. No `nofollow` on internal links, ever.
 ### 4.1 Principles
 
 1. **Answer first, then prove.** Each page opens with a ≤ 60-word answer containing ≥ 1 number and a named winner. AI engines lift the first well-formed answer under a matching heading.
-2. **Quotable units.** Every key fact is a self-contained sentence that survives being cut out: *"For a 25 lb neutered adult dog, The Pet Table costs $X.XX/day versus $Y.YY for Ollie (Nov 2026, first full-price box)."* No "it", "this brand" or "above" references inside quotable sentences.
+2. **Quotable units.** Every key fact is a self-contained sentence that survives being cut out: *"For a 25 lb neutered adult dog, The Pets Table costs $X.XX/day versus $Y.YY for Ollie (Nov 2026, first full-price box)."* No "it", "this brand" or "above" references inside quotable sentences.
 3. **Stable entities.** One `@id` per entity across the site (brand, product, organization, author, breed). This is already modeled in `src/lib/geo.ts`.
 4. **Tables are first-class.** Real `<table>` with `<caption>`, `<th scope>` and units in headers. LLM crawlers parse tables far better than div grids.
 5. **Freshness is visible and machine-readable:** `<time datetime>`, `dateModified`, and a "Data checked" line.
@@ -777,30 +777,30 @@ Best recipe per brand = argmax of `nutrientFit`. Ties break on cost/day. Top pic
 
 ### 5.3 (a) All 21 head-to-head pairs
 
-Canonical slug = `[A]-vs-[B]` where A comes first in the demand order: `the-farmers-dog > ollie > spot-and-tango > we-feed-raw > the-pet-table > maxbone > redbarn`. The reverse slug 301s to canonical.
+Canonical slug = `[A]-vs-[B]` where A comes first in the demand order: `the-farmers-dog > ollie > spot-and-tango > we-feed-raw > the-pets-table > maxbone > redbarn`. The reverse slug 301s to canonical.
 
 | # | URL `/compare/…` | Core angle (the question the page settles) | Decisive vectors | Priority |
 |---|------------------|---------------------------------------------|------------------|----------|
 | 1 | `the-farmers-dog-vs-ollie` | Two gently cooked leaders: which is better value per 1,000 kcal and per recipe? | $/day ×5 weights, DM protein, recipe count, baked-food option | P1 |
 | 2 | `the-farmers-dog-vs-spot-and-tango` | Fridge/freezer fresh vs. fresh + fridge-free UnKibble™ | Storage, $/day, DM protein, grain options | P1 |
 | 3 | `the-farmers-dog-vs-we-feed-raw` | Gently cooked vs. raw: protein, pathogen controls, cost | DM protein/fat, P:F, safety process, $/day | P1 |
-| 4 | `the-farmers-dog-vs-the-pet-table` | Premium DTC vs. HelloFresh-backed flexible plans | $/day, plan types (fresh/air-dried/topper), flexibility | P1 |
+| 4 | `the-farmers-dog-vs-the-pets-table` | Premium DTC vs. HelloFresh-backed flexible plans | $/day, plan types (fresh/air-dried/topper), flexibility | P1 |
 | 5 | `the-farmers-dog-vs-maxbone` | Personalized fresh vs. shelf-stable freeze-dried | Storage, calorie personalization, $/1,000 kcal | P2 |
 | 6 | `the-farmers-dog-vs-redbarn` | Subscription fresh vs. retail air-dried/rolled, no subscription | Buying model, $/day, availability | P2 |
 | 7 | `ollie-vs-spot-and-tango` | Both offer a non-frozen option (baked vs. UnKibble): which hybrid wins? | Hybrid-plan cost, DM protein, texture | P1 |
 | 8 | `ollie-vs-we-feed-raw` | Cooked + baked vs. raw + freeze-dried | DM protein/fat, $/day, safety | P1 |
-| 9 | `ollie-vs-the-pet-table` | Mixed-plan showdown (fresh+baked vs. fresh+air-dried) | Mixed-plan $/day, flexibility | P1 |
+| 9 | `ollie-vs-the-pets-table` | Mixed-plan showdown (fresh+baked vs. fresh+air-dried) | Mixed-plan $/day, flexibility | P1 |
 | 10 | `ollie-vs-maxbone` | Fresh subscription vs. premium freeze-dried | Storage, $/1,000 kcal | P2 |
 | 11 | `ollie-vs-redbarn` | Personalized fresh vs. retail air-dried | Buying model, $/day | P2 |
 | 12 | `spot-and-tango-vs-we-feed-raw` | Cooked/fresh-dry vs. raw: digestibility and protein | DM protein, P:F, $/day | P1 |
-| 13 | `spot-and-tango-vs-the-pet-table` | Two flexible-format subscriptions | Formats, $/day, grain options | P2 |
+| 13 | `spot-and-tango-vs-the-pets-table` | Two flexible-format subscriptions | Formats, $/day, grain options | P2 |
 | 14 | `spot-and-tango-vs-maxbone` | Two shelf-stable approaches: UnKibble vs. freeze-dried | Shelf life, $/1,000 kcal, DM protein | P2 |
 | 15 | `spot-and-tango-vs-redbarn` | Shelf-stable fresh-dry vs. air-dried/rolled | Storage, buying model, $/day | P2 |
-| 16 | `we-feed-raw-vs-the-pet-table` | Raw specialist vs. cooked generalist | DM protein, safety, $/day | P2 |
+| 16 | `we-feed-raw-vs-the-pets-table` | Raw specialist vs. cooked generalist | DM protein, safety, $/day | P2 |
 | 17 | `we-feed-raw-vs-maxbone` | Frozen raw vs. freeze-dried: same nutrition, different logistics? | Storage, $/1,000 kcal, rehydration | P2 |
 | 18 | `we-feed-raw-vs-redbarn` | Raw subscription vs. retail air-dried | Processing, $/day | P2 |
-| 19 | `the-pet-table-vs-maxbone` | Budget fresh vs. premium freeze-dried | $/day gap, storage | P2 |
-| 20 | `the-pet-table-vs-redbarn` | Air-dried head-to-head (subscription vs. retail) | Air-dried $/1,000 kcal, buying model | P2 |
+| 19 | `the-pets-table-vs-maxbone` | Budget fresh vs. premium freeze-dried | $/day gap, storage | P2 |
+| 20 | `the-pets-table-vs-redbarn` | Air-dried head-to-head (subscription vs. retail) | Air-dried $/1,000 kcal, buying model | P2 |
 | 21 | `maxbone-vs-redbarn` | Shelf-stable premium: freeze-dried vs. air-dried | $/1,000 kcal, DM protein, availability | P2 |
 
 P1 pages get a hand-written verdict section (≥ 600 words) and a feeding test when available. P2 pages ship with the engine-generated comparison plus a ≥ 300-word editor slot.

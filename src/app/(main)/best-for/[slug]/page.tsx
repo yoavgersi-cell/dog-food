@@ -74,7 +74,7 @@ export default async function BestForPage({ params }: { params: Promise<{ slug: 
   if (!t) notFound();
   const top = RANKED_BRANDS[0];
   const raw = getBrand("we-feed-raw")!;
-  const flex = getBrand("the-pet-table")!;
+  const flex = getBrand("the-pets-table")!;
 
   if (t.kind === "demo") return <DemographicView d={t.demo} />;
 

@@ -112,12 +112,12 @@ export function HomeEditorial() {
           [<A key="w" href={dietPath("weight-loss")}>Needs to lose weight</A>, "Calorie-targeted portions", <A key="2" href="/reviews/the-farmers-dog">The Farmer&apos;s Dog</A>],
           [<A key="p" href={bestForPath("puppy")}>Is a puppy</A>, "AAFCO growth / all life stages", <A key="3" href={bestForPath("puppy")}>Puppy picks</A>],
           [<A key="r" href={dietPath("raw")}>Eats raw</A>, "Complete raw, safe handling", <A key="4" href="/reviews/we-feed-raw">We Feed Raw</A>],
-          [<A key="b" href={dietPath("fresh-topper")}>Is on a budget</A>, "Topper or mixed plan", <A key="5" href="/reviews/the-pet-table">The Pet Table</A>],
+          [<A key="b" href={dietPath("fresh-topper")}>Is on a budget</A>, "Topper or mixed plan", <A key="5" href="/reviews/the-pets-table">The Pets Table</A>],
         ]}
       />
       <P>
         Comparing two shortlisted brands? Read <A href={comparePath("the-farmers-dog-vs-spot-and-tango")}>The Farmer&apos;s Dog vs Spot &amp; Tango</A>,{" "}
-        <A href={comparePath("ollie-vs-the-pet-table")}>Ollie vs The Pet Table</A>, <A href={comparePath("we-feed-raw-vs-maxbone")}>We Feed Raw vs Maxbone</A> or{" "}
+        <A href={comparePath("ollie-vs-the-pets-table")}>Ollie vs The Pets Table</A>, <A href={comparePath("we-feed-raw-vs-maxbone")}>We Feed Raw vs Maxbone</A> or{" "}
         <A href={comparePath("maxbone-vs-redbarn")}>Maxbone vs Redbarn</A>, or browse <A href="/compare">all 21 comparisons</A>.
         For breed-specific feeding amounts, start with <A href={bestForPath("golden-retriever")}>Golden Retrievers</A>, <A href={bestForPath("french-bulldog")}>French Bulldogs</A>{" "}
         or <A href="/best-for">every breed</A>.

@@ -7,7 +7,7 @@ disclosure bar, GEO helpers, llms.txt, IndexNow cron and SEO audit), rethemed
 light yellow.
 
 Brands: **The Farmer's Dog, Ollie, Spot & Tango, We Feed Raw, Maxbone,
-The Pet Table, Redbarn.**
+The Pets Table, Redbarn.**
 
 The full strategy (tone of voice, URL architecture, homepage spec, AEO/GEO,
 programmatic templates, technical SEO, launch plan) is in

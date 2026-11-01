@@ -11,7 +11,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "Dog Food Comparisons: 21 Head-to-Head Brand Matchups (2026)",
-  description: "Every pairing of The Farmer's Dog, Ollie, Spot & Tango, We Feed Raw, The Pet Table, Maxbone and Redbarn, each with a decisive winner and side-by-side nutrition and cost data.",
+  description: "Every pairing of The Farmer's Dog, Ollie, Spot & Tango, We Feed Raw, The Pets Table, Maxbone and Redbarn, each with a decisive winner and side-by-side nutrition and cost data.",
   path: "/compare",
   type: "website",
 });

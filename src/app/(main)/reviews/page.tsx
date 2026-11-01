@@ -10,7 +10,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "Fresh & Raw Dog Food Reviews (2026): All 7 Brands Scored",
-  description: "Every brand we review, scored out of 10 with the same published rubric: The Farmer's Dog, Ollie, Spot & Tango, We Feed Raw, Maxbone, The Pet Table and Redbarn.",
+  description: "Every brand we review, scored out of 10 with the same published rubric: The Farmer's Dog, Ollie, Spot & Tango, We Feed Raw, Maxbone, The Pets Table and Redbarn.",
   path: "/reviews",
   type: "website",
 });
