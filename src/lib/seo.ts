@@ -34,7 +34,8 @@ export function pageMeta({
     title: { absolute: `${title} | ${SITE_NAME}` },
     description,
     alternates: { canonical: url },
-    openGraph: { title, description, url, type, siteName: SITE_NAME },
+    openGraph: { title, description, url, type, siteName: SITE_NAME, images: [{ url: "/og-default.png", width: 1200, height: 630, alt: SITE_NAME }] },
+    twitter: { card: "summary_large_image", title, description, images: ["/og-default.png"] },
     robots: index ? { index: true, follow: true } : { index: false, follow: true },
   };
 }
