@@ -70,14 +70,15 @@ export function HeroSection({
             </p>
           )}
 
-          <ul className="mt-4 flex flex-col items-start gap-2 sm:mt-5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-8 sm:gap-y-3">
+          <ul className="mt-4 flex flex-row flex-nowrap items-center gap-x-4 sm:mt-5 sm:flex-wrap sm:gap-x-8 sm:gap-y-3">
             {[
               { label: "Fresh Ingredients", icon: FreshIcon },
               { label: "Human-Grade Quality", icon: ChefHatIcon },
-              { label: "Gentle on Digestion", icon: BowlIcon },
-            ].map(({ label, icon: Icon }) => (
-              <li key={label} className="flex items-center gap-2 text-[13px] font-medium leading-tight text-[#3B2A10] sm:gap-2.5 sm:text-[15px] lg:whitespace-nowrap">
-                <Icon className="h-7 w-7 shrink-0 text-[#5C3B0E] sm:h-8 sm:w-8" />
+              // Desktop only - mobile keeps a single row of two.
+              { label: "Gentle on Digestion", icon: BowlIcon, desktopOnly: true },
+            ].map(({ label, icon: Icon, desktopOnly }) => (
+              <li key={label} className={`${desktopOnly ? "hidden sm:flex" : "flex"} whitespace-nowrap items-center gap-1.5 text-[13px] font-medium leading-tight text-[#3B2A10] sm:gap-2.5 sm:text-[15px]`}>
+                <Icon className="h-6 w-6 shrink-0 text-[#5C3B0E] sm:h-8 sm:w-8" />
                 {label}
               </li>
             ))}
