@@ -8,7 +8,7 @@ interface HeroSectionProps {
   updatedLabel?: string;
   h1: React.ReactNode;
   h2?: string;
-  description?: string;
+  description?: React.ReactNode;
   overlayOpacity?: number;
   textAlign?: "left" | "center";
   maxTextWidth?: string;
@@ -77,18 +77,18 @@ export function HeroSection({
             </span>
           )}
 
-          <h1 className="text-[26px] sm:text-[32px] lg:text-[36px] leading-[1.15] font-extrabold tracking-tight text-[#191919]">
+          <h1 className="text-[24px] sm:text-[32px] lg:text-[36px] leading-[1.15] font-extrabold tracking-tight text-[#191919]">
             {h1}
           </h1>
 
           {h2 && (
-            <h2 className="mt-1.5 text-[19px] sm:text-[24px] leading-[1.25] font-bold text-[#191919]">
+            <p className="mt-1.5 hidden sm:block sm:text-[24px] leading-[1.25] font-bold text-[#191919]">
               {h2}
-            </h2>
+            </p>
           )}
 
           {description && (
-            <p className="mt-3 sm:mt-4 text-[14.5px] sm:text-[16px] leading-[1.6] text-gray-700 max-w-[760px]">
+            <p className="mt-3 sm:mt-4 text-[15px] sm:text-[16px] leading-[1.6] text-gray-700 max-w-[760px]">
               {description}
             </p>
           )}

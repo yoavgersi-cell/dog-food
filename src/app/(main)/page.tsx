@@ -67,7 +67,7 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={schema} />
-      <HeroSection backgroundImageUrl="" imageAlt="" sideImage={{ src: "/brand/hero-dog.webp", alt: "Golden retriever licking its nose, excited for fresh dog food", width: 760, height: 695 }} updatedLabel={HOME_HERO.updatedLabel} h1={<>{HOME_HERO.h1Before}<span className="text-[#A16207]">{HOME_HERO.h1Highlight}</span>{HOME_HERO.h1After}</>} h2={HOME_HERO.h2} description={HOME_HERO.description} />
+      <HeroSection backgroundImageUrl="" imageAlt="" sideImage={{ src: "/brand/hero-dog.webp", alt: "Golden retriever licking its nose, excited for fresh dog food", width: 760, height: 695 }} updatedLabel={HOME_HERO.updatedLabel} h1={<>{HOME_HERO.h1Before}<span className="text-[#A16207]">{HOME_HERO.h1Highlight}</span>{HOME_HERO.h1After}</>} h2={HOME_HERO.h2} description={<>{HOME_HERO.descriptionLead}<span className="hidden sm:inline"> {HOME_HERO.descriptionMore}</span></>} />
 
       <section className="mx-auto max-w-[1200px] px-4 pt-3">
         <Byline path="/" />

@@ -40,8 +40,12 @@ export const HOME_HERO = {
   h1Highlight: "Fresh Dog Food Delivery Services",
   h1After: ` of ${HERO_MONTH}`,
   h2: "Real food for your best friend",
-  description:
-    "After comparing 7 fresh and raw delivery services side by side, our team rates The Farmer's Dog and Ollie as the top picks for fresh, wholesome, nutritious meals. Whether you're after easier digestion, a healthier weight or a dog who actually licks the bowl clean, find the plan that fits your pup.",
+  // Lead = the direct answer (always visible, quoted by AI engines);
+  // more = supporting sentence, shown from tablet up (still in the HTML).
+  descriptionLead:
+    "After comparing 7 fresh and raw delivery services side by side, our team rates The Farmer's Dog and Ollie as the top picks for fresh, wholesome, nutritious meals.",
+  descriptionMore:
+    "Whether you're after easier digestion, a healthier weight or a dog who actually licks the bowl clean, find the plan that fits your pup.",
 };
 
 export const HOME_FAQS: FaqItem[] = [

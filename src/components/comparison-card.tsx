@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { Check, Tag } from "lucide-react";
+import { CalendarCheck, Check, Leaf, Package, Scale, Snowflake, Tag, Wallet, type LucideIcon } from "lucide-react";
 import { RatingBadge } from "./rating-badge";
 import { ProviderCta } from "./provider-cta";
 import { FORMAT_LABEL, type Brand } from "@/lib/dogfood/brands";
-import { costPerDay, fmtUsd, fmtPct, profile } from "@/lib/nutrition";
+import { costPerDay, fmtUsd } from "@/lib/nutrition";
 
 interface ComparisonCardProps {
   brand: Brand;
@@ -16,33 +16,48 @@ interface ComparisonCardProps {
   sourceFlow?: "main_comparison" | "provider_review" | "battle_page" | "matching_flow";
 }
 
-const STORAGE_SHORT: Record<Brand["storage"], string> = {
-  "freezer + fridge": "Freezer",
-  pantry: "Pantry",
-  "freezer + fridge or pantry": "Freezer or pantry",
-};
-
 const arrowSvg = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>;
 
+type StripItem = { icon: LucideIcon; text: string };
+
 /**
- * The four buyer-facing facts on every card. Only known values are shown -
- * never a "Verifying" placeholder. Verified numbers (cost/day, protein) take
- * the first slots automatically once a brand's data is filled in; otherwise
- * the strip uses plan facts, falling back to format / delivery.
+ * Three plain-language facts per card (no label/value pairs, never a
+ * "Verifying" placeholder). A verified cost per day takes the first slot
+ * automatically once the brand's price is filled in.
  */
-function dataStrip(brand: Brand, refLb: number) {
-  const prof = brand.nutrition ? profile(brand.nutrition) : null;
-  const candidates: { k: string; v: string | null }[] = [
-    { k: `$/day · ${refLb} lb`, v: brand.price ? fmtUsd(costPerDay(brand.price, refLb)) : null },
-    { k: "Protein (dry matter)", v: prof ? fmtPct(prof.proteinDM) : null },
-    { k: "Subscription", v: brand.subscriptionRequired === null ? null : brand.subscriptionRequired ? "Required" : "Not required" },
-    { k: "Cancel", v: brand.pauseSkipOnline ? "Anytime" : null },
-    { k: "Portions", v: brand.customPortions === null ? null : brand.customPortions ? "Personalized" : "Standard bags" },
-    { k: "Storage", v: STORAGE_SHORT[brand.storage] },
-    { k: "Format", v: brand.formats.map((f) => FORMAT_LABEL[f].replace(/ \(.*\)$/, "")).join(" + ") },
-    { k: "Delivery", v: brand.delivery },
+function dataStrip(brand: Brand, refLb: number): StripItem[] {
+  const candidates: (StripItem | null)[] = [
+    brand.price ? { icon: Wallet, text: `${fmtUsd(costPerDay(brand.price, refLb))}/day for a ${refLb} lb dog` } : null,
+    brand.subscriptionRequired === false
+      ? { icon: CalendarCheck, text: "No subscription" }
+      : brand.pauseSkipOnline
+        ? { icon: CalendarCheck, text: "Cancel anytime" }
+        : null,
+    brand.customPortions ? { icon: Scale, text: "Custom portions" } : null,
+    brand.storage === "freezer + fridge"
+      ? { icon: Snowflake, text: "Ships frozen" }
+      : brand.storage === "pantry"
+        ? { icon: Package, text: "No freezer needed" }
+        : { icon: Package, text: "Frozen or pantry" },
+    { icon: Leaf, text: brand.formats.map((f) => FORMAT_LABEL[f].replace(/ \(.*\)$/, "")).join(" + ") },
   ];
-  return candidates.filter((c): c is { k: string; v: string } => !!c.v).slice(0, 4);
+  return candidates.filter((c): c is StripItem => !!c).slice(0, 3);
+}
+
+/** One row of 3 facts: icon over a short label, three equal columns - never a second row. */
+function StripRow({ items, className = "" }: { items: StripItem[]; className?: string }) {
+  return (
+    <div className={className}>
+      <ul className="grid grid-cols-3 gap-x-2">
+        {items.map(({ icon: Icon, text }) => (
+          <li key={text} className="flex min-w-0 flex-col items-start gap-1 text-[11.5px] font-semibold leading-tight text-[#191919]">
+            <Icon className="h-4 w-4 shrink-0 text-[#A16207]" strokeWidth={1.75} />
+            <span>{text}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export function ComparisonCard({ brand, rank = brand.rank, hideRank, refLb = 25, pageType = "listing", sourceFlow = "main_comparison" }: ComparisonCardProps) {
@@ -98,14 +113,7 @@ export function ComparisonCard({ brand, rank = brand.rank, hideRank, refLb = 25,
               </li>
             ))}
           </ul>
-          <dl className="mt-3 grid grid-cols-4 gap-2 border-t border-dashed border-gray-200 pt-2.5">
-            {strip.map((s) => (
-              <div key={s.k} className="min-w-0">
-                <dt className="whitespace-nowrap text-[10px] font-semibold uppercase tracking-wide text-gray-400">{s.k}</dt>
-                <dd className="text-[12px] font-bold leading-snug text-[#191919]">{s.v}</dd>
-              </div>
-            ))}
-          </dl>
+          <StripRow items={strip} className="mt-3 border-t border-dashed border-gray-200 pt-2.5" />
         </div>
 
         <div className="flex flex-col items-center justify-center gap-4 px-6 py-5 sm:w-[200px] sm:shrink-0">
@@ -136,14 +144,7 @@ export function ComparisonCard({ brand, rank = brand.rank, hideRank, refLb = 25,
             </li>
           ))}
         </ul>
-        <dl className="mt-3 grid grid-cols-2 gap-2 rounded-lg bg-[#FEFCE8] p-3">
-          {strip.map((s) => (
-            <div key={s.k}>
-              <dt className="text-[10.5px] font-semibold uppercase tracking-wide text-gray-500">{s.k}</dt>
-              <dd className="text-[13px] font-bold text-[#191919]">{s.v}</dd>
-            </div>
-          ))}
-        </dl>
+        <StripRow items={strip} className="mt-3 rounded-lg bg-[#FEFCE8] px-3 py-2.5" />
         {cta("mt-4 flex h-[48px] w-full items-center justify-center gap-2 rounded-lg bg-[#A16207] text-[16px] font-bold text-white transition-colors hover:bg-[#854D0E]")}
         <Link href={`/reviews/${brand.slug}`} className="mt-3 text-center text-[13px] font-semibold text-[#A16207] underline-offset-2 hover:underline">
           Read the full {brand.name} review
