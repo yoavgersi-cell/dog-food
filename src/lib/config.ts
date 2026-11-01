@@ -26,12 +26,22 @@ export interface FaqItem {
   answer: string;
 }
 
+// Month shown in the homepage H1 ("... of November 2026"), derived from the
+// content date so it can't drift from the "Last updated" label.
+export const HERO_MONTH = new Date(`${CONTENT_LAST_UPDATED}T00:00:00Z`).toLocaleDateString("en-US", {
+  month: "long",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
 export const HOME_HERO = {
-  updatedLabel: "Updated November 2026",
-  h1: "Best Fresh & Raw Dog Food Delivery of 2026",
-  h2: "7 brands, scored on nutrition data - not marketing",
+  updatedLabel: `Last Updated ${HERO_MONTH}`,
+  h1Before: "Best ",
+  h1Highlight: "Fresh Dog Food Delivery Services",
+  h1After: ` of ${HERO_MONTH}`,
+  h2: "Real food for your best friend",
   description:
-    "We compare The Farmer's Dog, Ollie, Spot & Tango, We Feed Raw, Maxbone, The Pet Table and Redbarn on dry-matter nutrients, cost per day at your dog's weight, AAFCO compliance and plan flexibility.",
+    "After comparing 7 fresh and raw delivery services side by side, our team rates The Farmer's Dog and Ollie as the top picks for fresh, wholesome, nutritious meals. Whether you're after easier digestion, a healthier weight or a dog who actually licks the bowl clean, find the plan that fits your pup.",
 };
 
 export const HOME_FAQS: FaqItem[] = [

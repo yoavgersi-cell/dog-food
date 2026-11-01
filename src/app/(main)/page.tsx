@@ -9,13 +9,13 @@ import { HomeEditorial } from "@/components/home-editorial";
 import { JsonLd } from "@/components/json-ld";
 import { RANKED_BRANDS } from "@/lib/dogfood/brands";
 import { matrixRows } from "@/lib/dogfood/matrix";
-import { CONTENT_LAST_UPDATED, HOME_FAQS, HOME_HERO, LAUNCH_DATE, SITE_URL } from "@/lib/config";
+import { CONTENT_LAST_UPDATED, HERO_MONTH, HOME_FAQS, HOME_HERO, LAUNCH_DATE, SITE_URL } from "@/lib/config";
 import { WEBSITE_ID, ENTITIES, faqSchema, orgRef, productEntity, citations } from "@/lib/geo";
 import { pageReviewSchema } from "@/data/reviewers";
 
 export const revalidate = 3600;
 
-const TITLE = "Best Fresh & Raw Dog Food Delivery of 2026 - 7 Brands Compared";
+const TITLE = `Best Fresh Dog Food Delivery Services of ${HERO_MONTH} - 7 Brands Compared`;
 const DESCRIPTION =
   "The Farmer's Dog, Ollie, Spot & Tango, We Feed Raw, Maxbone, The Pet Table and Redbarn compared on dry-matter protein, cost per day by weight, AAFCO compliance and plan flexibility.";
 const REF_LB = 25;
@@ -67,7 +67,7 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={schema} />
-      <HeroSection backgroundImageUrl="" imageAlt="" updatedLabel={HOME_HERO.updatedLabel} h1={HOME_HERO.h1} h2={HOME_HERO.h2} description={HOME_HERO.description} />
+      <HeroSection backgroundImageUrl="" imageAlt="" updatedLabel={HOME_HERO.updatedLabel} h1={<>{HOME_HERO.h1Before}<span className="text-[#A16207]">{HOME_HERO.h1Highlight}</span>{HOME_HERO.h1After}</>} h2={HOME_HERO.h2} description={HOME_HERO.description} />
 
       <section className="mx-auto max-w-[1200px] px-4 pt-3">
         <Byline path="/" />
@@ -90,10 +90,14 @@ export default function HomePage() {
               <ComparisonMatrix rows={matrixRows(brands, REF_LB)} refLb={REF_LB} />
             </section>
 
-            <HomeEditorial />
           </div>
           <Sidebar />
         </div>
+      </section>
+
+      {/* Editorial runs full width (1200px) below the ranking + sidebar row. */}
+      <section className="mx-auto max-w-[1200px] px-4 pb-4">
+        <HomeEditorial />
       </section>
 
       <FaqAccordion items={HOME_FAQS} />

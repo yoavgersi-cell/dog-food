@@ -6,7 +6,7 @@ interface HeroSectionProps {
   backgroundImageUrl: string;
   imageAlt: string;
   updatedLabel?: string;
-  h1: string;
+  h1: React.ReactNode;
   h2?: string;
   description?: string;
   overlayOpacity?: number;
@@ -54,18 +54,18 @@ export function HeroSection({
             </span>
           )}
 
-          <h1 className="text-[22px] sm:text-[28px] lg:text-[30px] leading-[1.12] font-extrabold text-[#191919] lg:whitespace-nowrap">
+          <h1 className="text-[26px] sm:text-[32px] lg:text-[36px] leading-[1.15] font-extrabold tracking-tight text-[#191919]">
             {h1}
           </h1>
 
           {h2 && (
-            <h2 className="mt-2 hidden sm:block text-[24px] lg:text-[26px] leading-[1.25] font-semibold text-[#A16207]">
+            <h2 className="mt-1.5 text-[19px] sm:text-[24px] leading-[1.25] font-bold text-[#191919]">
               {h2}
             </h2>
           )}
 
           {description && (
-            <p className="mt-3 sm:mt-4 text-[13px] sm:text-[16px] leading-[1.5] sm:leading-[1.6] text-gray-600 max-w-[520px]">
+            <p className="mt-3 sm:mt-4 text-[14.5px] sm:text-[16px] leading-[1.6] text-gray-700 max-w-[760px]">
               {description}
             </p>
           )}

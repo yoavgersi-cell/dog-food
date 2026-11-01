@@ -47,7 +47,7 @@ export function HomeEditorial() {
   const kibbleDM = dryMatter(26, 10);
 
   return (
-    <article className="pt-4" aria-labelledby="best-fresh-dog-food">
+    <article className="-mt-4" aria-labelledby="best-fresh-dog-food">
       <H2 id="best-fresh-dog-food">What is the best fresh dog food?</H2>
       <P>
         For most dogs, the best fresh dog food is a complete-and-balanced, gently cooked diet portioned to your dog&apos;s daily calorie needs.
