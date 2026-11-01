@@ -3,7 +3,7 @@ import { Check, Tag } from "lucide-react";
 import { RatingBadge } from "./rating-badge";
 import { ProviderCta } from "./provider-cta";
 import { FORMAT_LABEL, type Brand } from "@/lib/dogfood/brands";
-import { costPerDay, fmtUsd, fmtPct, profile, PENDING } from "@/lib/nutrition";
+import { costPerDay, fmtUsd, fmtPct, profile } from "@/lib/nutrition";
 
 interface ComparisonCardProps {
   brand: Brand;
@@ -24,15 +24,25 @@ const STORAGE_SHORT: Record<Brand["storage"], string> = {
 
 const arrowSvg = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>;
 
-/** The four numbers every card shows (Verifying until the brand data is in). */
+/**
+ * The four buyer-facing facts on every card. Only known values are shown -
+ * never a "Verifying" placeholder. Verified numbers (cost/day, protein) take
+ * the first slots automatically once a brand's data is filled in; otherwise
+ * the strip uses plan facts, falling back to format / delivery.
+ */
 function dataStrip(brand: Brand, refLb: number) {
   const prof = brand.nutrition ? profile(brand.nutrition) : null;
-  return [
-    { k: "Format", v: brand.formats.map((f) => FORMAT_LABEL[f].replace(/ \(.*\)$/, "")).join(" + ") },
-    { k: `$/day · ${refLb} lb`, v: brand.price ? fmtUsd(costPerDay(brand.price, refLb)) : PENDING },
-    { k: "Protein DM", v: prof ? fmtPct(prof.proteinDM) : PENDING },
+  const candidates: { k: string; v: string | null }[] = [
+    { k: `$/day · ${refLb} lb`, v: brand.price ? fmtUsd(costPerDay(brand.price, refLb)) : null },
+    { k: "Protein (dry matter)", v: prof ? fmtPct(prof.proteinDM) : null },
+    { k: "Subscription", v: brand.subscriptionRequired === null ? null : brand.subscriptionRequired ? "Required" : "Not required" },
+    { k: "Cancel", v: brand.pauseSkipOnline ? "Anytime" : null },
+    { k: "Portions", v: brand.customPortions === null ? null : brand.customPortions ? "Personalized" : "Standard bags" },
     { k: "Storage", v: STORAGE_SHORT[brand.storage] },
+    { k: "Format", v: brand.formats.map((f) => FORMAT_LABEL[f].replace(/ \(.*\)$/, "")).join(" + ") },
+    { k: "Delivery", v: brand.delivery },
   ];
+  return candidates.filter((c): c is { k: string; v: string } => !!c.v).slice(0, 4);
 }
 
 export function ComparisonCard({ brand, rank = brand.rank, hideRank, refLb = 25, pageType = "listing", sourceFlow = "main_comparison" }: ComparisonCardProps) {
@@ -92,7 +102,7 @@ export function ComparisonCard({ brand, rank = brand.rank, hideRank, refLb = 25,
             {strip.map((s) => (
               <div key={s.k} className="min-w-0">
                 <dt className="whitespace-nowrap text-[10px] font-semibold uppercase tracking-wide text-gray-400">{s.k}</dt>
-                <dd className={`text-[12px] font-bold leading-snug ${s.v === PENDING ? "text-gray-400" : "text-[#191919]"}`}>{s.v}</dd>
+                <dd className="text-[12px] font-bold leading-snug text-[#191919]">{s.v}</dd>
               </div>
             ))}
           </dl>
@@ -130,7 +140,7 @@ export function ComparisonCard({ brand, rank = brand.rank, hideRank, refLb = 25,
           {strip.map((s) => (
             <div key={s.k}>
               <dt className="text-[10.5px] font-semibold uppercase tracking-wide text-gray-500">{s.k}</dt>
-              <dd className={`text-[13px] font-bold ${s.v === PENDING ? "text-gray-400" : "text-[#191919]"}`}>{s.v}</dd>
+              <dd className="text-[13px] font-bold text-[#191919]">{s.v}</dd>
             </div>
           ))}
         </dl>
