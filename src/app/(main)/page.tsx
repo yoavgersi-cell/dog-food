@@ -67,7 +67,7 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={schema} />
-      <HeroSection backgroundImageUrl="" imageAlt="" updatedLabel={HOME_HERO.updatedLabel} h1={<>{HOME_HERO.h1Before}<span className="text-[#A16207]">{HOME_HERO.h1Highlight}</span>{HOME_HERO.h1After}</>} h2={HOME_HERO.h2} description={HOME_HERO.description} />
+      <HeroSection backgroundImageUrl="" imageAlt="" sideImage={{ src: "/brand/hero-dog.webp", alt: "Golden retriever licking its nose, excited for fresh dog food", width: 760, height: 695 }} updatedLabel={HOME_HERO.updatedLabel} h1={<>{HOME_HERO.h1Before}<span className="text-[#A16207]">{HOME_HERO.h1Highlight}</span>{HOME_HERO.h1After}</>} h2={HOME_HERO.h2} description={HOME_HERO.description} />
 
       <section className="mx-auto max-w-[1200px] px-4 pt-3">
         <Byline path="/" />
@@ -81,22 +81,21 @@ export default function HomePage() {
             {brands.map((b) => (
               <ComparisonCard key={b.slug} brand={b} refLb={REF_LB} />
             ))}
-
-            <section id="compare-matrix" className="pt-6">
-              <h2 className="text-[22px] font-bold text-[#191919]">Compare all 7 brands side by side</h2>
-              <p className="mb-3 mt-1 text-[14.5px] text-gray-600">
-                Filter by processing method and plan features; sort by score, cost per day ({REF_LB} lb neutered adult) or dry-matter protein. Every brand name opens its spec sheet.
-              </p>
-              <ComparisonMatrix rows={matrixRows(brands, REF_LB)} refLb={REF_LB} />
-            </section>
-
           </div>
           <Sidebar />
         </div>
       </section>
 
-      {/* Editorial runs full width (1200px) below the ranking + sidebar row. */}
+      {/* Comparison table + editorial run full width (1200px) below the ranking + sidebar row. */}
       <section className="mx-auto max-w-[1200px] px-4 pb-4">
+        <section id="compare-matrix" className="pt-2">
+          <h2 className="text-[22px] font-bold text-[#191919]">Compare all 7 brands side by side</h2>
+          <p className="mb-3 mt-1 text-[14.5px] text-gray-600">
+            Filter by processing method and plan features; sort by score, cost per day ({REF_LB} lb neutered adult) or dry-matter protein. Every brand name opens its spec sheet.
+          </p>
+          <ComparisonMatrix rows={matrixRows(brands, REF_LB)} refLb={REF_LB} />
+        </section>
+
         <HomeEditorial />
       </section>
 

@@ -12,6 +12,8 @@ interface HeroSectionProps {
   overlayOpacity?: number;
   textAlign?: "left" | "center";
   maxTextWidth?: string;
+  /** Large cut-out image anchored to the hero's bottom-right (desktop). */
+  sideImage?: { src: string; alt: string; width: number; height: number };
 }
 
 export function HeroSection({
@@ -23,6 +25,7 @@ export function HeroSection({
   description,
   textAlign = "left",
   maxTextWidth = "640px",
+  sideImage,
 }: HeroSectionProps) {
   return (
     <section className="relative w-full overflow-hidden bg-[#FFFBEB] pb-2 pt-6 sm:pt-9">
@@ -42,11 +45,31 @@ export function HeroSection({
       {/* Content */}
       <div
         className={cn(
-          "relative z-10 mx-auto flex h-full max-w-[1200px] flex-col justify-center px-4",
+          "relative mx-auto flex h-full max-w-[1200px] flex-col justify-center px-4",
           textAlign === "center" && "items-center text-center"
         )}
       >
-        <div className="max-w-[640px] lg:max-w-[1040px]" style={{ maxWidth: maxTextWidth !== "640px" ? maxTextWidth : undefined }}>
+        {/* Cut-out image: bottom-right, bleeding off the hero's bottom edge so the dog
+            seems to lean up into the screen. Desktop only - mobile keeps the text clean. */}
+        {sideImage && (
+          <div
+            className="pointer-events-none absolute -bottom-2 right-0 hidden h-[calc(100%+2.75rem)] w-[400px] lg:block xl:-right-6 xl:w-[440px]"
+            style={{ maskImage: "linear-gradient(to bottom, #000 70%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, #000 70%, transparent 100%)" }}
+          >
+            <Image
+              src={sideImage.src}
+              alt={sideImage.alt}
+              fill
+              priority
+              sizes="440px"
+              className="object-contain object-bottom"
+            />
+          </div>
+        )}
+        <div
+          className={cn("relative z-10 max-w-[640px]", sideImage ? "lg:max-w-[600px] lg:pb-4 xl:max-w-[720px]" : "lg:max-w-[1040px]")}
+          style={{ maxWidth: maxTextWidth !== "640px" ? maxTextWidth : undefined }}
+        >
           {updatedLabel && (
             <span className="mb-2.5 sm:mb-3 inline-flex items-center gap-1.5 text-[13px] text-gray-600">
               <svg className="h-4 w-4 text-[#A16207]" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" /></svg>
@@ -70,7 +93,7 @@ export function HeroSection({
             </p>
           )}
 
-          <ul className="mt-4 flex flex-row flex-nowrap items-center gap-x-4 sm:mt-5 sm:flex-wrap sm:gap-x-8 sm:gap-y-3">
+          <ul className="mt-4 flex flex-row flex-nowrap items-center gap-x-4 sm:mt-5 sm:flex-wrap sm:gap-x-8 sm:gap-y-3 lg:gap-x-5 xl:gap-x-8">
             {[
               { label: "Fresh Ingredients", icon: FreshIcon },
               { label: "Human-Grade Quality", icon: ChefHatIcon },
