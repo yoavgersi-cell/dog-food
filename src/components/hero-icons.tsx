@@ -13,7 +13,7 @@ const base = {
   "aria-hidden": true,
 };
 
-/** Leaf + carrot: fresh, whole-food brands. */
+/** Leaf + carrot: fresh ingredients. */
 export function FreshIcon({ className }: P) {
   return (
     <svg {...base} className={className}>
@@ -27,7 +27,7 @@ export function FreshIcon({ className }: P) {
   );
 }
 
-/** Bowl with paw + heart: nutrition data. */
+/** Bowl with paw + heart: gentle on digestion. */
 export function BowlIcon({ className }: P) {
   return (
     <svg {...base} className={className}>
@@ -44,35 +44,15 @@ export function BowlIcon({ className }: P) {
   );
 }
 
-/** Kitchen scale with a bone: cost per day by weight. */
-export function ScaleIcon({ className }: P) {
+/** Chef's hat with a sparkle: human-grade, made-in-a-real-kitchen quality. */
+export function ChefHatIcon({ className }: P) {
   return (
     <svg {...base} className={className}>
-      <path d="M14.6 9.4h10.8" />
-      <circle cx="13.2" cy="8.2" r="1.7" />
-      <circle cx="13.2" cy="10.6" r="1.7" />
-      <circle cx="26.8" cy="8.2" r="1.7" />
-      <circle cx="26.8" cy="10.6" r="1.7" />
-      <path d="M8 14.5h24M20 14.5v3" />
-      <rect x="7.5" y="17.5" width="25" height="18" rx="4.5" />
-      <circle cx="20" cy="26.5" r="5.2" />
-      <path d="M20 26.5l2.6-2.8M16.2 26.5h.6M20 22.7v.6M23.8 26.5h-.6" />
-    </svg>
-  );
-}
-
-/** Clipboard with checks + paw: published scoring rubric. */
-export function RubricIcon({ className }: P) {
-  return (
-    <svg {...base} className={className}>
-      <rect x="9" y="8" width="22" height="28" rx="3.5" />
-      <rect x="15" y="5" width="10" height="5.5" rx="1.8" />
-      <path d="M13 17l1.8 1.8 3.2-3.6M21 17h6M13 24l1.8 1.8 3.2-3.6M21 24h6M21 31h6" />
-      <ellipse cx="15.4" cy="31.8" rx="1.8" ry="1.35" fill="currentColor" stroke="none" />
-      <circle cx="13.2" cy="30" r=".75" fill="currentColor" stroke="none" />
-      <circle cx="14.7" cy="29" r=".75" fill="currentColor" stroke="none" />
-      <circle cx="16.3" cy="29" r=".75" fill="currentColor" stroke="none" />
-      <circle cx="17.7" cy="30" r=".75" fill="currentColor" stroke="none" />
+      <path d="M12.5 23c-3.7-.2-6.3-3-6.3-6.4 0-3.6 3.1-6.4 6.8-5.9C14.3 7.6 17 5.5 20.3 5.5c3.3 0 6 2.1 7.3 5.2 3.7-.5 6.8 2.3 6.8 5.9 0 3.4-2.6 6.2-6.3 6.4" />
+      <path d="M12.5 21.5v8h15.6v-8" />
+      <rect x="11.5" y="29.5" width="17.6" height="5.5" rx="1.6" />
+      <path d="M17.2 24.5v5M23.4 24.5v5" />
+      <path d="M34.5 3.5v3.2M32.9 5.1h3.2" />
     </svg>
   );
 }

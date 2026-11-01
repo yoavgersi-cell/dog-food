@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { BowlIcon, FreshIcon, RubricIcon, ScaleIcon } from "./hero-icons";
+import { BowlIcon, ChefHatIcon, FreshIcon } from "./hero-icons";
 
 interface HeroSectionProps {
   backgroundImageUrl: string;
@@ -25,7 +25,7 @@ export function HeroSection({
   maxTextWidth = "640px",
 }: HeroSectionProps) {
   return (
-    <section className="relative w-full py-5 sm:py-0 sm:min-h-[260px] lg:min-h-[290px] overflow-hidden bg-[#FFFBEB] border-b border-[#FEF3C7]">
+    <section className="relative w-full overflow-hidden bg-[#FFFBEB] pb-2 pt-6 sm:pt-9">
       {/* Hero image positioned on the right (omitted when no image is set) */}
       {backgroundImageUrl && (
         <div className="absolute right-[380px] top-0 h-full w-[50%] hidden sm:block">
@@ -42,7 +42,7 @@ export function HeroSection({
       {/* Content */}
       <div
         className={cn(
-          "relative z-10 mx-auto flex h-full max-w-[1280px] flex-col justify-center px-4 py-4 sm:px-10 sm:py-8 lg:px-16 lg:py-12",
+          "relative z-10 mx-auto flex h-full max-w-[1200px] flex-col justify-center px-4",
           textAlign === "center" && "items-center text-center"
         )}
       >
@@ -70,12 +70,11 @@ export function HeroSection({
             </p>
           )}
 
-          <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5 sm:mt-5 sm:flex sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-3">
+          <ul className="mt-4 flex flex-col items-start gap-2 sm:mt-5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-8 sm:gap-y-3">
             {[
-              { label: "7 Fresh & Raw Brands", icon: FreshIcon },
-              { label: "Dry-Matter Nutrition Data", icon: BowlIcon },
-              { label: "Cost per Day by Weight", icon: ScaleIcon },
-              { label: "Open Scoring Rubric", icon: RubricIcon },
+              { label: "Fresh Ingredients", icon: FreshIcon },
+              { label: "Human-Grade Quality", icon: ChefHatIcon },
+              { label: "Gentle on Digestion", icon: BowlIcon },
             ].map(({ label, icon: Icon }) => (
               <li key={label} className="flex items-center gap-2 text-[13px] font-medium leading-tight text-[#3B2A10] sm:gap-2.5 sm:text-[15px] lg:whitespace-nowrap">
                 <Icon className="h-7 w-7 shrink-0 text-[#5C3B0E] sm:h-8 sm:w-8" />
