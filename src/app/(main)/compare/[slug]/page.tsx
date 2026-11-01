@@ -75,7 +75,7 @@ export default async function ComparePage({ params }: { params: Promise<{ slug: 
   ];
 
   return (
-    <PageShell featuredPairs={others.slice(0, 6).map((p) => p.slug)}>
+    <PageShell>
       <JsonLd data={schema} />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Compare", href: "/compare" }, { label: `${a.name} vs ${b.name}` }]} />
       <h1 className="text-[28px] font-extrabold leading-tight text-[#191919] sm:text-[34px]">

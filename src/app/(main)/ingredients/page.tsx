@@ -17,7 +17,7 @@ const CATS: IngredientCategory[] = ["protein", "organ", "carb", "vegetable", "fr
 
 export default function IngredientsIndex() {
   return (
-    <PageShell blocks={["methodology", "reviews"]}>
+    <PageShell>
       <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Ingredients", path: "/ingredients" }])} />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Ingredients" }]} />
       <h1 className="text-[28px] font-extrabold text-[#191919] sm:text-[34px]">Dog Food Ingredient Guide</h1>

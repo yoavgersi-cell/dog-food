@@ -20,7 +20,7 @@ export default function DietsIndex() {
     { title: "Health conditions", items: DIETS.filter((d) => d.kind === "condition") },
   ];
   return (
-    <PageShell blocks={["calculator", "methodology", "reviews"]}>
+    <PageShell>
       <JsonLd data={[breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Diets & health", path: "/diets" }]), { "@context": "https://schema.org", "@type": "CollectionPage", name: "Dog food by diet and condition", url: `${SITE_URL}/diets` }]} />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Diets & health" }]} />
       <h1 className="text-[28px] font-extrabold text-[#191919] sm:text-[34px]">Dog Food by Diet &amp; Health Condition</h1>

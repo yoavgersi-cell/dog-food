@@ -1,12 +1,12 @@
 import { Sidebar, type SidebarBlock } from "./sidebar";
 
 /** Main column + 340px sticky sidebar - the same 1200px grid as the homepage. */
-export function PageShell({ children, blocks, featuredPairs, calcLb }: { children: React.ReactNode; blocks?: SidebarBlock[]; featuredPairs?: string[]; calcLb?: number }) {
+export function PageShell({ children, blocks }: { children: React.ReactNode; blocks?: SidebarBlock[] }) {
   return (
     <section className="mx-auto max-w-[1200px] px-4 pb-12 pt-5">
       <div className="flex items-start gap-6">
         <div className="min-w-0 flex-1">{children}</div>
-        <Sidebar blocks={blocks} featuredPairs={featuredPairs} calcLb={calcLb} />
+        <Sidebar blocks={blocks} />
       </div>
     </section>
   );

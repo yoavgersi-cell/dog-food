@@ -19,7 +19,7 @@ const SIZES: SizeClass[] = ["toy", "small", "medium", "large", "giant"];
 
 export default function BestForIndex() {
   return (
-    <PageShell blocks={["calculator", "methodology", "reviews"]}>
+    <PageShell>
       <JsonLd data={[breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Best for", path: "/best-for" }]), { "@context": "https://schema.org", "@type": "CollectionPage", name: "Dog food by breed and life stage", url: `${SITE_URL}/best-for` }]} />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Breeds & life stages" }]} />
       <h1 className="text-[28px] font-extrabold text-[#191919] sm:text-[34px]">Best Dog Food by Breed &amp; Life Stage</h1>

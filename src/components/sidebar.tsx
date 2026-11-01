@@ -1,9 +1,7 @@
 import Link from "next/link";
-import { Award, Calculator, Info, Swords } from "lucide-react";
+import { Award, Info } from "lucide-react";
 import { RANKED_BRANDS } from "@/lib/dogfood/brands";
-import { PAIRS, comparePath } from "@/lib/dogfood/pairs";
 import { RUBRIC } from "@/lib/dogfood/rubric";
-import { CostCalculator } from "./cost-calculator";
 
 function SidebarCard({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
@@ -13,26 +11,14 @@ function SidebarCard({ children, className }: { children: React.ReactNode; class
   );
 }
 
-export type SidebarBlock = "calculator" | "methodology" | "reviews" | "comparisons" | "disclosure";
+export type SidebarBlock = "methodology" | "reviews" | "disclosure";
 
-const DEFAULT_BLOCKS: SidebarBlock[] = ["calculator", "methodology", "reviews", "comparisons", "disclosure"];
+const DEFAULT_BLOCKS: SidebarBlock[] = ["methodology", "reviews", "disclosure"];
 
-export function Sidebar({ blocks = DEFAULT_BLOCKS, featuredPairs, calcLb = 25 }: { blocks?: SidebarBlock[]; featuredPairs?: string[]; calcLb?: number }) {
-  const pairs = featuredPairs ? PAIRS.filter((p) => featuredPairs.includes(p.slug)) : PAIRS.slice(0, 6);
-  const nameOf = (slug: string) => RANKED_BRANDS.find((b) => b.slug === slug)?.name ?? slug;
+export function Sidebar({ blocks = DEFAULT_BLOCKS }: { blocks?: SidebarBlock[] }) {
 
   const render = (id: SidebarBlock) => {
     switch (id) {
-      case "calculator":
-        return (
-          <SidebarCard key={id}>
-            <p className="mb-3 flex items-center gap-2 text-[16px] font-bold text-[#191919]">
-              <Calculator className="h-5 w-5 text-[#A16207]" strokeWidth={1.75} />
-              Cost-per-day calculator
-            </p>
-            <CostCalculator defaultLb={calcLb} brands={RANKED_BRANDS.map((b) => ({ slug: b.slug, name: b.name, usdPer1000kcal: b.price?.usdPer1000kcal ?? null }))} />
-          </SidebarCard>
-        );
       case "methodology":
         return (
           <SidebarCard key={id}>
@@ -83,27 +69,6 @@ export function Sidebar({ blocks = DEFAULT_BLOCKS, featuredPairs, calcLb = 25 }:
             </div>
             <Link href="/reviews" className="mt-6 block text-[14px] font-semibold text-[#A16207] hover:underline">
               Read All Reviews
-            </Link>
-          </SidebarCard>
-        );
-      case "comparisons":
-        return (
-          <SidebarCard key={id}>
-            <p className="mb-3 flex items-center gap-2 text-[16px] font-bold text-[#191919]">
-              <Swords className="h-5 w-5 text-[#A16207]" strokeWidth={1.75} />
-              Head-to-head
-            </p>
-            <ul className="space-y-2">
-              {pairs.map((p) => (
-                <li key={p.slug}>
-                  <Link href={comparePath(p.slug)} className="text-[14px] text-gray-700 hover:text-[#A16207] hover:underline">
-                    {nameOf(p.a)} vs {nameOf(p.b)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <Link href="/compare" className="mt-3 block text-[13px] font-semibold text-[#A16207] hover:underline">
-              All 21 comparisons
             </Link>
           </SidebarCard>
         );

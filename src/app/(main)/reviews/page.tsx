@@ -17,7 +17,7 @@ export const metadata = pageMeta({
 
 export default function ReviewsIndex() {
   return (
-    <PageShell blocks={["calculator", "methodology", "comparisons", "disclosure"]}>
+    <PageShell>
       <JsonLd
         data={[
           {

@@ -9,7 +9,7 @@ export function DisclosureBar() {
 
   return (
     <>
-      <div className="bg-[#FEF3C7] border-b-[1.5px] border-[#FDE68A] px-4 py-1.5 sm:py-2 text-center text-[10px] sm:text-[13px] leading-tight sm:leading-normal text-gray-600">
+      <div className="bg-gray-100 border-b border-gray-200 px-4 py-1.5 sm:py-2 text-center text-[10px] sm:text-[13px] leading-tight sm:leading-normal text-gray-600">
         {DISCLOSURE_TEXT}{" "}
         <button
           onClick={() => setIsOpen(true)}

@@ -18,7 +18,7 @@ export const metadata = pageMeta({
 
 export default function CompareIndex() {
   return (
-    <PageShell blocks={["calculator", "methodology", "reviews", "disclosure"]}>
+    <PageShell>
       <JsonLd
         data={[
           { "@context": "https://schema.org", "@type": "CollectionPage", name: "Dog food comparisons", url: `${SITE_URL}/compare`, mainEntity: { "@type": "ItemList", numberOfItems: PAIRS.length, itemListElement: PAIRS.map((p, i) => ({ "@type": "ListItem", position: i + 1, name: pairLabel(p), url: `${SITE_URL}${comparePath(p.slug)}` })) } },

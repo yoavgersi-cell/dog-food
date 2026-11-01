@@ -58,7 +58,7 @@ export default async function BrandHubPage({ params }: { params: Promise<{ slug:
   ];
 
   return (
-    <PageShell featuredPairs={pairsForBrand(b.slug).map((p) => p.slug)}>
+    <PageShell>
       <JsonLd data={schema} />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Reviews", href: "/reviews" }, { label: b.name }]} />
       <h1 className="text-[28px] font-extrabold leading-tight text-[#191919] sm:text-[34px]">{b.name} Dog Food: Specs, Nutrition &amp; Cost</h1>

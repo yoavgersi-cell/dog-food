@@ -68,7 +68,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
   ];
 
   return (
-    <PageShell featuredPairs={pairsForBrand(b.slug).map((p) => p.slug)}>
+    <PageShell>
       <JsonLd data={schema} />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Reviews", href: "/reviews" }, { label: b.name }]} />
       <h1 className="text-[28px] font-extrabold leading-tight text-[#191919] sm:text-[34px]">{b.name} Review (2026): {b.verdict}</h1>

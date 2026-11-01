@@ -108,7 +108,7 @@ export default async function BestForPage({ params }: { params: Promise<{ slug: 
   ];
 
   return (
-    <PageShell calcLb={mid}>
+    <PageShell>
       <JsonLd data={schema} />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Breeds", href: "/best-for" }, { label: `${br.name}s` }]} />
       <h1 className="text-[28px] font-extrabold leading-tight text-[#191919] sm:text-[34px]">{titleFor(t)}</h1>
@@ -206,7 +206,7 @@ function DemographicView({ d }: { d: Demographic }) {
     faqSchema(faqs),
   ];
   return (
-    <PageShell calcLb={d.refLb}>
+    <PageShell>
       <JsonLd data={schema} />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Best for", href: "/best-for" }, { label: d.name }]} />
       <h1 className="text-[28px] font-extrabold leading-tight text-[#191919] sm:text-[34px]">{titleFor(t)}</h1>
