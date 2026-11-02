@@ -39,13 +39,13 @@ export function HeroSection({
         >
           <div
             className="absolute inset-0"
-            style={{ filter: "blur(14px)", maskImage: "linear-gradient(to right, transparent 0%, #000 30%, #000 55%, transparent 80%)", WebkitMaskImage: "linear-gradient(to right, transparent 0%, #000 30%, #000 55%, transparent 80%)" }}
+            style={{ filter: "blur(28px)", maskImage: "linear-gradient(to right, transparent 0%, #000 28%, #000 70%, transparent 92%)", WebkitMaskImage: "linear-gradient(to right, transparent 0%, #000 28%, #000 70%, transparent 92%)" }}
           >
             <Image src={sideImage.src} alt="" fill sizes="64vw" className="scale-105 object-cover object-[right_30%]" />
           </div>
           <div
             className="absolute inset-0"
-            style={{ maskImage: "linear-gradient(to right, transparent 25%, #000 60%)", WebkitMaskImage: "linear-gradient(to right, transparent 25%, #000 60%)" }}
+            style={{ filter: "blur(2px)", maskImage: "linear-gradient(to right, transparent 45%, #000 85%)", WebkitMaskImage: "linear-gradient(to right, transparent 45%, #000 85%)" }}
           >
             <Image src={sideImage.src} alt={sideImage.alt} fill priority sizes="64vw" className="object-cover object-[right_30%]" />
           </div>
