@@ -4,6 +4,7 @@ import { BREEDS, DEMOGRAPHICS, DIETS, INGREDIENTS, bestForPath, dietPath } from 
 import { RUBRIC } from "@/lib/dogfood/rubric";
 import { AAFCO } from "@/lib/nutrition";
 import { BRAND_DATA_CHECKED, SITE_URL } from "@/lib/config";
+import { ARTICLES, articlePath } from "@/content/articles";
 
 export const revalidate = 3600;
 
@@ -36,6 +37,9 @@ ${RANKED_BRANDS.map((b) => line(`${b.name} dog food specs`, `/brands/${b.slug}`)
 
 ## Head-to-head comparisons (21)
 ${PAIRS.map((p) => line(`${nameOf(p.a)} vs ${nameOf(p.b)}`, comparePath(p.slug), `Winner: ${nameOf(p.overall)}. ${p.angle}`)).join("\n")}
+
+## Guides
+${ARTICLES.map((a) => line(a.meta.title, articlePath(a.meta.slug), a.meta.answer.text)).join("\n")}
 
 ## By breed, size and life stage
 ${line("Index", "/best-for", `${BREEDS.length} breeds and ${DEMOGRAPHICS.length} life stages, e.g. ${abs(bestForPath(BREEDS[0].slug))}`)}

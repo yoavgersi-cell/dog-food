@@ -126,7 +126,7 @@ for (const p of paths) {
   if (/noindex/i.test(robotsMeta)) warnings.push(`${p}: noindex but listed in sitemap`);
   if (ldBad > 0) blocking.push(`${p}: ${ldBad} invalid JSON-LD block(s)`);
   if (ld.length === 0) warnings.push(`${p}: no structured data`);
-  const isContent = !/^\/(about|contact|privacy|terms|disclosure|how-we-rank|reviews|compare|best-for|diets|ingredients)?$/.test(p);
+  const isContent = !/^\/(about|contact|privacy|terms|disclosure|how-we-rank|reviews|compare|best-for|diets|ingredients|articles)?$/.test(p);
   if (isContent && !html.includes('aria-labelledby="quick-answer"')) warnings.push(`${p}: no Quick Answer block (AEO extraction target)`);
   const pending = (html.match(/>Verifying</g) ?? []).length;
   if (pending > 0) info.push(`${p}: ${pending} value(s) still "Verifying"`);

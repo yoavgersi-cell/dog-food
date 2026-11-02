@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   },
   description:
     "Independent comparisons of fresh, raw and premium dog food delivery brands: dry-matter nutrients, cost per day by weight, AAFCO compliance and plan flexibility.",
-  openGraph: { type: "website", siteName: SITE_NAME, locale: "en_US", url: SITE_URL },
-  twitter: { card: "summary_large_image" },
+  openGraph: { type: "website", siteName: SITE_NAME, locale: "en_US", url: SITE_URL, images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: SITE_NAME }] },
+  twitter: { card: "summary_large_image", images: ["/og-default.jpg"] },
   alternates: { canonical: SITE_URL, languages: { "en-US": SITE_URL, "x-default": SITE_URL } },
   robots: {
     index: true,

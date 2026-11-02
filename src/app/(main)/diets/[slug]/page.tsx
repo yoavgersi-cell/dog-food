@@ -18,6 +18,7 @@ import { breadcrumbSchema, citations, ENTITIES, faqSchema, orgRef, productEntity
 import { AAFCO } from "@/lib/nutrition";
 import { pageMeta, programmaticIndexable } from "@/lib/seo";
 import { pageReviewSchema } from "@/data/reviewers";
+import { articlesFor, articlePath } from "@/content/articles";
 
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -118,6 +119,7 @@ export default async function DietPage({ params }: { params: Promise<{ slug: str
       <FaqAccordion bare title="FAQs" items={faqs} />
       <LinkGrid title="Breeds where this comes up most" columns={3} items={links.breeds} />
       <LinkGrid title="Related comparisons" items={links.comparisons} />
+      <LinkGrid title="Related guides" items={articlesFor(path).map((a) => ({ href: articlePath(a.slug), label: a.title }))} />
       <LinkGrid title={d.kind === "diet-type" ? "Other diet types" : "Related health topics"} columns={3} items={links.related} />
     </PageShell>
   );

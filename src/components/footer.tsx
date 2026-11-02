@@ -32,6 +32,8 @@ const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
     title: "Diets & Health",
     links: [
       ...["sensitive-stomach", "weight-loss", "allergies", "raw", "grain-free", "high-protein"].map((s) => ({ label: DIETS.find((d) => d.slug === s)!.name, href: dietPath(s) })),
+      { label: "How Much to Feed", href: "/articles/how-much-fresh-food-to-feed-a-dog" },
+      { label: "All Guides", href: "/articles" },
       { label: "All Diets & Conditions", href: "/diets" },
       { label: "Ingredient Guide", href: "/ingredients" },
     ],

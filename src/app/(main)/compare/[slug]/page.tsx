@@ -13,7 +13,8 @@ import { H2, P, PageShell } from "@/components/page-shell";
 import { QuickAnswer } from "@/components/quick-answer";
 import { getBrand } from "@/lib/dogfood/brands";
 import { pairFaqs } from "@/lib/dogfood/faqs";
-import { pairLabel } from "@/lib/dogfood/links";
+import { dietsForBrand, pairLabel } from "@/lib/dogfood/links";
+import { dietPath } from "@/lib/dogfood/taxonomy";
 import { PAIRS, PAIR_BY_SLUG, comparePath, pairBrands, pairsForBrand } from "@/lib/dogfood/pairs";
 import { CONTENT_LAST_UPDATED, LAUNCH_DATE, SITE_URL } from "@/lib/config";
 import { breadcrumbSchema, faqSchema, orgRef, productEntity, WEBSITE_ID } from "@/lib/geo";
@@ -131,6 +132,15 @@ export default async function ComparePage({ params }: { params: Promise<{ slug: 
       </div>
 
       <FaqAccordion bare title={`${a.name} vs ${b.name} FAQs`} items={faqs} />
+      <LinkGrid
+        title="Specs and diets"
+        columns={3}
+        items={[
+          { href: `/brands/${a.slug}`, label: `${a.name} specs & prices` },
+          { href: `/brands/${b.slug}`, label: `${b.name} specs & prices` },
+          ...dietsForBrand(a).filter((d) => dietsForBrand(b).some((x) => x.slug === d.slug)).slice(0, 4).map((d) => ({ href: dietPath(d.slug), label: d.name })),
+        ]}
+      />
       <LinkGrid title="More comparisons" items={others.slice(0, 8).map((p) => ({ href: comparePath(p.slug), label: pairLabel(p), note: p.angle }))} />
       <p className="mt-8 text-[14px] text-gray-600">
         Full reviews: <Link href={`/reviews/${a.slug}`} className="font-semibold text-[#A16207] hover:underline">{a.name}</Link> ·{" "}

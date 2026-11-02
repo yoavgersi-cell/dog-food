@@ -127,7 +127,7 @@ export default async function BestForPage({ params }: { params: Promise<{ slug: 
       />
 
       <H2 id="calories">How much should a {br.name} eat?</H2>
-      <P>Daily energy needs scale with metabolic body weight (kg^0.75), not linearly with weight, so a {br.maxLb} lb {br.name} needs far less than {(br.maxLb / br.minLb).toFixed(1)}x the calories of a {br.minLb} lb one.</P>
+      <P>Daily energy needs scale with metabolic body weight (kg^0.75), not linearly with weight, so a {br.maxLb} lb {br.name} needs far less than {(br.maxLb / br.minLb).toFixed(1)}x the calories of a {br.minLb} lb one. To turn calories into grams of food, see <Link href={"/articles/how-much-fresh-food-to-feed-a-dog"} className="font-semibold text-[#A16207] hover:underline">how much fresh food to feed a dog</Link>.</P>
       <CalorieTable weights={weights} stages={stages} />
 
       <H2 id="ranking">Ranked for {br.name}s</H2>
@@ -221,6 +221,7 @@ function DemographicView({ d }: { d: Demographic }) {
         ]}
       />
       <H2 id="calories">Calories per day</H2>
+      <P>Converting these calories into grams of fresh food is covered step by step in <Link href={"/articles/how-much-fresh-food-to-feed-a-dog"} className="font-semibold text-[#A16207] hover:underline">how much fresh food to feed a dog</Link>.</P>
       <CalorieTable weights={weights} stages={[d.stage, "neutered-adult", "senior"].filter((s, i, a) => a.indexOf(s) === i) as LifeStage[]} />
       <H2 id="ranking">Ranked picks</H2>
       <div className="space-y-4">

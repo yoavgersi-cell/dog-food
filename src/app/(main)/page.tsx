@@ -15,16 +15,26 @@ import { pageReviewSchema } from "@/data/reviewers";
 
 export const revalidate = 3600;
 
-const TITLE = `Best Fresh Dog Food Delivery Services of ${HERO_MONTH}`;
+// SERP title carries the brand (entity + CTR); social title stays clean.
+const TITLE = `Best Fresh Dog Food Delivery Services (${HERO_MONTH}) | Dog Food Scout`;
+const SOCIAL_TITLE = `Best Fresh Dog Food Delivery Services of ${HERO_MONTH}`;
 const DESCRIPTION =
-  "The Farmer's Dog, Ollie, Spot & Tango, We Feed Raw, Maxbone, The Pets Table and Redbarn compared on dry-matter protein, cost per day by weight, AAFCO compliance and plan flexibility.";
+  "We compared The Farmer's Dog, Ollie, Spot & Tango and 4 more fresh and raw dog food delivery services on nutrition, cost per day and plans. See our top picks for 2026.";
 const REF_LB = 25;
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   alternates: { canonical: SITE_URL },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: SITE_URL, type: "website" },
+  openGraph: {
+    title: SOCIAL_TITLE,
+    description: DESCRIPTION,
+    url: SITE_URL,
+    type: "website",
+    siteName: "Dog Food Scout",
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "Dog Food Scout - best fresh dog food delivery, compared" }],
+  },
+  twitter: { card: "summary_large_image", title: SOCIAL_TITLE, description: DESCRIPTION, images: ["/og-default.jpg"] },
 };
 
 export default function HomePage() {
@@ -35,7 +45,7 @@ export default function HomePage() {
       "@context": "https://schema.org",
       "@type": "WebPage",
       "@id": `${SITE_URL}/#webpage`,
-      name: TITLE,
+      name: SOCIAL_TITLE,
       description: DESCRIPTION,
       url: SITE_URL,
       inLanguage: "en-US",

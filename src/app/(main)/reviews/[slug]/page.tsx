@@ -134,6 +134,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
 
       <FaqAccordion bare title={`${b.name} FAQs`} items={faqs} />
       <LinkGrid title={`Compare ${b.name}`} items={links.comparisons} />
+      <LinkGrid title="Diets this brand fits" columns={3} items={links.diets} />
+      <LinkGrid title="By life stage and size" columns={3} items={links.lifeStages} />
       <p className="mt-8 text-[14px] text-gray-600">
         Full specs and every recipe: <Link href={`/brands/${b.slug}`} className="font-semibold text-[#A16207] hover:underline">{b.name} spec sheet</Link>.{" "}
         Back to the <Link href="/" className="font-semibold text-[#A16207] hover:underline">full ranking</Link>.

@@ -4,6 +4,7 @@ import { PAIRS, comparePath } from "@/lib/dogfood/pairs";
 import { BREEDS, DEMOGRAPHICS, DIETS, INGREDIENTS, bestForPath, dietPath, ingredientPath } from "@/lib/dogfood/taxonomy";
 import { CONTENT_LAST_UPDATED, SITE_URL } from "@/lib/config";
 import { programmaticIndexable } from "@/lib/seo";
+import { ARTICLES, articlePath } from "@/content/articles";
 
 // One sitemap, grouped by silo. Only indexable URLs are listed: the
 // programmatic breed / diet / ingredient silos join automatically once the
@@ -26,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url("/best-for", 0.8),
     url("/diets", 0.8),
     url("/ingredients", 0.6),
+    url("/articles", 0.7),
     url("/how-we-rank", 0.6, "monthly"),
     url("/about", 0.4, "monthly"),
     url("/disclosure", 0.3, "monthly"),
@@ -35,6 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
   const brands = BRANDS.flatMap((b) => [url(`/reviews/${b.slug}`, 0.9), url(`/brands/${b.slug}`, 0.8)]);
   const compares = PAIRS.map((p) => url(comparePath(p.slug), 0.8));
+  const articles = ARTICLES.map((a) => ({ ...url(articlePath(a.meta.slug), 0.7, "monthly"), lastModified: new Date(a.meta.updatedAt) }));
   const programmatic = programmaticIndexable()
     ? [
         ...BREEDS.map((b) => url(bestForPath(b.slug), 0.6)),
@@ -44,5 +47,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ]
     : [];
 
-  return [...core, ...brands, ...compares, ...programmatic];
+  return [...core, ...brands, ...compares, ...articles, ...programmatic];
 }

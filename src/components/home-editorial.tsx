@@ -67,7 +67,7 @@ export function HomeEditorial() {
       <ul className="mb-4 list-disc space-y-2 pl-5 text-[16px] leading-[1.7] text-gray-700">
         <li><strong className="text-[#191919]">Digestibility.</strong> Controlled feeding studies, including University of Illinois research published in the <em>Journal of Animal Science</em>, have found lightly processed human-grade diets highly digestible, with smaller stool output than an extruded kibble.</li>
         <li><strong className="text-[#191919]">Moisture.</strong> Fresh food is roughly 70% water, against about 10% for kibble, so it adds to your dog&apos;s daily water intake.</li>
-        <li><strong className="text-[#191919]">Portion control.</strong> Pre-portioned packs make it easy to feed a set number of calories, the single biggest lever for <A href={dietPath("weight-management")}>healthy weight</A>.</li>
+        <li><strong className="text-[#191919]">Portion control.</strong> Pre-portioned packs make it easy to feed a set number of calories, the single biggest lever for <A href={dietPath("weight-management")}>healthy weight</A>. Not sure how much? See <A href={"/articles/how-much-fresh-food-to-feed-a-dog"}>how much fresh food to feed your dog</A>.</li>
         <li><strong className="text-[#191919]">Palatability.</strong> Picky eaters usually take to fresh food fast. See our guide for <A href={bestForPath("picky-eater")}>picky eaters</A>.</li>
       </ul>
       <P>
