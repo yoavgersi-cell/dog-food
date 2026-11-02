@@ -12,7 +12,7 @@ interface HeroSectionProps {
   overlayOpacity?: number;
   textAlign?: "left" | "center";
   maxTextWidth?: string;
-  /** Large cut-out image anchored to the hero's bottom-right (desktop). */
+  /** Full-height backdrop photo bleeding in from the screen's right edge (desktop). */
   sideImage?: { src: string; alt: string; width: number; height: number };
 }
 
@@ -28,7 +28,30 @@ export function HeroSection({
   sideImage,
 }: HeroSectionProps) {
   return (
-    <section className="relative w-full overflow-hidden bg-[#FFFBEB] pb-2 pt-6 sm:pt-9">
+    <section className={cn("relative w-full overflow-hidden bg-[#FFFBEB] pb-2 pt-6 sm:pt-9", sideImage && "lg:min-h-[440px] lg:pb-6")}>
+      {/* Backdrop photo (desktop): anchored to the viewport's right edge, full hero
+          height. A sharp copy on the right fades into a blurred copy toward the
+          text, and a cream wash keeps the headline readable over it. */}
+      {sideImage && (
+        <div
+          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[64%] lg:block"
+          style={{ maskImage: "linear-gradient(to bottom, #000 72%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, #000 72%, transparent 100%)" }}
+        >
+          <div
+            className="absolute inset-0"
+            style={{ filter: "blur(14px)", maskImage: "linear-gradient(to right, transparent 0%, #000 30%, #000 55%, transparent 80%)", WebkitMaskImage: "linear-gradient(to right, transparent 0%, #000 30%, #000 55%, transparent 80%)" }}
+          >
+            <Image src={sideImage.src} alt="" fill sizes="64vw" className="scale-105 object-cover object-[right_30%]" />
+          </div>
+          <div
+            className="absolute inset-0"
+            style={{ maskImage: "linear-gradient(to right, transparent 25%, #000 60%)", WebkitMaskImage: "linear-gradient(to right, transparent 25%, #000 60%)" }}
+          >
+            <Image src={sideImage.src} alt={sideImage.alt} fill priority sizes="64vw" className="object-cover object-[right_30%]" />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FFFBEB] via-[#FFFBEB]/55 via-30% to-transparent to-60%" />
+        </div>
+      )}
       {/* Hero image positioned on the right (omitted when no image is set) */}
       {backgroundImageUrl && (
         <div className="absolute right-[380px] top-0 h-full w-[50%] hidden sm:block">
@@ -49,25 +72,8 @@ export function HeroSection({
           textAlign === "center" && "items-center text-center"
         )}
       >
-        {/* Cut-out image: bottom-right, bleeding off the hero's bottom edge so the dog
-            seems to lean up into the screen. Desktop only - mobile keeps the text clean. */}
-        {sideImage && (
-          <div
-            className="pointer-events-none absolute -bottom-2 right-0 hidden h-[calc(100%+2.75rem)] w-[400px] lg:block xl:-right-6 xl:w-[440px]"
-            style={{ maskImage: "linear-gradient(to bottom, #000 70%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, #000 70%, transparent 100%)" }}
-          >
-            <Image
-              src={sideImage.src}
-              alt={sideImage.alt}
-              fill
-              priority
-              sizes="440px"
-              className="object-contain object-bottom"
-            />
-          </div>
-        )}
         <div
-          className={cn("relative z-10 max-w-[640px]", sideImage ? "lg:max-w-[600px] lg:pb-4 xl:max-w-[720px]" : "lg:max-w-[1040px]")}
+          className={cn("relative z-10 max-w-[640px]", sideImage ? "lg:max-w-[640px] lg:py-6 xl:max-w-[700px]" : "lg:max-w-[1040px]")}
           style={{ maxWidth: maxTextWidth !== "640px" ? maxTextWidth : undefined }}
         >
           {updatedLabel && (
