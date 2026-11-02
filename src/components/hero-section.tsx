@@ -29,27 +29,22 @@ export function HeroSection({
 }: HeroSectionProps) {
   return (
     <section className={cn("relative w-full overflow-hidden bg-[#FFFBEB] pb-2 pt-6 sm:pt-9", sideImage && "lg:min-h-[440px] lg:pb-6")}>
-      {/* Backdrop photo (desktop): anchored to the viewport's right edge, full hero
-          height. A sharp copy on the right fades into a blurred copy toward the
-          text, and a cream wash keeps the headline readable over it. */}
+      {/* Backdrop photo (desktop): anchored to the viewport's right edge at full hero
+          height. Sharp but muted (lower opacity, saturation and contrast, the cream
+          showing through like a wash) so the headline always reads stronger than the
+          photo. Soft fades on the left and bottom edges. */}
       {sideImage && (
         <div
           className="pointer-events-none absolute inset-y-0 right-0 hidden w-[64%] lg:block"
-          style={{ maskImage: "linear-gradient(to bottom, #000 72%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, #000 72%, transparent 100%)" }}
+          style={{ maskImage: "linear-gradient(to bottom, #000 75%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, #000 75%, transparent 100%)" }}
         >
           <div
-            className="absolute inset-0"
-            style={{ filter: "blur(28px)", maskImage: "linear-gradient(to right, transparent 0%, #000 28%, #000 70%, transparent 92%)", WebkitMaskImage: "linear-gradient(to right, transparent 0%, #000 28%, #000 70%, transparent 92%)" }}
-          >
-            <Image src={sideImage.src} alt="" fill sizes="64vw" className="scale-105 object-cover object-[right_30%]" />
-          </div>
-          <div
-            className="absolute inset-0"
-            style={{ filter: "blur(2px)", maskImage: "linear-gradient(to right, transparent 45%, #000 85%)", WebkitMaskImage: "linear-gradient(to right, transparent 45%, #000 85%)" }}
+            className="absolute inset-0 opacity-55"
+            style={{ filter: "saturate(0.8) contrast(0.88)", maskImage: "linear-gradient(to right, transparent 0%, #000 45%)", WebkitMaskImage: "linear-gradient(to right, transparent 0%, #000 45%)" }}
           >
             <Image src={sideImage.src} alt={sideImage.alt} fill priority sizes="64vw" className="object-cover object-[right_30%]" />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FFFBEB] via-[#FFFBEB]/55 via-30% to-transparent to-60%" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FFFBEB] via-[#FFFBEB]/40 via-35% to-transparent to-70%" />
         </div>
       )}
       {/* Hero image positioned on the right (omitted when no image is set) */}
