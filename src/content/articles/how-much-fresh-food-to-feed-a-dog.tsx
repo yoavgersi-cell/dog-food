@@ -72,7 +72,7 @@ export function Body() {
 
       <H2 id="step-2">Step 2: Convert calories into grams of fresh food</H2>
       <P>
-        Every complete dog food must state its calorie content, usually as <strong>kcal per kg</strong> (and sometimes per cup or per pack). Then:
+        Every complete dog food must state its calorie content, usually as <strong>kcal per kg</strong> (and sometimes per cup or per pack). Not sure where to find it? See <Link href="/articles/how-to-read-a-dog-food-label" className="font-semibold text-[#A16207] hover:underline">how to read a dog food label</Link>. Then:
         <strong> grams per day = daily kcal / kcal per kg x 1,000</strong>.
       </P>
       <P>
