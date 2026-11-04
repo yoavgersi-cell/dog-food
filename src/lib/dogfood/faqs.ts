@@ -41,7 +41,9 @@ export function brandFaqs(b: Brand): FaqItem[] {
 export function pairFaqs(pair: Pair, a: Brand, b: Brand): FaqItem[] {
   const winner = getBrand(pair.overall)!;
   return [
-    { question: `Is ${a.name} or ${b.name} better?`, answer: `${winner.name} wins overall (${winner.score.toFixed(1)}/10 vs ${winner.slug === a.slug ? b.score : a.score}/10). ${pair.angle}` },
+    { question: `Is ${a.name} or ${b.name} better?`, answer: `${winner.name} wins overall (${winner.score.toFixed(1)}/10 vs ${(winner.slug === a.slug ? b.score : a.score).toFixed(1)}/10). ${pair.angle}` },
+    // Reverse word order: people search both "A vs B" and "B vs A".
+    { question: `Is ${b.name} better than ${a.name}?`, answer: winner.slug === b.slug ? `Yes, for most dogs. ${b.name} scores ${b.score.toFixed(1)}/10 against ${a.score.toFixed(1)}/10 for ${a.name}. ${a.name} is still the better pick for: ${a.bestFor[0].toLowerCase()}.` : `Not for most dogs. ${a.name} scores ${a.score.toFixed(1)}/10 against ${b.score.toFixed(1)}/10 for ${b.name}, but ${b.name} is the better pick for: ${b.bestFor[0].toLowerCase()}.` },
     ...pair.decisions.map((d) => ({
       question: d.question.replace(/\?$/, ` - ${a.name} or ${b.name}?`),
       answer: d.winner === "tie" ? `It's a tie. ${d.why}` : `${getBrand(d.winner)!.name}. ${d.why}`,

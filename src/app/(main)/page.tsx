@@ -16,7 +16,7 @@ import { pageReviewSchema } from "@/data/reviewers";
 export const revalidate = 3600;
 
 // SERP title carries the brand (entity + CTR); social title stays clean.
-const TITLE = `Best Fresh Dog Food Delivery Services (${HERO_MONTH}) | Dog Food Scout`;
+const TITLE = `Best Fresh Dog Food (${HERO_MONTH}): 7 Delivery Services Compared | Dog Food Scout`;
 const SOCIAL_TITLE = `Best Fresh Dog Food Delivery Services of ${HERO_MONTH}`;
 const DESCRIPTION =
   "We compared The Farmer's Dog, Ollie, Spot & Tango and 4 more fresh and raw dog food delivery services on nutrition, cost per day and plans. See our top picks for 2026.";

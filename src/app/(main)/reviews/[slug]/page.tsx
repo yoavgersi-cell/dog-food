@@ -35,8 +35,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const b = getBrand((await params).slug);
   if (!b) return {};
   return pageMeta({
-    title: `${b.name} Review (2026): ${b.score.toFixed(1)}/10, ${b.verdict}`,
-    description: `Our ${b.name} review: ${b.score.toFixed(1)}/10. Dry-matter nutrition, cost per day by weight, AAFCO statement, pros and cons, and how it compares with ${pairsForBrand(b.slug).length} rivals.`,
+    title: `${b.name} Review (2026): Cost, Pros & Cons, Worth It?`,
+    description: `We scored ${b.name} ${b.score.toFixed(1)}/10. What it costs, what's in it, the real pros and cons, and who should (and shouldn't) buy it, compared with ${pairsForBrand(b.slug).length} rivals.`,
     path: `/reviews/${b.slug}`,
   });
 }
@@ -73,7 +73,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
     <PageShell>
       <JsonLd data={schema} />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Reviews", href: "/reviews" }, { label: b.name }]} />
-      <h1 className="text-[28px] font-extrabold leading-tight text-[#191919] sm:text-[34px]">{b.name} Review (2026): {b.verdict}</h1>
+      <h1 className="text-[28px] font-extrabold leading-tight text-[#191919] sm:text-[34px]">{b.name} Review (2026): Is It Worth It?</h1>
+      <p className="mt-1 text-[16px] font-semibold text-[#A16207]">Our verdict: {b.verdict} · {b.score.toFixed(1)}/10</p>
       <div className="mb-5 mt-2"><Byline path={path} /></div>
 
       <QuickAnswer

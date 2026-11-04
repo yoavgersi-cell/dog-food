@@ -180,10 +180,10 @@ export const BRANDS: Brand[] = [
   {
     slug: "ollie",
     name: "Ollie",
-    officialSite: "https://www.myollie.com",
+    officialSite: "https://www.ollie.com",
     logo: "/logos/ollie.svg",
     logoMaxH: 42,
-    affiliateUrl: "https://www.myollie.com",
+    affiliateUrl: "https://www.ollie.com",
     rank: 2,
     score: 9.4,
     scoreLabel: "Excellent",
