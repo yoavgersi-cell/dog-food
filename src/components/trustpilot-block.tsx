@@ -78,10 +78,12 @@ function ReviewCard({ r }: { r: TrustpilotReview }) {
         )}
         <time dateTime={r.date} className="shrink-0 text-[13px] text-gray-500">{fmtDate(r.date)}</time>
       </div>
-      <p className="mt-3 truncate text-[15.5px] font-bold text-[#191919]" title={r.title}>{r.title}</p>
-      <blockquote className={`mt-1.5 whitespace-pre-line text-[14.5px] leading-relaxed text-gray-700 ${open ? "" : "line-clamp-5"}`}>
-        &ldquo;{r.text}&rdquo;
-      </blockquote>
+      <p className="mt-3 line-clamp-2 text-[15.5px] font-bold leading-snug text-[#191919]" title={r.title}>{r.title}</p>
+      {r.text && (
+        <blockquote className={`mt-1.5 whitespace-pre-line text-[14.5px] leading-relaxed text-gray-700 ${open ? "" : "line-clamp-5"}`}>
+          &ldquo;{r.text}&rdquo;
+        </blockquote>
+      )}
       {long && (
         <button type="button" onClick={() => setOpen((v) => !v)} className="mt-1 self-start text-[13px] font-semibold text-[#A16207] hover:underline">
           {open ? "Show less" : "Read full review"}
@@ -112,12 +114,15 @@ export function TrustpilotBlock({ brandName, logo, data }: { brandName: string; 
   const track = useRef<HTMLUListElement>(null);
   const [pages, setPages] = useState(1);
   const [page, setPage] = useState(0);
+  const [perView, setPerView] = useState(1);
 
   const measure = useCallback(() => {
     const el = track.current;
-    if (!el) return;
+    if (!el || el.clientWidth < 1) return;
     setPages(Math.max(1, Math.ceil(el.scrollWidth / el.clientWidth - 0.05)));
     setPage(Math.round(el.scrollLeft / el.clientWidth));
+    const first = el.firstElementChild as HTMLElement | null;
+    if (first) setPerView(Math.max(1, Math.round(el.clientWidth / first.offsetWidth)));
   }, []);
 
   useEffect(() => {
@@ -137,7 +142,7 @@ export function TrustpilotBlock({ brandName, logo, data }: { brandName: string; 
   };
 
   return (
-    <div className="rounded-2xl border border-[#F3E3A3] bg-[#FFFDF5] p-4 sm:p-6">
+    <div className="min-w-0 rounded-2xl border border-[#F3E3A3] bg-[#FFFDF5] p-4 sm:p-6">
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[17px] sm:text-[19px]">
@@ -217,18 +222,29 @@ export function TrustpilotBlock({ brandName, logo, data }: { brandName: string; 
             <button type="button" onClick={() => go(page - 1)} disabled={page === 0} aria-label="Previous reviews" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 disabled:opacity-40">
               <ChevronLeft className="h-5 w-5" />
             </button>
-            <div className="flex max-w-[70%] flex-wrap items-center justify-center gap-1.5">
-              {Array.from({ length: pages }).map((_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => go(i)}
-                  aria-label={`Go to page ${i + 1} of ${pages}`}
-                  aria-current={i === page}
-                  className={`h-2 rounded-full transition-all ${i === page ? "w-6 bg-[#7C4A1E]" : "w-2 bg-gray-300 hover:bg-gray-400"}`}
-                />
-              ))}
-            </div>
+            {pages <= 20 ? (
+              <div className="flex flex-wrap items-center justify-center gap-1.5">
+                {Array.from({ length: pages }).map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => go(i)}
+                    aria-label={`Go to page ${i + 1} of ${pages}`}
+                    aria-current={i === page}
+                    className={`h-2 rounded-full transition-all ${i === page ? "w-6 bg-[#7C4A1E]" : "w-2 bg-gray-300 hover:bg-gray-400"}`}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="flex w-full max-w-[420px] flex-col items-center gap-1.5">
+                <div className="h-1.5 w-full overflow-hidden rounded-full bg-gray-200" aria-hidden>
+                  <div className="h-full rounded-full bg-[#7C4A1E] transition-all" style={{ width: `${((page + 1) / pages) * 100}%` }} />
+                </div>
+                <span className="text-[12.5px] tabular-nums text-gray-500" aria-live="polite">
+                  {Math.min(page * perView + 1, reviews.length)}–{Math.min((page + 1) * perView, reviews.length)} of {reviews.length}
+                </span>
+              </div>
+            )}
             <button type="button" onClick={() => go(page + 1)} disabled={page >= pages - 1} aria-label="Next reviews" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 disabled:opacity-40">
               <ChevronRight className="h-5 w-5" />
             </button>
@@ -241,8 +257,8 @@ export function TrustpilotBlock({ brandName, logo, data }: { brandName: string; 
       )}
 
       <p className="mt-5 border-t border-[#F3E3A3] pt-4 text-[12.5px] leading-relaxed text-gray-500">
-        Captured {fmtDate(data.checked)} from {brandName}&apos;s public Trustpilot profile. Reviews are individual experiences quoted verbatim, names shortened;
-        &ldquo;Reported a problem&rdquo; is our label, not a Trustpilot rating. Trustpilot is a trademark of Trustpilot A/S and is not affiliated with this site.
+        Captured {fmtDate(data.checked)} from {brandName}&apos;s public Trustpilot profile. Reviews are individual experiences quoted verbatim, star ratings as given, names shortened.
+        {!rated && <> &ldquo;Reported a problem&rdquo; is our label, not a Trustpilot rating.</>} Trustpilot is a trademark of Trustpilot A/S and is not affiliated with this site.
       </p>
     </div>
   );
