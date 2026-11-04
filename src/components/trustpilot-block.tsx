@@ -98,6 +98,12 @@ function ReviewCard({ r }: { r: TrustpilotReview }) {
         <span className="text-[13px] leading-tight text-gray-500">
           <b className="block text-[14.5px] font-semibold text-[#191919]">{r.name}</b>
           {r.country}
+          {r.invited && (
+            <>
+              {r.country && " · "}
+              <span title="Trustpilot label: the company invited this customer to write a review">Invited</span>
+            </>
+          )}
         </span>
       </div>
     </li>
@@ -272,7 +278,7 @@ export function TrustpilotBlock({ brandName, logo, data }: { brandName: string; 
       )}
 
       <p className="mt-4 border-t border-[#F3E3A3] pt-3 text-[12px] sm:mt-5 sm:pt-4 sm:text-[12.5px] leading-relaxed text-gray-500">
-        Captured {fmtDate(data.checked)} from {brandName}&apos;s public Trustpilot profile. Reviews are individual experiences quoted verbatim, star ratings as given, names shortened.
+        Captured {fmtDate(data.checked)} from {brandName}&apos;s public Trustpilot profile. Reviews are individual experiences quoted verbatim, star ratings as given, names shortened.{data.note && <> {data.note}</>}
         {!rated && <> &ldquo;Reported a problem&rdquo; is our label, not a Trustpilot rating.</>} Trustpilot is a trademark of Trustpilot A/S and is not affiliated with this site.
       </p>
     </div>

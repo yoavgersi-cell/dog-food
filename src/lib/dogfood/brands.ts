@@ -25,6 +25,9 @@
 //  4. score: re-score with the /how-we-rank rubric once 1-2 are filled.
 // ─────────────────────────────────────────────────────────────────────────────
 import { OLLIE_TRUSTPILOT_REVIEWS } from "./trustpilot-ollie";
+import { TFD_TRUSTPILOT_REVIEWS } from "./trustpilot-the-farmers-dog";
+import { SPOT_AND_TANGO_TRUSTPILOT_REVIEWS } from "./trustpilot-spot-and-tango";
+import { PETS_TABLE_TRUSTPILOT_REVIEWS } from "./trustpilot-the-pets-table";
 
 export type Format =
   | "gently-cooked"
@@ -95,6 +98,7 @@ export interface TrustpilotReview {
   text: string;
   rating?: number; // only when the star rating itself was captured
   issue?: boolean; // editorial flag: the review describes a problem
+  invited?: boolean; // Trustpilot labels the review "Invited" (the company asked for it)
 }
 
 export interface TrustpilotData {
@@ -106,6 +110,8 @@ export interface TrustpilotData {
   /** % of reviews by stars, 5-star first. */
   breakdown?: [number, number, number, number, number];
   negativeReplyRate?: number; // % of negative reviews the company replied to
+  /** Shown in the footer, e.g. why some captured reviews were left out. */
+  note?: string;
   /** Every review we captured, verbatim. Empty when only the headline score was captured. */
   reviews: TrustpilotReview[];
 }
@@ -191,7 +197,7 @@ export const BRANDS: Brand[] = [
     cons: ["Subscription only - not sold in stores", "Needs freezer and fridge space", "No raw or shelf-stable option"],
     summary:
       "The Farmer's Dog is the reference point for gently cooked subscription food: one format, recipes portioned to each dog's calorie target, and a pause/cancel-anytime plan. It ranks #1 because it scores highest on our formulation-transparency and portion-accuracy criteria; the trade-off is storage and the lack of any shelf-stable option.",
-    trustpilot: { rating: 3.9, reviewCountLabel: "2K", url: "https://www.trustpilot.com/review/thefarmersdog.com", checked: "2026-11-04", reviews: [] },
+    trustpilot: { rating: 3.9, reviewCount: 1740, url: "https://www.trustpilot.com/review/thefarmersdog.com", checked: "2026-11-04", reviews: TFD_TRUSTPILOT_REVIEWS, note: "We left out 3 reviews on this profile that are clearly about unrelated UK businesses with the same name (a pub and a raw-food brand)." },
     toVerify: ["offer", "proteins", "delivery", "nutrition", "price", "aafcoStatement"],
   },
   {
@@ -272,7 +278,7 @@ export const BRANDS: Brand[] = [
     cons: ["Subscription only", "Two very different formats to compare per recipe"],
     summary:
       "Spot & Tango's edge is UnKibble: a fresh-dry format that keeps whole-food ingredients but stores like kibble. That makes it the pick when freezer space is the constraint; on fresh-frozen alone it competes directly with Ollie and The Farmer's Dog.",
-    trustpilot: { rating: 4.6, reviewCountLabel: "3K", url: "https://www.trustpilot.com/review/spotandtango.com", checked: "2026-11-04", reviews: [] },
+    trustpilot: { rating: 4.6, reviewCount: 2878, url: "https://www.trustpilot.com/review/spotandtango.com", checked: "2026-11-04", reviews: SPOT_AND_TANGO_TRUSTPILOT_REVIEWS },
     toVerify: ["offer", "proteins", "delivery", "nutrition", "price", "aafcoStatement"],
   },
   {
@@ -378,7 +384,7 @@ export const BRANDS: Brand[] = [
     cons: ["Subscription only", "Newer brand - shorter track record"],
     summary:
       "The Pets Table is the most flexible plan menu in the set: full fresh, air-dried, a mix, or toppers only. That makes it the easiest way to add fresh food on a fixed budget. It ranks below the specialists because it's newer and has a shorter public formulation record.",
-    trustpilot: { rating: 4.4, reviewCountLabel: "3K", url: "https://www.trustpilot.com/review/thepetstable.com", checked: "2026-11-04", reviews: [] },
+    trustpilot: { rating: 4.4, reviewCount: 3194, url: "https://www.trustpilot.com/review/thepetstable.com", checked: "2026-11-04", reviews: PETS_TABLE_TRUSTPILOT_REVIEWS, note: "54 of these 60 reviews are marked \u201cInvited\u201d on Trustpilot, meaning The Pets Table asked the customer to write one." },
     toVerify: ["officialSite", "offer", "proteins", "humanGrade", "delivery", "nutrition", "price", "aafcoStatement"],
   },
   {

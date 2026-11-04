@@ -132,16 +132,24 @@ function Body() {
         Plan on real freezer space, since every delivery arrives frozen. The packaging is designed to be recycled. The brand says the food packs are recyclable once rinsed, and the box is cardboard (<Ext href={SRC.packaging}>The Farmer&apos;s Dog</Ext>).
       </P>
 
-      <H2 id="complaints">What do customers complain about?</H2>
-      <P>Across independent reviews, the same four complaints come up:</P>
+      <H2 id="complaints">What do customers say, good and bad?</H2>
+      <P>
+        The Farmer&apos;s Dog has a TrustScore of <strong>3.9 from 1,740 Trustpilot reviews</strong>, lower than Ollie (4.7 from 11,319) and Spot &amp; Tango (4.6)
+        (all checked Nov 4, 2026). The recent run is far kinder than that headline: of the 62 reviews posted between July 1 and November 4, 2026, 55 are five-star
+        and 5 are one- or two-star. You can read every one of them <a href="#trustpilot" className="font-semibold text-[#A16207] hover:underline">further down this page</a>.
+      </P>
+      <P>The complaints in those reviews cluster around five things:</P>
       <ul className="mb-4 list-disc space-y-2 pl-5 text-[16px] leading-[1.7] text-gray-700">
-        <li><strong>Price</strong>, especially for large and giant breeds.</li>
-        <li><strong>Freezer space</strong> - there is no shelf-stable option.</li>
-        <li><strong>Subscription only</strong> - you can&apos;t buy a single pack in a store.</li>
-        <li><strong>Customer service</strong> - some recent reviews describe slow or unhelpful support, though the food itself is rarely the complaint.</li>
+        <li><strong>Price</strong>, especially for big dogs. One owner said it was simply too expensive for a 100 lb dog; another compared the bill to &ldquo;a low priced car payment.&rdquo;</li>
+        <li><strong>Portion size.</strong> One owner says the plan set their active 43 lb Brittany at 462 kcal a day, and the dog lost 14% of its body weight in two months; their vet put the need at 800–900 kcal. The brand&apos;s reply says portions are a starting point and daily calories are listed in each account. Either way: weigh your dog in the first few weeks and adjust.</li>
+        <li><strong>Digestion in a minority of dogs.</strong> One owner reports a vet-diagnosed pancreatitis after switching; another saw more grass-eating and now uses it only as a topper. Single cases don&apos;t prove cause, but transition slowly and check with your vet if your dog has a history of pancreatitis.</li>
+        <li><strong>Delivery</strong>: a box that sat at the carrier for five days and arrived thawed, an 11:47 pm drop-off in bear country, and FedEx refusing some addresses.</li>
+        <li><strong>Changing orders.</strong> One reviewer found it hard to change a recurring order; several others say pausing or moving a delivery was easy.</li>
       </ul>
       <P>
-        On the food, reviews are mostly positive. Reviewed.com&apos;s testers recommended it if you have the freezer space (<Ext href={SRC.reviewed}>Reviewed</Ext>), and dogs taking to it quickly is the most common theme.
+        What stands out most is customer service. It&apos;s the theme of most five-star reviews, and a striking number come from owners whose dog had just died: they describe
+        refunds for food already shipped, handwritten cards and plants sent after cancelling. On the food itself, the common thread is picky or senior dogs eating eagerly again,
+        and Reviewed.com&apos;s testers recommended it if you have the freezer space (<Ext href={SRC.reviewed}>Reviewed</Ext>).
       </P>
 
       <H2 id="alternatives">How does The Farmer&apos;s Dog compare with the alternatives?</H2>
@@ -191,6 +199,8 @@ export const content: ReviewContent = {
     },
   ],
   sources: [
+    { label: "The Farmer's Dog reviews (TrustScore 3.9, 1,740 reviews; checked Nov 4, 2026)", publisher: "Trustpilot", year: 2026, href: "https://www.trustpilot.com/review/thefarmersdog.com" },
+    { label: "Ollie reviews (TrustScore 4.7, 11,319 reviews; checked Nov 4, 2026)", publisher: "Trustpilot", year: 2026, href: "https://www.trustpilot.com/review/ollie.com" },
     { label: "Human-grade fresh dog food - how it's made", publisher: "The Farmer's Dog", href: SRC.humanGrade },
     { label: "Storing and thawing your packs", publisher: "The Farmer's Dog Digest", href: SRC.storage },
     { label: "Our packaging", publisher: "The Farmer's Dog", href: SRC.packaging },
