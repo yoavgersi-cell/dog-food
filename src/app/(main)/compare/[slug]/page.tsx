@@ -35,8 +35,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const [a, b] = pairBrands(pair);
   const w = getBrand(pair.overall)!;
   return pageMeta({
-    title: `${a.name} vs ${b.name} (2026): ${w.name} Wins`,
-    description: `${pair.angle} Dry-matter nutrition, cost per day by weight and a clear verdict.`,
+    title: `${a.name} vs ${b.name} (2026): Which Is Better?`,
+    description: `${a.name} vs ${b.name}: ${w.name} wins for most dogs. We compare plans, recipes, nutrition and cost side by side, and say who should pick each.`,
     path: comparePath(pair.slug),
   });
 }
