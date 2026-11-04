@@ -81,6 +81,19 @@ export interface PriceFacts {
   checked: string;
 }
 
+/**
+ * Trustpilot data - only ever real figures captured from the brand's public
+ * Trustpilot profile (rating, count and reviews verbatim, with the capture
+ * date). Leave undefined until captured; the review page hides the section.
+ */
+export interface TrustpilotData {
+  rating: number; // TrustScore, e.g. 4.4
+  reviewCount: number;
+  url: string; // the brand's Trustpilot profile URL
+  checked: string; // ISO date captured
+  reviews: { title: string; text: string; name: string; rating: number; date: string }[];
+}
+
 export interface Brand {
   slug: string;
   name: string;
@@ -116,6 +129,7 @@ export interface Brand {
   cons: string[];
   summary: string;
   toVerify: string[];
+  trustpilot?: TrustpilotData;
 }
 
 const NOT_VERIFIED_YET: Pick<Brand, "nutrition" | "price" | "aafcoStatement" | "feedingTrials"> = {
