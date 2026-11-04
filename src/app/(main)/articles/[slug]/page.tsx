@@ -60,7 +60,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       about: ENTITIES.dog,
       mentions: [ENTITIES.aafco, ENTITIES.wsava],
       abstract: meta.keyTakeaways.join(" "),
-      citation: citations(),
+      citation: [
+        ...(meta.sources ?? []).map((s) => ({ "@type": "CreativeWork", name: s.label, url: s.href, datePublished: String(s.year), publisher: { "@type": "Organization", name: s.publisher } })),
+        ...citations(),
+      ],
     },
     breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Guides", path: "/articles" }, { name: meta.title, path }]),
     faqSchema(meta.faqs),
@@ -95,6 +98,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       <section className="mt-10 rounded-xl border border-[#F3E3A3] bg-white p-5">
         <h2 className="mb-2 text-[16px] font-bold text-[#191919]">Sources</h2>
         <ul className="list-disc space-y-1 pl-5 text-[14px] text-gray-600">
+          {(meta.sources ?? []).map((s) => (
+            <li key={s.href}><a href={s.href} rel="noopener" className="text-[#A16207] hover:underline">{s.label}</a> ({s.publisher}, {s.year})</li>
+          ))}
           {CITATIONS.map((c) => (
             <li key={c.href}><a href={c.href} rel="noopener" className="text-[#A16207] hover:underline">{c.label}</a> ({c.publisher})</li>
           ))}

@@ -13,6 +13,8 @@ export interface ArticleMeta {
   answer: { question: string; text: string };
   keyTakeaways: string[];
   faqs: FaqItem[];
+  /** Article-specific sources (statistics, studies) - listed first under Sources. */
+  sources?: { label: string; publisher: string; year: number; href: string }[];
   /** Internal pages this article is about - reused for "related guide" links elsewhere. */
   relatedPaths: string[];
 }
