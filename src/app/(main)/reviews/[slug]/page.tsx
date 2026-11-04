@@ -173,7 +173,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
       {b.trustpilot && (
         <>
           <H2 id="trustpilot">What {b.name} customers say on Trustpilot</H2>
-          <TrustpilotBlock brandName={b.name} data={b.trustpilot} />
+          <TrustpilotBlock brandName={b.name} logo={b.logo} data={b.trustpilot} />
         </>
       )}
 

@@ -24,6 +24,7 @@
 //  3. affiliateUrl: tracked links.
 //  4. score: re-score with the /how-we-rank rubric once 1-2 are filled.
 // ─────────────────────────────────────────────────────────────────────────────
+import { OLLIE_TRUSTPILOT_REVIEWS } from "./trustpilot-ollie";
 
 export type Format =
   | "gently-cooked"
@@ -86,12 +87,27 @@ export interface PriceFacts {
  * Trustpilot profile (rating, count and reviews verbatim, with the capture
  * date). Leave undefined until captured; the review page hides the section.
  */
+export interface TrustpilotReview {
+  name: string; // shortened: first name + last initial
+  country?: string | null;
+  date: string; // ISO
+  title: string;
+  text: string;
+  rating?: number; // only when the star rating itself was captured
+  issue?: boolean; // editorial flag: the review describes a problem
+}
+
 export interface TrustpilotData {
   rating: number; // TrustScore, e.g. 4.4
-  reviewCount: number;
+  reviewCount?: number; // exact count, when the profile page itself was captured
+  reviewCountLabel?: string; // rounded count as Trustpilot shows it elsewhere, e.g. "2K"
   url: string; // the brand's Trustpilot profile URL
   checked: string; // ISO date captured
-  reviews: { title: string; text: string; name: string; rating: number; date: string }[];
+  /** % of reviews by stars, 5-star first. */
+  breakdown?: [number, number, number, number, number];
+  negativeReplyRate?: number; // % of negative reviews the company replied to
+  /** Every review we captured, verbatim. Empty when only the headline score was captured. */
+  reviews: TrustpilotReview[];
 }
 
 export interface Brand {
@@ -175,6 +191,7 @@ export const BRANDS: Brand[] = [
     cons: ["Subscription only - not sold in stores", "Needs freezer and fridge space", "No raw or shelf-stable option"],
     summary:
       "The Farmer's Dog is the reference point for gently cooked subscription food: one format, recipes portioned to each dog's calorie target, and a pause/cancel-anytime plan. It ranks #1 because it scores highest on our formulation-transparency and portion-accuracy criteria; the trade-off is storage and the lack of any shelf-stable option.",
+    trustpilot: { rating: 3.9, reviewCountLabel: "2K", url: "https://www.trustpilot.com/review/thefarmersdog.com", checked: "2026-11-04", reviews: [] },
     toVerify: ["offer", "proteins", "delivery", "nutrition", "price", "aafcoStatement"],
   },
   {
@@ -211,6 +228,15 @@ export const BRANDS: Brand[] = [
     cons: ["Subscription only", "Fresh recipes need freezer space", "Plan options add decision complexity"],
     summary:
       "Ollie is the closest rival to The Farmer's Dog, with one structural difference: a baked line that lets you mix fresh and shelf-stable food in the same plan. Choose Ollie over TFD when you want that flexibility or a lamb recipe; choose TFD when you want the simplest single-format plan.",
+    trustpilot: {
+      rating: 4.7,
+      reviewCount: 11319,
+      url: "https://www.trustpilot.com/review/ollie.com",
+      checked: "2026-11-04",
+      breakdown: [84, 7, 3, 2, 4],
+      negativeReplyRate: 96,
+      reviews: OLLIE_TRUSTPILOT_REVIEWS,
+    },
     toVerify: ["offer", "formats", "proteins", "delivery", "nutrition", "price", "aafcoStatement"],
   },
   {
@@ -246,6 +272,7 @@ export const BRANDS: Brand[] = [
     cons: ["Subscription only", "Two very different formats to compare per recipe"],
     summary:
       "Spot & Tango's edge is UnKibble: a fresh-dry format that keeps whole-food ingredients but stores like kibble. That makes it the pick when freezer space is the constraint; on fresh-frozen alone it competes directly with Ollie and The Farmer's Dog.",
+    trustpilot: { rating: 4.6, reviewCountLabel: "3K", url: "https://www.trustpilot.com/review/spotandtango.com", checked: "2026-11-04", reviews: [] },
     toVerify: ["offer", "proteins", "delivery", "nutrition", "price", "aafcoStatement"],
   },
   {
@@ -351,6 +378,7 @@ export const BRANDS: Brand[] = [
     cons: ["Subscription only", "Newer brand - shorter track record"],
     summary:
       "The Pets Table is the most flexible plan menu in the set: full fresh, air-dried, a mix, or toppers only. That makes it the easiest way to add fresh food on a fixed budget. It ranks below the specialists because it's newer and has a shorter public formulation record.",
+    trustpilot: { rating: 4.4, reviewCountLabel: "3K", url: "https://www.trustpilot.com/review/thepetstable.com", checked: "2026-11-04", reviews: [] },
     toVerify: ["officialSite", "offer", "proteins", "humanGrade", "delivery", "nutrition", "price", "aafcoStatement"],
   },
   {
