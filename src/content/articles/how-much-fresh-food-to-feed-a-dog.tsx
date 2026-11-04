@@ -106,7 +106,7 @@ export function Body() {
           <strong>Weight loss:</strong> feed RER for the <em>target</em> weight and keep protein high. See <Link href={dietPath("weight-loss")} className="font-semibold text-[#A16207] hover:underline">fresh food for weight loss</Link>.
         </li>
         <li>
-          <strong>Mixing fresh with kibble:</strong> subtract the fresh calories from the kibble portion, or your dog will gain weight. See <Link href={dietPath("mixed-feeding")} className="font-semibold text-[#A16207] hover:underline">mixed feeding</Link> and{" "}
+          <strong>Mixing fresh with kibble:</strong> subtract the fresh calories from the kibble portion, or your dog will gain weight. Weighing up the cost first? See <Link href="/articles/is-fresh-dog-food-worth-it" className="font-semibold text-[#A16207] hover:underline">is fresh dog food worth it?</Link> See <Link href={dietPath("mixed-feeding")} className="font-semibold text-[#A16207] hover:underline">mixed feeding</Link> and{" "}
           <Link href={dietPath("fresh-topper")} className="font-semibold text-[#A16207] hover:underline">fresh toppers</Link>.
         </li>
         <li>

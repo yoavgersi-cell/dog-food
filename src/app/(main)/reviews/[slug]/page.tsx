@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Check, X } from "lucide-react";
+import { ArrowRight, Check, X } from "lucide-react";
+import { ProviderCta } from "@/components/provider-cta";
+import { TrustpilotBlock } from "@/components/trustpilot-block";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Byline } from "@/components/byline";
 import { ComparisonCard } from "@/components/comparison-card";
@@ -81,12 +83,35 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           { label: "Scout Score", value: `${b.score.toFixed(1)}/10 (#${b.rank} of ${RANKED_BRANDS.length})` },
           { label: "Best for", value: b.bestFor[0] },
           { label: "Not ideal for", value: b.notIdealFor[0] },
-          { label: "Cost per day (25 lb adult)", value: b.price ? fmtUsd(costPerDay(b.price, 25)) : PENDING },
+          b.price ? { label: "Cost per day (25 lb adult)", value: fmtUsd(costPerDay(b.price, 25)) } : { label: "Current offer", value: b.offer },
           { label: "Formats", value: b.formats.map((f) => FORMAT_LABEL[f]).join(", ") },
         ]}
       />
 
       <div className="mt-6"><ComparisonCard brand={b} pageType="review" sourceFlow="provider_review" /></div>
+
+      <section aria-labelledby="at-a-glance" className="mt-6 rounded-xl border-2 border-[#FDE68A] bg-[#FEFCE8] p-5">
+        <h2 id="at-a-glance" className="mb-3 text-[18px] font-bold text-[#191919]">{b.name} at a glance</h2>
+        <dl className="grid gap-x-6 gap-y-3 sm:grid-cols-2">
+          {[
+            ["Best for", b.bestFor[0]],
+            ["Skip it if", b.notIdealFor[0]],
+            ["Formats", b.formats.map((f) => FORMAT_LABEL[f]).join(", ")],
+            ["Main proteins", b.proteins.map((x) => x.charAt(0).toUpperCase() + x.slice(1)).join(", ")],
+            ["Plan", b.subscriptionRequired === null ? null : b.subscriptionRequired ? `Subscription${b.pauseSkipOnline ? " - pause or cancel anytime online" : ""}` : "No subscription needed"],
+            ["Portions", b.customPortions === null ? null : b.customPortions ? "Personalized to your dog's calories" : "Standard bags - you portion"],
+            ["Storage", b.storage === "pantry" ? "Pantry - no freezer needed" : b.storage === "freezer + fridge" ? "Freezer and fridge" : "Freezer/fridge, or pantry for the dry line"],
+            ["Delivery", b.delivery],
+          ]
+            .filter((r): r is [string, string] => !!r[1])
+            .map(([k, v]) => (
+              <div key={k}>
+                <dt className="text-[12px] font-bold uppercase tracking-wide text-[#A16207]">{k}</dt>
+                <dd className="text-[15px] font-semibold text-[#191919]">{v}</dd>
+              </div>
+            ))}
+        </dl>
+      </section>
 
       <H2 id="verdict">Our verdict</H2>
       <P>{b.summary}</P>
@@ -108,11 +133,41 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         <ul className="list-disc space-y-1 pl-5 text-[15px] text-gray-700">{b.notIdealFor.map((x) => <li key={x}>Skip if: {x.charAt(0).toLowerCase() + x.slice(1)}</li>)}</ul>
       </div>
 
-      <H2 id="nutrition">Nutrition analysis (dry-matter basis)</H2>
-      <NutritionSpecTable brands={[b]} />
+      <H2 id="pricing">{b.name} pricing and plans</H2>
+      <div className="rounded-xl border border-[#F3E3A3] bg-white p-5">
+        <p className="inline-flex rounded-md bg-[#FEF3C7] px-3 py-1.5 text-[14px] font-bold text-[#713F12] ring-1 ring-inset ring-[#FDE68A]">Current offer: {b.offer}</p>
+        <ul className="mt-4 space-y-2 text-[15px] text-gray-700">
+          <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-[#A16207]" />{b.subscriptionRequired ? "Sold as a subscription" : "Buy once, no subscription required"}{b.pauseSkipOnline ? ": pause, skip or cancel online anytime" : ""}.</li>
+          <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-[#A16207]" />Plans: {b.formats.map((f) => FORMAT_LABEL[f].toLowerCase()).join(", ")}{b.customPortions ? ", portioned to your dog's daily calories" : ""}.</li>
+          <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-[#A16207]" />Price depends on your dog&apos;s weight and calorie needs. Our cost-per-day figures appear here once checked against {b.name}&apos;s standard (non-intro) prices.</li>
+        </ul>
+        {b.price && <CostTable brands={[b]} />}
+        <ProviderCta
+          href={b.affiliateUrl}
+          providerName={b.name}
+          providerSlug={b.slug}
+          position={b.rank}
+          pageType="review"
+          sourceFlow="provider_review"
+          className="mt-5 inline-flex h-[46px] items-center gap-2 rounded-lg bg-[#A16207] px-6 text-[15.5px] font-bold text-white transition-colors hover:bg-[#854D0E]"
+        >
+          See {b.name}&apos;s current price <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+        </ProviderCta>
+      </div>
 
-      <H2 id="cost">Cost per day</H2>
-      <CostTable brands={[b]} />
+      {b.nutrition && (
+        <>
+          <H2 id="nutrition">Nutrition analysis (dry-matter basis)</H2>
+          <NutritionSpecTable brands={[b]} />
+        </>
+      )}
+
+      {b.trustpilot && (
+        <>
+          <H2 id="trustpilot">What {b.name} customers say on Trustpilot</H2>
+          <TrustpilotBlock brandName={b.name} data={b.trustpilot} />
+        </>
+      )}
 
       <H2 id="compare">{b.name} vs. its closest alternatives</H2>
       <FeatureTable brands={[b, ...alts]} />
@@ -131,6 +186,24 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           Still being verified against {b.name}&apos;s own published information: {b.toVerify.join(", ")}. These fields show &quot;{PENDING}&quot; until confirmed; the score will be re-checked when they are.
         </Callout>
       )}
+
+      <section className="mt-10 rounded-xl bg-[#191919] p-6 text-white sm:flex sm:items-center sm:justify-between sm:gap-6">
+        <div>
+          <p className="text-[18px] font-bold">Ready to try {b.name}?</p>
+          <p className="mt-1 text-[14.5px] text-gray-300">{b.verdict} · {b.score.toFixed(1)}/10 · {b.offer}</p>
+        </div>
+        <ProviderCta
+          href={b.affiliateUrl}
+          providerName={b.name}
+          providerSlug={b.slug}
+          position={b.rank}
+          pageType="review"
+          sourceFlow="provider_review"
+          className="mt-4 inline-flex h-[46px] shrink-0 items-center gap-2 rounded-lg bg-[#EAB308] px-6 text-[15.5px] font-bold text-[#191919] transition-colors hover:bg-[#FDE68A] sm:mt-0"
+        >
+          Visit {b.name} <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+        </ProviderCta>
+      </section>
 
       <FaqAccordion bare title={`${b.name} FAQs`} items={faqs} />
       <LinkGrid title={`Compare ${b.name}`} items={links.comparisons} />
