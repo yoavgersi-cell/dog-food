@@ -67,7 +67,9 @@ function ReviewCard({ r }: { r: TrustpilotReview }) {
     <li className="flex snap-start flex-col rounded-2xl border border-gray-200 bg-white p-4 sm:p-5 shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
       <div className="flex items-center justify-between gap-2">
         {r.rating ? (
-          <ScoreStars score={r.rating} size={18} />
+          // One cached image per rating instead of 5 inline SVGs per card (keeps the DOM small with 100 cards).
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={`/trustpilot/stars-${Math.round(r.rating)}.svg`} width={102} height={18} alt={`Rated ${r.rating} out of 5 stars`} />
         ) : r.issue ? (
           <span className="rounded-full bg-[#FEF2F2] px-2.5 py-0.5 text-[11.5px] font-semibold text-[#B91C1C]">Reported a problem</span>
         ) : (
@@ -93,9 +95,9 @@ function ReviewCard({ r }: { r: TrustpilotReview }) {
         <span aria-hidden className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FEF3C7] text-[14px] sm:h-10 sm:w-10 font-bold text-[#92400E]">
           {r.name.charAt(0).toUpperCase()}
         </span>
-        <span className="leading-tight">
-          <span className="block text-[14.5px] font-semibold text-[#191919]">{r.name}</span>
-          {r.country && <span className="block text-[13px] text-gray-500">{r.country}</span>}
+        <span className="text-[13px] leading-tight text-gray-500">
+          <b className="block text-[14.5px] font-semibold text-[#191919]">{r.name}</b>
+          {r.country}
         </span>
       </div>
     </li>
@@ -123,7 +125,7 @@ export function TrustpilotBlock({ brandName, logo, data }: { brandName: string; 
     if (!el || !first || el.clientWidth < 1 || first.offsetWidth < 1) return null;
     const gap = parseFloat(getComputedStyle(el).columnGap) || 0;
     const step = first.offsetWidth + gap;
-    const per = Math.max(1, Math.floor((el.clientWidth - parseFloat(getComputedStyle(el).paddingLeft) * 2 + gap) / step));
+    const per = Math.max(1, Math.floor((el.clientWidth - parseFloat(getComputedStyle(el).paddingLeft) * 2 + gap) / step + 0.02));
     return { el, step, per };
   };
 
