@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Award, Info } from "lucide-react";
+import { Award, BookOpen, Info } from "lucide-react";
+import { ARTICLES, articlePath } from "@/content/articles";
 import { RANKED_BRANDS } from "@/lib/dogfood/brands";
 import { RUBRIC } from "@/lib/dogfood/rubric";
 
@@ -11,9 +12,9 @@ function SidebarCard({ children, className }: { children: React.ReactNode; class
   );
 }
 
-export type SidebarBlock = "methodology" | "reviews" | "disclosure";
+export type SidebarBlock = "methodology" | "reviews" | "guides" | "disclosure";
 
-const DEFAULT_BLOCKS: SidebarBlock[] = ["methodology", "reviews", "disclosure"];
+const DEFAULT_BLOCKS: SidebarBlock[] = ["methodology", "reviews", "guides", "disclosure"];
 
 export function Sidebar({ blocks = DEFAULT_BLOCKS }: { blocks?: SidebarBlock[] }) {
 
@@ -69,6 +70,27 @@ export function Sidebar({ blocks = DEFAULT_BLOCKS }: { blocks?: SidebarBlock[] }
             </div>
             <Link href="/reviews" className="mt-6 block text-[14px] font-semibold text-[#A16207] hover:underline">
               Read All Reviews
+            </Link>
+          </SidebarCard>
+        );
+      case "guides":
+        return ARTICLES.length === 0 ? null : (
+          <SidebarCard key={id}>
+            <p className="mb-3 flex items-center gap-2 text-[16px] font-bold text-[#191919]">
+              <BookOpen className="h-5 w-5 text-[#A16207]" strokeWidth={1.75} />
+              Feeding guides
+            </p>
+            <ul className="space-y-2.5">
+              {ARTICLES.slice(0, 4).map(({ meta }) => (
+                <li key={meta.slug}>
+                  <Link href={articlePath(meta.slug)} className="text-[14px] leading-snug text-gray-700 hover:text-[#A16207] hover:underline">
+                    {meta.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <Link href="/articles" className="mt-3 block text-[13px] font-semibold text-[#A16207] hover:underline">
+              All guides
             </Link>
           </SidebarCard>
         );

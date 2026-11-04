@@ -1,8 +1,9 @@
 # Daily article backlog
 
-A scheduled task writes one article a day from this list and publishes it
-automatically (owner-approved). Each run takes the **first unchecked topic**,
-writes it, ticks it here (`[x]` + slug + date) in the same commit, and merges.
+A scheduled task writes one article a day from this list. Each run takes the
+**first unchecked topic**, writes and verifies it, ticks it here (`[x]` + slug
++ date) in the same commit, and opens a PR. **Nothing is merged or published
+until the site owner approves it.**
 
 ## Rules every article must pass (from docs/BLUEPRINT.md §1)
 
@@ -16,6 +17,14 @@ writes it, ticks it here (`[x]` + slug + date) in the same commit, and merges.
   g/1,000 kcal, AAFCO constants) and well-established public rules (AAFCO, FDA,
   WSAVA, NRC). No brand prices or nutrient values unless verified in
   src/lib/dogfood/brands.ts. Illustrative examples must be labelled as such.
+- **Real statistics only.** Every statistic (survey %, study result,
+  prevalence, recall count) must name its source, year and URL in the
+  article's Sources section, and must have been read from that source during
+  the run. If the source can't be opened, leave the statistic out - never
+  quote a number from memory. Formula results (RER/MER, dry matter) and
+  AAFCO/FDA thresholds count as verified.
+- **Quality bar:** if the article isn't clearly better than the top Google
+  results for its topic, don't open the PR - report why instead.
 - **Health language:** "supports", "is formulated for". Never "treats",
   "cures", "prevents". Conditions needing prescription diets must say so.
 - **Banned filler:** "in today's world", "when it comes to", "look no further",
