@@ -59,7 +59,7 @@ export function ReviewBox({ brand }: { brand: Brand }) {
           position={brand.rank}
           pageType="review"
           sourceFlow="provider_review"
-          className="relative z-10 shrink-0 text-[13px] font-semibold text-gray-500 underline-offset-2 hover:text-[#A16207] hover:underline"
+          className="relative z-10 -my-1.5 shrink-0 py-1.5 text-[13px] font-semibold text-gray-500 underline-offset-2 hover:text-[#A16207] hover:underline"
         >
           Visit site
         </ProviderCta>

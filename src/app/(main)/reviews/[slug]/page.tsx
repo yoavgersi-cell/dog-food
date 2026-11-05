@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, Check, X } from "lucide-react";
 import { ProviderCta } from "@/components/provider-cta";
 import { TrustpilotBlock } from "@/components/trustpilot-block";
+import { REVIEW_CONTENT } from "@/content/reviews";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Byline } from "@/components/byline";
 import { ComparisonCard } from "@/components/comparison-card";
@@ -45,7 +46,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
   const b = getBrand((await params).slug);
   if (!b) notFound();
   const path = `/reviews/${b.slug}`;
-  const faqs = brandFaqs(b);
+  const editorial = REVIEW_CONTENT[b.slug];
+  const faqs = [...(editorial?.faqs ?? []), ...brandFaqs(b)];
   const links = brandLinks(b);
   // Closest alternatives: the brands directly above and below in the ranking.
   const i = RANKED_BRANDS.findIndex((x) => x.slug === b.slug);
@@ -58,10 +60,13 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
       name: `${b.name} review`,
       url: `${SITE_URL}${path}`,
       datePublished: LAUNCH_DATE,
-      dateModified: CONTENT_LAST_UPDATED,
+      dateModified: editorial?.updatedAt ?? CONTENT_LAST_UPDATED,
       isPartOf: { "@id": WEBSITE_ID },
       publisher: orgRef(),
-      citation: citations(),
+      citation: [
+        ...(editorial?.sources ?? []).map((src) => ({ "@type": "CreativeWork", name: src.label, url: src.href, publisher: { "@type": "Organization", name: src.publisher } })),
+        ...citations(),
+      ],
       ...pageReviewSchema(path),
       mainEntity: reviewEntity(b, path),
     },
@@ -75,7 +80,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Reviews", href: "/reviews" }, { label: b.name }]} />
       <h1 className="text-[28px] font-extrabold leading-tight text-[#191919] sm:text-[34px]">{b.name} Review (2026): Is It Worth It?</h1>
       <p className="mt-1 text-[16px] font-semibold text-[#A16207]">Our verdict: {b.verdict} · {b.score.toFixed(1)}/10</p>
-      <div className="mb-5 mt-2"><Byline path={path} /></div>
+      <div className="mb-5 mt-2"><Byline path={path} updatedAt={editorial?.updatedAt} /></div>
 
       <QuickAnswer
         question={`Is ${b.name} good dog food?`}
@@ -134,6 +139,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         <ul className="list-disc space-y-1 pl-5 text-[15px] text-gray-700">{b.notIdealFor.map((x) => <li key={x}>Skip if: {x.charAt(0).toLowerCase() + x.slice(1)}</li>)}</ul>
       </div>
 
+      {editorial && <editorial.Body />}
+
       <H2 id="pricing">{b.name} pricing and plans</H2>
       <div className="rounded-xl border border-[#F3E3A3] bg-white p-5">
         <p className="inline-flex rounded-md bg-[#FEF3C7] px-3 py-1.5 text-[14px] font-bold text-[#713F12] ring-1 ring-inset ring-[#FDE68A]">Current offer: {b.offer}</p>
@@ -166,12 +173,17 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
       {b.trustpilot && (
         <>
           <H2 id="trustpilot">What {b.name} customers say on Trustpilot</H2>
-          <TrustpilotBlock brandName={b.name} data={b.trustpilot} />
+          <TrustpilotBlock brandName={b.name} logo={b.logo} data={b.trustpilot} />
         </>
       )}
 
-      <H2 id="compare">{b.name} vs. its closest alternatives</H2>
-      <FeatureTable brands={[b, ...alts]} />
+      {/* Deep editorial reviews carry their own alternatives table. */}
+      {!editorial && (
+        <>
+          <H2 id="compare">{b.name} vs. its closest alternatives</H2>
+          <FeatureTable brands={[b, ...alts]} />
+        </>
+      )}
 
       <H2 id="scoring">How we scored {b.name}</H2>
       <P>The Scout Score weights six criteria. Here&apos;s what we checked for {b.name}:</P>
@@ -207,6 +219,18 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
       </section>
 
       <FaqAccordion bare title={`${b.name} FAQs`} items={faqs} />
+      {editorial && editorial.sources.length > 0 && (
+        <section className="mt-10 rounded-xl border border-[#F3E3A3] bg-white p-5">
+          <h2 className="mb-2 text-[16px] font-bold text-[#191919]">Sources</h2>
+          <ul className="list-disc space-y-1 pl-5 text-[14px] text-gray-600">
+            {editorial.sources.map((src) => (
+              <li key={src.href}>
+                <a href={src.href} rel="noopener" className="text-[#A16207] hover:underline">{src.label}</a> ({src.publisher}{src.year ? `, ${src.year}` : ""})
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
       <LinkGrid title={`Compare ${b.name}`} items={links.comparisons} />
       <LinkGrid title="Diets this brand fits" columns={3} items={links.diets} />
       <LinkGrid title="By life stage and size" columns={3} items={links.lifeStages} />

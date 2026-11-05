@@ -36,7 +36,7 @@ export default function DietsIndex() {
               <li key={d.slug}>
                 <Link href={dietPath(d.slug)} className="flex items-center justify-between gap-2 rounded-lg border border-[#F3E3A3] bg-white px-3 py-2 text-[14px] font-semibold text-[#191919] hover:border-[#EAB308]">
                   {d.name}
-                  {d.therapeutic && <span className="rounded bg-amber-100 px-1.5 text-[11px] font-bold text-amber-900">Vet diet</span>}
+                  {d.therapeutic && <span className="rounded bg-amber-100 px-1.5 text-[12px] font-bold text-amber-900">Vet diet</span>}
                 </Link>
               </li>
             ))}

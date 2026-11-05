@@ -213,3 +213,13 @@ body {
   color: #854D0E;
   border-bottom-color: #854D0E;
 }
+
+/* Mobile tap targets: grow the hit area of small standalone links to >= 24px
+   without moving anything (padding is cancelled by an equal negative margin). */
+.tap,
+td a, th a,
+nav[aria-label="Breadcrumb"] a {
+  display: inline-block;
+  padding-block: 4px;
+  margin-block: -4px;
+}

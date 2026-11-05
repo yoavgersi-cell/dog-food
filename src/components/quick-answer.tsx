@@ -14,7 +14,7 @@ export interface QuickAnswerRow {
 export function QuickAnswer({ question, answer, rows }: { question: string; answer: string; rows?: QuickAnswerRow[] }) {
   return (
     <section aria-labelledby="quick-answer" className="rounded-xl border border-[#FDE68A] border-l-4 border-l-[#EAB308] bg-white p-5 shadow-sm">
-      <p className="mb-1 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.08em] text-[#A16207]">
+      <p className="mb-1 flex items-center gap-1.5 text-[12px] font-bold uppercase tracking-[0.08em] text-[#A16207]">
         <Zap className="h-3.5 w-3.5" strokeWidth={2.25} /> Quick answer
       </p>
       <h2 id="quick-answer" className="text-[18px] font-bold leading-snug text-[#191919]">{question}</h2>

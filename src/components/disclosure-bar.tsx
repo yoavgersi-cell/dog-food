@@ -9,11 +9,12 @@ export function DisclosureBar() {
 
   return (
     <>
-      <div className="bg-gray-100 border-b border-gray-200 px-4 py-1.5 sm:py-2 text-center text-[10px] sm:text-[13px] leading-tight sm:leading-normal text-gray-600">
-        {DISCLOSURE_TEXT}{" "}
+      <div className="bg-gray-100 border-b border-gray-200 px-4 py-1.5 sm:py-2 text-center text-[12px] sm:text-[13px] leading-tight sm:leading-normal text-gray-600">
+        <span className="sm:hidden">We may earn a commission from links on this site. It never changes our scores.</span>
+        <span className="max-sm:hidden">{DISCLOSURE_TEXT}</span>{" "}
         <button
           onClick={() => setIsOpen(true)}
-          className="font-bold text-[#191919] underline underline-offset-2 hover:text-[#A16207]"
+          className="-my-1.5 inline-block py-1.5 font-bold text-[#191919] underline underline-offset-2 hover:text-[#A16207]"
         >
           Advertising Disclosure
         </button>

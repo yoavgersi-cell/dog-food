@@ -12,7 +12,7 @@ export function Byline({ path, updatedAt }: { path: string; updatedAt?: string }
   return (
     <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[12.5px] text-gray-600">
       <span>
-        By <Link href="/about" className="font-semibold text-[#191919] hover:text-[#A16207]">Dog Food Scout Research</Link>
+        By <Link href="/about" className="tap font-semibold text-[#191919] hover:text-[#A16207]">Dog Food Scout Research</Link>
       </span>
       <span className="inline-flex items-center gap-1"><CalendarCheck className="h-3.5 w-3.5 text-[#A16207]" />Updated {fmt(latestUpdate(updatedAt))}</span>
       <span className="inline-flex items-center gap-1"><Database className="h-3.5 w-3.5 text-[#A16207]" />Brand data checked {BRAND_DATA_CHECKED}</span>
