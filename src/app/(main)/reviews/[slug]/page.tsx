@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Check, X } from "lucide-react";
 import { ProviderCta } from "@/components/provider-cta";
+import { ProductShelf } from "@/components/product-shelf";
+import { productsFor, whereToBuyFaq } from "@/lib/dogfood/products";
 import { TrustpilotBlock } from "@/components/trustpilot-block";
 import { REVIEW_CONTENT } from "@/content/reviews";
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -47,7 +49,9 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
   if (!b) notFound();
   const path = `/reviews/${b.slug}`;
   const editorial = REVIEW_CONTENT[b.slug];
-  const faqs = [...(editorial?.faqs ?? []), ...brandFaqs(b)];
+  const products = productsFor(b.slug);
+  const buyFaq = whereToBuyFaq(b.slug, b.name);
+  const faqs = [...(editorial?.faqs ?? []), ...(buyFaq ? [buyFaq] : []), ...brandFaqs(b)];
   const links = brandLinks(b);
   // Closest alternatives: the brands directly above and below in the ranking.
   const i = RANKED_BRANDS.findIndex((x) => x.slug === b.slug);
@@ -162,6 +166,16 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           See {b.name}&apos;s current price <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
         </ProviderCta>
       </div>
+
+      {products.length > 0 && (
+        <>
+          <H2 id="products">{b.name} products and prices</H2>
+          <p className="mb-5 text-[15.5px] leading-relaxed text-gray-700">
+            Every {b.name} product we track, grouped by type, with the price, pack size and seller as listed. Swipe or use the arrows to see them all.
+          </p>
+          <ProductShelf products={products} path={path} name={`${b.name} products and prices`} />
+        </>
+      )}
 
       {b.nutrition && (
         <>

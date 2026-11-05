@@ -6,6 +6,8 @@ import { Sidebar } from "@/components/sidebar";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { Byline } from "@/components/byline";
 import { HomeEditorial } from "@/components/home-editorial";
+import { ProductShelf } from "@/components/product-shelf";
+import { PRODUCTS } from "@/lib/dogfood/products";
 import { JsonLd } from "@/components/json-ld";
 import { RANKED_BRANDS } from "@/lib/dogfood/brands";
 import { matrixRows } from "@/lib/dogfood/matrix";
@@ -104,6 +106,14 @@ export default function HomePage() {
             Filter by processing method and plan features; sort by score, cost per day ({REF_LB} lb neutered adult) or dry-matter protein. Every brand name opens its spec sheet.
           </p>
           <ComparisonMatrix rows={matrixRows(brands, REF_LB)} refLb={REF_LB} />
+        </section>
+
+        <section id="products" className="pt-10">
+          <h2 className="text-[22px] font-bold text-[#191919]">Shop fresh, raw and premium dog food: {PRODUCTS.length} products compared</h2>
+          <p className="mb-5 mt-1 text-[14.5px] text-gray-600">
+            {`Every product we track from the ${RANKED_BRANDS.length} brands`}, grouped by type so you compare like with like: price, pack size and where it&apos;s sold.
+          </p>
+          <ProductShelf products={PRODUCTS} path="/" name="Dog food products and prices" showBrand pageType="listing" />
         </section>
 
         <HomeEditorial />
