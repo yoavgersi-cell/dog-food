@@ -73,7 +73,7 @@ export function CostTable({ brands, weights = [...WEIGHT_BRACKETS_LB], stage = "
       <thead className="bg-[#FEF3C7]">
         <tr>
           <th className={`${th} sticky left-0 bg-[#FEF3C7]`}>Brand</th>
-          {weights.map((w) => <th key={w} className={th}>{w} lb<span className="block text-[10.5px] font-semibold normal-case text-[#854D0E]">{fmtNum(kcalPerDayForLb(w, stage))} kcal</span></th>)}
+          {weights.map((w) => <th key={w} className={th}>{w} lb<span className="block text-[12px] font-semibold normal-case text-[#854D0E]">{fmtNum(kcalPerDayForLb(w, stage))} kcal</span></th>)}
         </tr>
       </thead>
       <tbody>
@@ -95,7 +95,7 @@ export function CalorieTable({ weights, stages }: { weights: number[]; stages: L
       <thead className="bg-[#FEF3C7]">
         <tr>
           <th className={`${th} sticky left-0 bg-[#FEF3C7]`}>Body weight</th>
-          {stages.map((s) => <th key={s} className={th}>{LIFE_STAGE_FACTORS[s].label}<span className="block text-[10.5px] font-semibold normal-case text-[#854D0E]">x{LIFE_STAGE_FACTORS[s].factor}</span></th>)}
+          {stages.map((s) => <th key={s} className={th}>{LIFE_STAGE_FACTORS[s].label}<span className="block text-[12px] font-semibold normal-case text-[#854D0E]">x{LIFE_STAGE_FACTORS[s].factor}</span></th>)}
         </tr>
       </thead>
       <tbody>

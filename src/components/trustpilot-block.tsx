@@ -39,12 +39,12 @@ function TrustpilotWordmark() {
 }
 
 type SortKey = "highest" | "newest" | "lowest" | "oldest" | "issues";
-const RATED_SORTS: { key: SortKey; label: string }[] = [
-  { key: "highest", label: "Highest rated" },
+const RATED_SORTS: { key: SortKey; label: string; short?: string }[] = [
+  { key: "highest", label: "Highest rated", short: "Top rated" },
   { key: "newest", label: "Newest" },
-  { key: "lowest", label: "Lowest rated" },
+  { key: "lowest", label: "Lowest rated", short: "Lowest" },
 ];
-const UNRATED_SORTS: { key: SortKey; label: string }[] = [
+const UNRATED_SORTS: { key: SortKey; label: string; short?: string }[] = [
   { key: "newest", label: "Newest" },
   { key: "oldest", label: "Oldest" },
   { key: "issues", label: "Complaints first" },
@@ -87,7 +87,7 @@ function ReviewCard({ r }: { r: TrustpilotReview }) {
         </blockquote>
       )}
       {long && (
-        <button type="button" onClick={() => setOpen((v) => !v)} className="mt-1 self-start text-[13px] font-semibold text-[#A16207] hover:underline">
+        <button type="button" onClick={() => setOpen((v) => !v)} className="mt-0.5 self-start py-1 text-[13px] font-semibold text-[#A16207] hover:underline">
           {open ? "Show less" : "Read full review"}
         </button>
       )}
@@ -169,7 +169,7 @@ export function TrustpilotBlock({ brandName, logo, data }: { brandName: string; 
         <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[16px] sm:gap-x-3 sm:text-[19px]">
           {logo && (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={logo} alt={brandName} className="h-6 w-auto max-w-[96px] object-contain sm:h-7 sm:max-w-[110px]" />
+            <img src={logo} alt={brandName} width={96} height={28} className="h-6 w-auto max-w-[96px] object-contain sm:h-7 sm:max-w-[110px]" />
           )}
           <span className="font-bold text-[#191919]">
             <span className={logo ? "max-sm:hidden" : ""}>{brandName} </span><span className="font-normal text-gray-600">reviews on</span>
@@ -180,7 +180,7 @@ export function TrustpilotBlock({ brandName, logo, data }: { brandName: string; 
           <span className="text-[22px] font-extrabold leading-none text-[#191919]">{data.rating.toFixed(1)}</span>
           <ScoreStars score={data.rating} />
           {count && <span className="text-[13.5px] text-gray-600 sm:text-[14px]">({count} reviews)</span>}
-          <a href={data.url} target="_blank" rel="noopener nofollow" className="inline-flex items-center gap-0.5 text-[13.5px] font-semibold text-[#A16207] max-sm:basis-full sm:text-[14px] underline-offset-2 hover:underline">
+          <a href={data.url} target="_blank" rel="noopener nofollow" className="-my-1 inline-flex items-center gap-0.5 py-1 text-[13.5px] font-semibold text-[#A16207] max-sm:basis-full sm:text-[14px] underline-offset-2 hover:underline">
             See all on Trustpilot <ArrowUpRight className="h-4 w-4" aria-hidden />
           </a>
         </div>
@@ -216,12 +216,13 @@ export function TrustpilotBlock({ brandName, logo, data }: { brandName: string; 
                   key={s.key}
                   type="button"
                   aria-pressed={sort === s.key}
+                  aria-label={`Sort: ${s.label}`}
                   onClick={() => setSort(s.key)}
                   className={`whitespace-nowrap rounded-full px-2 py-2 text-[13px] font-semibold transition-colors sm:border sm:px-3.5 sm:py-1.5 sm:text-[13.5px] ${
                     sort === s.key ? "bg-[#7C4A1E] text-white sm:border-[#7C4A1E]" : "text-gray-700 sm:border-gray-200 sm:bg-white sm:hover:border-gray-300"
                   }`}
                 >
-                  {s.label}
+                  {s.short ? (<><span className="min-[380px]:hidden">{s.short}</span><span className="max-[379px]:hidden">{s.label}</span></>) : s.label}
                 </button>
               ))}
             </div>

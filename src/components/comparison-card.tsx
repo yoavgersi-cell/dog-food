@@ -79,7 +79,7 @@ export function ComparisonCard({ brand, rank = brand.rank, hideRank, refLb = 25,
         </div>
       )}
       {!hideRank && brand.badge && rank === 1 && (
-        <div className="absolute left-[34px] top-0 z-10 flex h-[28px] items-center rounded-br-lg bg-[#EBA51E] px-3 text-[11px] font-bold uppercase tracking-wide text-[#3A2A06]">
+        <div className="absolute left-[34px] top-0 z-10 flex h-[28px] items-center rounded-br-lg bg-[#EBA51E] px-3 text-[12px] font-bold uppercase tracking-wide text-[#3A2A06]">
           {brand.badge}
         </div>
       )}
@@ -144,7 +144,7 @@ export function ComparisonCard({ brand, rank = brand.rank, hideRank, refLb = 25,
         </ul>
         <StripRow items={strip} className="mt-3 border-t border-dashed border-gray-200 pt-3" />
         {cta("mt-4 flex h-[48px] w-full items-center justify-center gap-2 rounded-lg bg-[#A16207] text-[16px] font-bold text-white transition-colors hover:bg-[#854D0E]")}
-        <Link href={`/reviews/${brand.slug}`} className="mt-3 text-center text-[13px] font-semibold text-[#A16207] underline-offset-2 hover:underline">
+        <Link href={`/reviews/${brand.slug}`} className="mt-1.5 py-1.5 text-center text-[13px] font-semibold text-[#A16207] underline-offset-2 hover:underline">
           Read the full {brand.name} review
         </Link>
       </div>
