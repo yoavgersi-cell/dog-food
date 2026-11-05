@@ -123,7 +123,7 @@ export function Body() {
         More of the food was absorbed and less came out the other end. Stool quality scores didn&apos;t differ between diets, and bloodwork stayed normal on all of them.
       </P>
       <Callout>
-        <strong>Read this with care.</strong> It was 12 dogs of one breed over a few weeks, and it was funded by a fresh-food company whose recipes were tested. It shows better digestibility. It does not show that fresh food makes dogs live longer or get sick less often. No study has shown that yet.
+        <strong>Read this with care.</strong> It was 12 dogs of one breed over a few weeks, and it was funded by a fresh-food company whose recipes were tested. It shows better digestibility. It does not show that fresh food makes dogs live longer or get sick less often. No study has shown that yet. For everything else that changes after a switch (water, stool, portion size, teeth), see <A href="/articles/fresh-vs-kibble">fresh food vs kibble</A>.
       </Callout>
 
       <H2 id="weight">Can fresh food help an overweight dog?</H2>
