@@ -200,7 +200,7 @@ export function Body() {
         The 2021 trial&apos;s funding is reported by <Ext href={ILLINOIS_2021_FUNDING}>Veterinary Practice News</Ext>.
       </P>
       <Callout>
-        <strong>Our read:</strong> &ldquo;more digestible&rdquo; is well supported. &ldquo;Healthier&rdquo; is not yet proven. We say that plainly on every brand page, including our <A href="/reviews/the-farmers-dog">Farmer&apos;s Dog review</A> and <A href="/reviews/ollie">Ollie review</A>.
+        <strong>Our read:</strong> &ldquo;more digestible&rdquo; is well supported. &ldquo;Healthier&rdquo; is not yet proven. That is the standard we hold brand claims to in our <A href="/reviews/the-farmers-dog">Farmer&apos;s Dog review</A> and <A href="/reviews/ollie">Ollie review</A>.
       </Callout>
 
       <H2 id="volume">Why does a fresh-food bowl look so much bigger?</H2>
