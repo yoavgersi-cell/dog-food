@@ -5,6 +5,12 @@ import { BREEDS, DEMOGRAPHICS, DIETS, INGREDIENTS, bestForPath, dietPath, ingred
 import { CONTENT_LAST_UPDATED, SITE_URL } from "@/lib/config";
 import { programmaticIndexable } from "@/lib/seo";
 import { ARTICLES, articlePath } from "@/content/articles";
+import { REVIEW_CONTENT } from "@/content/reviews";
+import { PRODUCTS, productsFor } from "@/lib/dogfood/products";
+
+// Real per-page lastmod: IndexNow (src/app/api/indexnow) submits only URLs whose
+// lastmod is recent, so every page must carry the date its content last changed.
+const latest = (...dates: (string | undefined)[]) => new Date(dates.filter(Boolean).sort().at(-1)!);
 
 // One sitemap, grouped by silo. Only indexable URLs are listed: the
 // programmatic breed / diet / ingredient silos join automatically once the
@@ -35,7 +41,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url("/privacy", 0.2, "monthly"),
     url("/terms", 0.2, "monthly"),
   ];
-  const brands = BRANDS.flatMap((b) => [url(`/reviews/${b.slug}`, 0.9), url(`/brands/${b.slug}`, 0.8)]);
+  const reviewDate = (slug: string) => {
+    const b = BRANDS.find((x) => x.slug === slug)!;
+    return latest(CONTENT_LAST_UPDATED, REVIEW_CONTENT[slug]?.updatedAt, b.trustpilot?.checked, ...productsFor(slug).map((p) => p.checked));
+  };
+  const brands = BRANDS.flatMap((b) => [{ ...url(`/reviews/${b.slug}`, 0.9), lastModified: reviewDate(b.slug) }, url(`/brands/${b.slug}`, 0.8)]);
+  const newestReview = new Date(Math.max(...BRANDS.map((b) => reviewDate(b.slug).getTime())));
+  const newestArticle = latest(CONTENT_LAST_UPDATED, ...ARTICLES.map((a) => a.meta.updatedAt));
+  // Homepage shows the product carousels; hubs list reviews / articles.
+  core[0].lastModified = latest(CONTENT_LAST_UPDATED, ...PRODUCTS.map((p) => p.checked));
+  core[1].lastModified = newestReview;
+  core[6].lastModified = newestArticle;
   const compares = PAIRS.map((p) => url(comparePath(p.slug), 0.8));
   const articles = ARTICLES.map((a) => ({ ...url(articlePath(a.meta.slug), 0.7, "monthly"), lastModified: new Date(a.meta.updatedAt) }));
   const programmatic = programmaticIndexable()
