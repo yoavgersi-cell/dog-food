@@ -94,7 +94,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         ]}
       />
 
-      <div className="mt-6"><ComparisonCard brand={b} pageType="review" sourceFlow="provider_review" /></div>
+      <div className="mt-6"><ComparisonCard brand={b} hideRank pageType="review" sourceFlow="provider_review" /></div>
 
       <section aria-labelledby="at-a-glance" className="mt-6 rounded-xl border-2 border-[#FDE68A] bg-[#FEFCE8] p-5">
         <h2 id="at-a-glance" className="mb-3 text-[18px] font-bold text-[#191919]">{b.name} at a glance</h2>
