@@ -157,7 +157,7 @@ export function Body() {
       </P>
       <P>
         Kibble is made by forcing a cooked dough through an extruder, then drying and coating it. Research on canine diets describes extrusion temperatures of
-        110-150 °C (230-300 °F) (<Ext href={EXTRUSION_THESIS}>Tran, Wageningen University, 2008</Ext>). Fresh food is cooked in batches at lower heat, portioned and frozen, so it keeps its water and looks like food you&apos;d recognize.
+        110-150 °C (230-300 °F) (<Ext href={EXTRUSION_THESIS}>Tran, Wageningen University, 2008</Ext>). Fresh food is cooked in batches at lower heat, portioned and frozen, so it keeps its water and looks like food you&apos;d recognize. Raw food skips cooking altogether, which brings its own risks; see <A href="/articles/is-raw-dog-food-safe">is raw dog food safe?</A>
       </P>
       <Table
         caption="Fresh dog food vs kibble at a glance"
