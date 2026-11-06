@@ -44,8 +44,8 @@ until the site owner approves it.**
 - [x] How much fresh food should I feed my dog? - `how-much-fresh-food-to-feed-a-dog` (2026-11-02)
 - [x] How to read a dog food label - `how-to-read-a-dog-food-label` (2026-11-03)
 - [x] Is fresh dog food worth it? - `is-fresh-dog-food-worth-it` (2026-11-04)
-- [ ] Fresh vs kibble: what actually changes for your dog
-- [ ] Is raw dog food safe? Pathogens, handling and who should avoid it
+- [x] Fresh vs kibble: what actually changes for your dog - `fresh-vs-kibble` (2026-11-05)
+- [x] Is raw dog food safe? Pathogens, handling and who should avoid it - `is-raw-dog-food-safe` (2026-11-05)
 - [ ] How to switch your dog to fresh food (10-day plan)
 - [ ] Grain-free dog food and DCM: what the FDA investigation found
 - [ ] Fresh food for puppies: AAFCO growth rules and calorie needs

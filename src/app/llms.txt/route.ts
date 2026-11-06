@@ -5,6 +5,7 @@ import { RUBRIC } from "@/lib/dogfood/rubric";
 import { AAFCO } from "@/lib/nutrition";
 import { BRAND_DATA_CHECKED, SITE_URL } from "@/lib/config";
 import { ARTICLES, articlePath } from "@/content/articles";
+import { PRODUCTS, PRODUCT_TYPES, fmtPrice, groupByType } from "@/lib/dogfood/products";
 
 export const revalidate = 3600;
 
@@ -31,6 +32,13 @@ ${line("Best fresh & raw dog food delivery, 2026 (ranking)", "/", RANKED_BRANDS.
 
 ## Brand reviews
 ${RANKED_BRANDS.map((b) => line(`${b.name} review`, `/reviews/${b.slug}`, `${b.score.toFixed(1)}/10. ${b.formats.map((f) => FORMAT_LABEL[f]).join(", ")}. ${b.summary}`)).join("\n")}
+
+## Products and prices (as listed ${PRODUCTS[0]?.checked ?? ""}; brand and retailer listings, prices change)
+${RANKED_BRANDS.map((b) => {
+  const groups = groupByType(PRODUCTS.filter((p) => p.brand === b.slug));
+  if (!groups.length) return "";
+  return `### ${b.name} (${abs(`/reviews/${b.slug}#products`)})\n` + groups.map((g) => g.items.map((p) => `- ${PRODUCT_TYPES[p.type].label}: ${p.name}${p.size ? `, ${p.size}` : ""}: ${fmtPrice(p.price)}${p.unitPrice ? ` (${p.unitPrice})` : ""}, sold by ${p.seller}`).join("\n")).join("\n");
+}).filter(Boolean).join("\n\n")}
 
 ## Brand spec sheets
 ${RANKED_BRANDS.map((b) => line(`${b.name} dog food specs`, `/brands/${b.slug}`)).join("\n")}
