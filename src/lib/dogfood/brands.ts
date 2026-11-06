@@ -229,9 +229,9 @@ export const BRANDS: Brand[] = [
     delivery: "Contiguous US",
     ...NOT_VERIFIED_YET,
     bestFor: ["Owners who want to blend fresh with a shelf-stable baked option", "Budget-flexible plans (part fresh, part baked)", "Multi-protein rotation"],
-    notIdealFor: ["Raw feeders", "Owners who want retail availability"],
-    pros: ["Fresh, baked and mixed plans in one subscription", "Satisfaction guarantee on the first box (brand claim)", "Broad protein range including lamb"],
-    cons: ["Subscription only", "Fresh recipes need freezer space", "Plan options add decision complexity"],
+    notIdealFor: ["Raw feeders", "Owners who want fresh food without a subscription"],
+    pros: ["Fresh, baked and mixed plans in one subscription", "Baked food and jerky treats also sold at Petco.com, no subscription needed", "Satisfaction guarantee on the first box (brand claim)", "Broad protein range including lamb"],
+    cons: ["Fresh plans are subscription-only", "Fresh recipes need freezer space", "Plan options add decision complexity"],
     summary:
       "Ollie is the closest rival to The Farmer's Dog, with one structural difference: a baked line that lets you mix fresh and shelf-stable food in the same plan. Choose Ollie over TFD when you want that flexibility or a lamb recipe; choose TFD when you want the simplest single-format plan.",
     trustpilot: {
