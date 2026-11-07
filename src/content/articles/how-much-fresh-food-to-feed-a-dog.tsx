@@ -134,7 +134,7 @@ export function Body() {
 
       <H2 id="switching">Switching to fresh food</H2>
       <P>
-        Move over about 10 days: 25% fresh for days 1-3, 50% for days 4-6, 75% for days 7-9, then 100%. Keep the total calories the same throughout.
+        Move over about 10 days: 25% fresh for days 1-3, 50% for days 4-6, 75% for days 7-9, then 100%. Keep the total calories the same throughout. Our <Link href="/articles/how-to-switch-dog-to-fresh-food" className="font-semibold text-[#A16207] hover:underline">10-day switching plan</Link> has the gram amounts and what&apos;s normal along the way.
         More in our <Link href={dietPath("transitioning-to-fresh")} className="font-semibold text-[#A16207] hover:underline">transition guide</Link>, and for a sensitive dog see{" "}
         <Link href={dietPath("sensitive-stomach")} className="font-semibold text-[#A16207] hover:underline">fresh food for sensitive stomachs</Link>.
       </P>
