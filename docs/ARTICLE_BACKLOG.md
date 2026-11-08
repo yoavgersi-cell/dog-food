@@ -47,7 +47,7 @@ until the site owner approves it.**
 - [x] Fresh vs kibble: what actually changes for your dog - `fresh-vs-kibble` (2026-11-05)
 - [x] Is raw dog food safe? Pathogens, handling and who should avoid it - `is-raw-dog-food-safe` (2026-11-05)
 - [x] How to switch your dog to fresh food (10-day plan) - `how-to-switch-dog-to-fresh-food` (2026-11-07)
-- [ ] Grain-free dog food and DCM: what the FDA investigation found
+- [x] Grain-free dog food and DCM: what the FDA investigation found - `grain-free-dog-food-and-dcm` (2026-11-08)
 - [ ] Fresh food for puppies: AAFCO growth rules and calorie needs
 - [ ] Fresh food toppers vs full fresh meals: how to split calories
 - [ ] Freeze-dried vs air-dried vs fresh-frozen dog food

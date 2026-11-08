@@ -5,6 +5,7 @@ import type { ArticleMeta } from "./types";
 import * as howMuchToFeed from "./how-much-fresh-food-to-feed-a-dog";
 import * as readLabel from "./how-to-read-a-dog-food-label";
 import * as worthIt from "./is-fresh-dog-food-worth-it";
+import * as grainFreeDcm from "./grain-free-dog-food-and-dcm";
 import * as switchToFresh from "./how-to-switch-dog-to-fresh-food";
 import * as freshVsKibble from "./fresh-vs-kibble";
 import * as rawSafety from "./is-raw-dog-food-safe";
@@ -16,7 +17,7 @@ export interface Article {
   Body: ComponentType;
 }
 
-export const ARTICLES: Article[] = [switchToFresh, rawSafety, freshVsKibble, worthIt, readLabel, howMuchToFeed];
+export const ARTICLES: Article[] = [grainFreeDcm, switchToFresh, rawSafety, freshVsKibble, worthIt, readLabel, howMuchToFeed];
 
 export const ARTICLE_BY_SLUG = new Map(ARTICLES.map((a) => [a.meta.slug, a]));
 export const articlePath = (slug: string) => `/articles/${slug}`;
