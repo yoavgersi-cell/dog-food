@@ -191,7 +191,7 @@ export function Body() {
         <li><strong>Look at the first five ingredients.</strong> They usually make up most of the recipe by weight.</li>
         <li><strong>Check for named proteins.</strong> &quot;Beef&quot; or &quot;chicken liver&quot; tells you the species; &quot;meat by-products&quot; does not.</li>
         <li>
-          <strong>Watch for ingredient splitting.</strong> Peas, pea protein and pea fiber listed separately can add up to more than the meat. Legume-heavy recipes are the ones flagged in the FDA&apos;s DCM investigation. See <A href={ingredientPath("peas")}>peas</A>, <A href={ingredientPath("lentils")}>lentils</A> and <A href={dietPath("dcm-concerns")}>DCM concerns</A>.
+          <strong>Watch for ingredient splitting.</strong> Peas, pea protein and pea fiber listed separately can add up to more than the meat. Legume-heavy recipes are the ones flagged in the FDA&apos;s DCM investigation. See <A href={ingredientPath("peas")}>peas</A>, <A href={ingredientPath("lentils")}>lentils</A> and <A href={dietPath("dcm-concerns")}>DCM concerns</A>, or read <A href="/articles/grain-free-dog-food-and-dcm">what the FDA&apos;s DCM investigation found</A>.
         </li>
         <li><strong>Find the vitamin and mineral premix.</strong> Near the end of the list in almost every complete fresh recipe. Its absence in a &quot;complete&quot; food is a red flag.</li>
       </ul>
