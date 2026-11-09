@@ -194,7 +194,7 @@ export function Body() {
         The same gradual pattern works, with two extra checks. First, the fresh food must be complete for growth: its AAFCO statement should say &ldquo;growth&rdquo; or &ldquo;all life stages&rdquo;, not adult maintenance only (<A href="/articles/how-to-read-a-dog-food-label">how to read the label</A>).
       </P>
       <P>
-        Second, puppies need far more calories per pound than adults, so total daily calories must stay at the puppy level throughout. See our <A href={bestForPath("puppy")}>puppy food guide</A> for the numbers.
+        Second, puppies need far more calories per pound than adults, so total daily calories must stay at the puppy level throughout. See our <A href="/articles/fresh-food-for-puppies">guide to fresh food for puppies</A> for the growth rules and calorie numbers.
       </P>
 
       <H2 id="picky">What if your dog won&apos;t eat the fresh food?</H2>
