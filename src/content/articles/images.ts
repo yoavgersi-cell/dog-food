@@ -12,6 +12,7 @@ const ALT: Record<string, string> = {
   "is-fresh-dog-food-worth-it": "A smiling owner setting down a bowl of fresh dog food for an excited mixed-breed dog in a sunny kitchen",
   "how-to-read-a-dog-food-label": "Hands holding a plain dog food pouch to read the back label while a labrador rests its chin on the table",
   "how-much-fresh-food-to-feed-a-dog": "A bowl of fresh dog food on a kitchen scale with a measuring scoop, a spaniel watching in the background",
+  "fresh-dog-food-topper-vs-full-meal": "A hand spooning fresh dog food with turkey, carrots and peas onto a bowl of kibble beside a bowl of fresh food, a corgi watching",
 };
 
 export interface ArticleImage {

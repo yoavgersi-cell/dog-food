@@ -49,7 +49,7 @@ until the site owner approves it.**
 - [x] How to switch your dog to fresh food (10-day plan) - `how-to-switch-dog-to-fresh-food` (2026-11-07)
 - [x] Grain-free dog food and DCM: what the FDA investigation found - `grain-free-dog-food-and-dcm` (2026-11-08)
 - [x] Fresh food for puppies: AAFCO growth rules and calorie needs - `fresh-food-for-puppies` (2026-11-09)
-- [ ] Fresh food toppers vs full fresh meals: how to split calories
+- [x] Fresh food toppers vs full fresh meals: how to split calories - `fresh-dog-food-topper-vs-full-meal` (2026-11-10)
 - [ ] Freeze-dried vs air-dried vs fresh-frozen dog food
 - [ ] How much protein does a dog need? (per 1,000 kcal explained)
 - [ ] Fat in dog food: how much is too much?

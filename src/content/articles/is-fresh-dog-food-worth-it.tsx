@@ -198,7 +198,7 @@ export function Body() {
         Yes. Feed fresh as a topper. Replace about 25% of your dog&apos;s calories with fresh food and cut the kibble by the same amount. For a 25 lb adult that&apos;s roughly {fmt(topperKcal)} kcal of fresh food a day out of {fmt(k25)}.
       </P>
       <P>
-        You keep most of the taste and some of the moisture, at about a quarter of the cost of going fully fresh. <A href="/reviews/the-pets-table">The Pets Table</A> sells a topper-only plan, and our guides to <A href={dietPath("fresh-topper")}>fresh toppers</A> and <A href={dietPath("mixed-feeding")}>mixed feeding</A> walk through the math.
+        You keep most of the taste and some of the moisture, at about a quarter of the cost of going fully fresh. <A href="/reviews/the-pets-table">The Pets Table</A> sells a topper-only plan, our <A href="/articles/fresh-dog-food-topper-vs-full-meal">topper vs full fresh guide</A> shows how to split the calories, and our guides to <A href={dietPath("fresh-topper")}>fresh toppers</A> and <A href={dietPath("mixed-feeding")}>mixed feeding</A> walk through the math.
       </P>
 
       <H2 id="decide">How do you decide in five minutes?</H2>
