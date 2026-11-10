@@ -123,7 +123,7 @@ export function Part4() {
         note="Freeze-drying statement from the WSAVA raw diet toolkit; canning as a virus-inactivating step from the FDA's H5N1 update."
       />
       <P>
-        If you want fresh-style food without the freezer, look for a cooked shelf-stable format: baked, fresh-dry or canned. If a freeze-dried or air-dried product is raw, treat it with raw-meat hygiene. See <A href={dietPath("freeze-dried")}>freeze-dried</A>, <A href={dietPath("air-dried")}>air-dried</A> and <A href="/articles/fresh-vs-kibble">fresh vs kibble</A>.
+        If you want fresh-style food without the freezer, look for a cooked shelf-stable format: baked, <A href="/articles/unkibble-fresh-dry-dog-food">fresh-dry (UnKibble-style)</A> or canned. If a freeze-dried or air-dried product is raw, treat it with raw-meat hygiene. See <A href={dietPath("freeze-dried")}>freeze-dried</A>, <A href={dietPath("air-dried")}>air-dried</A> and <A href="/articles/fresh-vs-kibble">fresh vs kibble</A>.
       </P>
 
       <H2 id="vs-canned">How is fresh dog food different from canned wet food?</H2>
