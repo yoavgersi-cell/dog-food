@@ -12,8 +12,8 @@ interface ComparisonCardProps {
   hideRank?: boolean;
   /** Body weight (lb) used for the cost-per-day cell. */
   refLb?: number;
-  pageType?: "listing" | "review" | "battle" | "quiz_results";
-  sourceFlow?: "main_comparison" | "provider_review" | "battle_page" | "matching_flow";
+  pageType?: "listing" | "review" | "battle" | "quiz_results" | "article";
+  sourceFlow?: "main_comparison" | "provider_review" | "battle_page" | "matching_flow" | "article_inline";
 }
 
 const arrowSvg = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>;
