@@ -48,7 +48,7 @@ until the site owner approves it.**
 - [x] Is raw dog food safe? Pathogens, handling and who should avoid it - `is-raw-dog-food-safe` (2026-11-05)
 - [x] How to switch your dog to fresh food (10-day plan) - `how-to-switch-dog-to-fresh-food` (2026-11-07)
 - [x] Grain-free dog food and DCM: what the FDA investigation found - `grain-free-dog-food-and-dcm` (2026-11-08)
-- [ ] Fresh food for puppies: AAFCO growth rules and calorie needs
+- [x] Fresh food for puppies: AAFCO growth rules and calorie needs - `fresh-food-for-puppies` (2026-11-09)
 - [ ] Fresh food toppers vs full fresh meals: how to split calories
 - [ ] Freeze-dried vs air-dried vs fresh-frozen dog food
 - [ ] How much protein does a dog need? (per 1,000 kcal explained)

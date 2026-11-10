@@ -111,7 +111,7 @@ export function Body() {
         If none of those apply and money is tight, a good complete kibble is a perfectly sound diet. We&apos;d rather tell you that than sell you a subscription you don&apos;t need.
       </P>
       <P>
-        The honest answer comes down to three numbers: what the research shows, what your dog weighs, and how many calories it eats. Let&apos;s take them one at a time.
+        The honest answer comes down to three numbers: what the research shows, what your dog weighs, and how many calories it eats. Let&apos;s take them one at a time. For everything else about fresh food, from storage to safety to where to buy it, see our <A href="/articles/fresh-dog-food-guide">complete fresh dog food guide</A>.
       </P>
 
       <H2 id="research">What does the research actually show about fresh dog food?</H2>
