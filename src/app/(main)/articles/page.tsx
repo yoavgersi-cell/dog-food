@@ -6,6 +6,8 @@ import { ARTICLES, articlePath } from "@/content/articles";
 import { SITE_URL } from "@/lib/config";
 import { breadcrumbSchema } from "@/lib/geo";
 import { pageMeta } from "@/lib/seo";
+import Image from "next/image";
+import { articleImage } from "@/content/articles/images";
 
 export const metadata = pageMeta({
   title: "Dog Food Guides: Feeding, Nutrition & Fresh Food Explained",
@@ -35,10 +37,15 @@ export default function ArticlesIndex() {
       <ul className="space-y-3">
         {ARTICLES.map(({ meta }) => (
           <li key={meta.slug}>
-            <Link href={articlePath(meta.slug)} className="block rounded-xl border border-[#F3E3A3] bg-white p-5 transition-colors hover:border-[#EAB308] hover:bg-[#FEFCE8]">
+            <Link href={articlePath(meta.slug)} className="flex flex-col gap-4 rounded-xl border border-[#F3E3A3] bg-white p-4 transition-colors hover:border-[#EAB308] hover:bg-[#FEFCE8] sm:flex-row sm:items-center sm:p-5">
+              {articleImage(meta.slug) && (
+                <Image src={articleImage(meta.slug)!.src} alt="" width={300} height={200} sizes="(max-width: 640px) 100vw, 220px" className="aspect-[3/2] w-full shrink-0 rounded-lg object-cover sm:w-[220px]" />
+              )}
+              <div className="min-w-0">
               <p className="text-[12px] font-bold uppercase tracking-[0.08em] text-[#A16207]">{meta.category} · {meta.readMinutes} min read</p>
               <h2 className="mt-1 text-[19px] font-bold leading-snug text-[#191919]">{meta.title}</h2>
               <p className="mt-1.5 text-[14.5px] text-gray-600">{meta.description}</p>
+              </div>
             </Link>
           </li>
         ))}

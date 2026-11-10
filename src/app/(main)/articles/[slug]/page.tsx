@@ -14,6 +14,8 @@ import { SITE_URL } from "@/lib/config";
 import { breadcrumbSchema, citations, CITATIONS, ENTITIES, faqSchema, orgRef, WEBSITE_ID } from "@/lib/geo";
 import { pageMeta } from "@/lib/seo";
 import { pageReviewSchema } from "@/data/reviewers";
+import Image from "next/image";
+import { articleImage } from "@/content/articles/images";
 
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -26,9 +28,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const a = ARTICLE_BY_SLUG.get((await params).slug);
   if (!a) return {};
   const m = pageMeta({ title: a.meta.seoTitle, description: a.meta.description, path: articlePath(a.meta.slug) });
+  const img = articleImage(a.meta.slug);
+  const ogImages = img ? [{ url: img.og, width: 1200, height: 630, alt: img.alt }] : m.openGraph?.images;
   return {
     ...m,
-    openGraph: { ...m.openGraph, title: a.meta.title, type: "article", publishedTime: a.meta.publishedAt, modifiedTime: a.meta.updatedAt },
+    openGraph: { ...m.openGraph, title: a.meta.title, type: "article", publishedTime: a.meta.publishedAt, modifiedTime: a.meta.updatedAt, images: ogImages },
+    twitter: { ...m.twitter, images: img ? [img.og] : m.twitter?.images },
   };
 }
 
@@ -40,6 +45,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const { meta, Body } = a;
   const path = articlePath(meta.slug);
   const others = ARTICLES.filter((x) => x.meta.slug !== meta.slug).slice(0, 4);
+  const img = articleImage(meta.slug);
 
   const schema = [
     {
@@ -49,7 +55,12 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       description: meta.description,
       url: `${SITE_URL}${path}`,
       mainEntityOfPage: `${SITE_URL}${path}`,
-      image: `${SITE_URL}/og-default.jpg`,
+      image: img
+        ? [
+            { "@type": "ImageObject", url: `${SITE_URL}${img.src}`, width: img.width, height: img.height, caption: img.alt },
+            { "@type": "ImageObject", url: `${SITE_URL}${img.og}`, width: 1200, height: 630 },
+          ]
+        : `${SITE_URL}/og-default.jpg`,
       datePublished: meta.publishedAt,
       dateModified: meta.updatedAt,
       articleSection: meta.category,
@@ -79,6 +90,12 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <Byline path={path} updatedAt={meta.updatedAt} />
         <p className="mt-1 text-[12.5px] text-gray-500">Published {fmtDate(meta.publishedAt)}</p>
       </div>
+
+      {img && (
+        <figure className="mb-6 overflow-hidden rounded-2xl border border-[#F3E3A3] bg-[#FEFCE8]">
+          <Image src={img.src} alt={img.alt} width={img.width} height={img.height} priority sizes="(max-width: 860px) 100vw, 820px" className="h-auto w-full" />
+        </figure>
+      )}
 
       <QuickAnswer question={meta.answer.question} answer={meta.answer.text} />
 
