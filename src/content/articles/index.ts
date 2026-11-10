@@ -11,6 +11,7 @@ import * as grainFreeDcm from "./grain-free-dog-food-and-dcm";
 import * as switchToFresh from "./how-to-switch-dog-to-fresh-food";
 import * as freshVsKibble from "./fresh-vs-kibble";
 import * as rawSafety from "./is-raw-dog-food-safe";
+import * as topperVsFull from "./fresh-dog-food-topper-vs-full-meal";
 
 export type { ArticleMeta } from "./types";
 
@@ -19,7 +20,7 @@ export interface Article {
   Body: ComponentType;
 }
 
-export const ARTICLES: Article[] = [guide, puppies, grainFreeDcm, switchToFresh, rawSafety, freshVsKibble, worthIt, readLabel, howMuchToFeed];
+export const ARTICLES: Article[] = [topperVsFull, guide, puppies, grainFreeDcm, switchToFresh, rawSafety, freshVsKibble, worthIt, readLabel, howMuchToFeed];
 
 export const ARTICLE_BY_SLUG = new Map(ARTICLES.map((a) => [a.meta.slug, a]));
 export const articlePath = (slug: string) => `/articles/${slug}`;
