@@ -236,7 +236,7 @@ export function Body() {
         Among the seven brands we review, plan menus differ more than recipes do. <A href="/reviews/the-pets-table">The Pets Table</A> sells an explicit topper plan alongside fresh, air-dried and mixed plans.
       </P>
       <P>
-        <A href="/reviews/ollie">Ollie</A> mixes fresh and baked food in one subscription, and <A href="/reviews/spot-and-tango">Spot &amp; Tango</A> pairs fresh with its fresh-dry format. <A href="/reviews/the-farmers-dog">The Farmer&apos;s Dog</A> is full-meal fresh only, though you can still feed part of a plan and cut the kibble yourself.
+        <A href="/reviews/ollie">Ollie</A> mixes fresh and baked food in one subscription, and <A href="/reviews/spot-and-tango">Spot &amp; Tango</A> pairs fresh with its <A href="/articles/unkibble-fresh-dry-dog-food">fresh-dry UnKibble</A>. <A href="/reviews/the-farmers-dog">The Farmer&apos;s Dog</A> is full-meal fresh only, though you can still feed part of a plan and cut the kibble yourself.
       </P>
       <P>
         Compare plan menus head to head in <A href="/compare/the-farmers-dog-vs-the-pets-table">The Farmer&apos;s Dog vs The Pets Table</A> and <A href="/compare/ollie-vs-the-pets-table">Ollie vs The Pets Table</A>. Our hubs on <A href={dietPath("fresh-topper")}>fresh toppers</A> and <A href={dietPath("mixed-feeding")}>mixed feeding</A> list the options, and <A href="/articles/is-fresh-dog-food-worth-it">is fresh dog food worth it?</A> covers the cost decision.

@@ -39,7 +39,7 @@ export function Part1() {
           [FORMAT_LABEL["raw-frozen"], "Not cooked; ground and frozen", "Freezer; thaw in the fridge", brandsWith("raw-frozen")],
           [FORMAT_LABEL["freeze-dried"], "Frozen, then water removed under vacuum", "Pantry", brandsWith("freeze-dried")],
           [FORMAT_LABEL["air-dried"], "Slowly dried with warm air", "Pantry", brandsWith("air-dried")],
-          [FORMAT_LABEL["fresh-dry"], "Cooked, then dried into soft pieces", "Pantry", brandsWith("fresh-dry")],
+          [FORMAT_LABEL["fresh-dry"], "Cooked, then dried into bite-size pieces", "Pantry", brandsWith("fresh-dry")],
           [FORMAT_LABEL.baked, "Baked into kibble-like pieces", "Pantry", brandsWith("baked")],
           [FORMAT_LABEL.rolled, "Cooked and packed into a sliceable log", "Pantry until opened, then fridge", brandsWith("rolled")],
           [FORMAT_LABEL.topper, "Small portions meant to go on another food", "Depends on format", brandsWith("topper")],
