@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { TextPage } from "@/components/text-page";
-import { REVIEWERS } from "@/data/reviewers";
+import { REVIEWERS, displayName, reviewerPath } from "@/data/reviewers";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -30,7 +30,10 @@ export default function About() {
       {REVIEWERS.length === 0 ? (
         <p>We are appointing a veterinary nutrition reviewer. Until then, health-condition pages are written from published veterinary guidelines (AAFCO, WSAVA, FDA) and tell you plainly when a condition needs a prescription diet. No page claims a veterinary review it hasn&apos;t had.</p>
       ) : (
-        <ul>{REVIEWERS.map((r) => <li key={r.slug} id={r.slug}><strong>{r.name}, {r.credentials}</strong> - {r.jobTitle}. {r.bio}</li>)}</ul>
+        <>
+          <p>Health and nutrition statements on our guides are checked by our veterinary review team. A page shows &ldquo;Veterinary Reviewed by&rdquo; only after that reviewer has actually gone through it, with the review date.</p>
+          <ul>{REVIEWERS.map((r) => <li key={r.slug} id={r.slug}><Link href={reviewerPath(r.slug)}><strong>{displayName(r)}</strong></Link> - {r.jobTitle}. {r.headline}</li>)}</ul>
+        </>
       )}
     </TextPage>
   );

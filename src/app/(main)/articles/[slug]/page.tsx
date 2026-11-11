@@ -8,6 +8,7 @@ import { JsonLd } from "@/components/json-ld";
 import { LinkGrid } from "@/components/link-grid";
 import { PageShell } from "@/components/page-shell";
 import { QuickAnswer } from "@/components/quick-answer";
+import { ReviewerBox } from "@/components/reviewer-box";
 import { ARTICLES, ARTICLE_BY_SLUG, articlePath } from "@/content/articles";
 import { RANKED_BRANDS } from "@/lib/dogfood/brands";
 import { SITE_URL } from "@/lib/config";
@@ -111,6 +112,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       </article>
 
       <FaqAccordion bare title="FAQs" items={meta.faqs} />
+
+      <ReviewerBox path={path} />
 
       <section className="mt-10 rounded-xl border border-[#F3E3A3] bg-white p-5">
         <h2 className="mb-2 text-[16px] font-bold text-[#191919]">Sources</h2>
