@@ -1,6 +1,5 @@
 import { H2, P, Callout } from "@/components/page-shell";
-import { ComparisonCard } from "@/components/comparison-card";
-import { getBrand } from "@/lib/dogfood/brands";
+import { ArticleBrandCard } from "@/components/article-brand-card";
 import { bestForPath, dietPath } from "@/lib/dogfood/taxonomy";
 import { kcalPerDayForLb } from "@/lib/nutrition";
 import type { ArticleMeta } from "./types";
@@ -22,15 +21,6 @@ const FRESH_KCAL_PER_KG = 1300; // illustrative fresh-frozen label
 const grams = (kcal: number, kcalPerKg: number) => (kcal / kcalPerKg) * 1000;
 const pct = (n: number, d: number) => `${((n / d) * 100).toFixed(1)}%`;
 
-function BrandCard({ slug }: { slug: string }) {
-  const b = getBrand(slug);
-  if (!b) return null;
-  return (
-    <div className="my-8">
-      <ComparisonCard brand={b} hideRank pageType="article" sourceFlow="article_inline" />
-    </div>
-  );
-}
 
 export const meta: ArticleMeta = {
   slug: "freeze-dried-vs-air-dried-vs-fresh-frozen-dog-food",
@@ -137,7 +127,7 @@ export function Body() {
         For freeze-dried raw specifically, the evidence is thin. A 2020 study of 17 raw products in Thailand found freeze-dried samples had lower total bacteria than frozen ones, but it tested only two freeze-dried products and concluded drying &ldquo;may reduce, but not eradicate&rdquo; contamination (<Ext href={THAI_2020}>Veterinary World, 2020</Ext>). Our <A href="/articles/is-raw-dog-food-safe">raw food safety guide</A> covers handling.
       </P>
 
-      <BrandCard slug="spot-and-tango" />
+      <ArticleBrandCard slug="spot-and-tango" />
 
       <H2 id="calories">Which format has the most calories per scoop?</H2>
       <P>
@@ -185,7 +175,7 @@ export function Body() {
         Among the brands we review, <A href="/reviews/maxbone">Maxbone</A> sells freeze-dried food, <A href="/reviews/redbarn">Redbarn</A> and <A href="/reviews/the-pets-table">The Pets Table</A> sell air-dried lines, and <A href="/reviews/we-feed-raw">We Feed Raw</A> sells raw frozen and freeze-dried. For cooked dried food, see our <A href="/articles/unkibble-fresh-dry-dog-food">UnKibble review</A>; for fresh-frozen, start with the brand below.
       </P>
 
-      <BrandCard slug="the-farmers-dog" />
+      <ArticleBrandCard slug="the-farmers-dog" />
 
       <P>
         Comparing two brands across formats? Try <A href="/compare/spot-and-tango-vs-maxbone">Spot &amp; Tango vs Maxbone</A> or <A href="/compare/the-farmers-dog-vs-we-feed-raw">The Farmer&apos;s Dog vs We Feed Raw</A>, or see all seven in our <A href="/">2026 ranking</A>.
