@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArticleBrandCard } from "@/components/article-brand-card";
 import { H2, P, Callout } from "@/components/page-shell";
 import { bestForPath, dietPath } from "@/lib/dogfood/taxonomy";
 import { kcalPerDayForLb } from "@/lib/nutrition";
@@ -165,6 +166,8 @@ export function Body() {
         })}
         note="Calories from 70 x kg^0.75 x 1.6 (neutered adult). Active dogs need more; less active and senior dogs usually need less."
       />
+      <ArticleBrandCard slug="the-farmers-dog" />
+
 
       <H2 id="normal">What&apos;s normal during the switch, and what isn&apos;t?</H2>
       <P>Most changes during a switch are expected. Here&apos;s how we&apos;d read them:</P>
@@ -222,6 +225,8 @@ export function Body() {
         You don&apos;t have to go 100% fresh. Many owners stop at a <A href={dietPath("fresh-topper")}>fresh topper</A> or a <A href={dietPath("mixed-feeding")}>mixed plan</A> to control cost; <A href="/articles/is-fresh-dog-food-worth-it">is fresh dog food worth it?</A> covers the trade-off.
         To choose a brand, start with our <A href="/">2026 ranking</A> or <A href="/compare/the-farmers-dog-vs-ollie">The Farmer&apos;s Dog vs Ollie</A>.
       </P>
+
+      <ArticleBrandCard slug="ollie" />
     </>
   );
 }

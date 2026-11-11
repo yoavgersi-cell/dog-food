@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { REVIEWERS, reviewerPath } from "@/data/reviewers";
 import { BRANDS } from "@/lib/dogfood/brands";
 import { PAIRS, comparePath } from "@/lib/dogfood/pairs";
 import { BREEDS, DEMOGRAPHICS, DIETS, INGREDIENTS, bestForPath, dietPath, ingredientPath } from "@/lib/dogfood/taxonomy";
@@ -36,6 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url("/articles", 0.7),
     url("/how-we-rank", 0.6, "monthly"),
     url("/about", 0.4, "monthly"),
+    ...REVIEWERS.map((r) => url(reviewerPath(r.slug), 0.4, "monthly")),
     url("/disclosure", 0.3, "monthly"),
     url("/contact", 0.3, "monthly"),
     url("/privacy", 0.2, "monthly"),

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArticleBrandCard } from "@/components/article-brand-card";
 import { ComparisonCard } from "@/components/comparison-card";
 import { H2, P, Callout } from "@/components/page-shell";
 import { RANKED_BRANDS } from "@/lib/dogfood/brands";
@@ -200,6 +201,8 @@ export function Body() {
       <P>
         You keep most of the taste and some of the moisture, at about a quarter of the cost of going fully fresh. <A href="/reviews/the-pets-table">The Pets Table</A> sells a topper-only plan, our <A href="/articles/fresh-dog-food-topper-vs-full-meal">topper vs full fresh guide</A> shows how to split the calories, and our guides to <A href={dietPath("fresh-topper")}>fresh toppers</A> and <A href={dietPath("mixed-feeding")}>mixed feeding</A> walk through the math.
       </P>
+      <ArticleBrandCard slug="the-pets-table" />
+
 
       <H2 id="decide">How do you decide in five minutes?</H2>
       <ol className="mb-4 list-decimal space-y-2 pl-5 text-[16px] leading-[1.7] text-gray-700">

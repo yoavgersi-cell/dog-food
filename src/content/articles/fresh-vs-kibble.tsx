@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArticleBrandCard } from "@/components/article-brand-card";
 import { H2, P, Callout } from "@/components/page-shell";
 import { comparePath } from "@/lib/dogfood/pairs";
 import { bestForPath, dietPath } from "@/lib/dogfood/taxonomy";
@@ -227,6 +228,8 @@ export function Body() {
       <P>
         Second, the fresh bowl weighs nearly {one(gramsFresh / gramsKibble)}x as much for the same energy. That is why you can&apos;t swap cups for cups. Convert by calories, using our <A href="/articles/how-much-fresh-food-to-feed-a-dog">fresh feeding guide</A>.
       </P>
+      <ArticleBrandCard slug="the-farmers-dog" />
+
 
       <H2 id="water">Will your dog drink less water on fresh food?</H2>
       <P>
@@ -280,6 +283,8 @@ export function Body() {
         The middle path works well: replace about 25% of calories with fresh food (<A href={dietPath("fresh-topper")}>fresh toppers</A>, <A href={dietPath("mixed-feeding")}>mixed feeding</A>).
         For the cost question, read <A href="/articles/is-fresh-dog-food-worth-it">is fresh dog food worth it?</A> To pick a brand, start with our <A href="/">2026 ranking</A> or the head-to-head <A href={comparePath("the-farmers-dog-vs-ollie")}>The Farmer&apos;s Dog vs Ollie</A>, scored with our <A href="/how-we-rank">published rubric</A>.
       </P>
+
+      <ArticleBrandCard slug="ollie" />
     </>
   );
 }

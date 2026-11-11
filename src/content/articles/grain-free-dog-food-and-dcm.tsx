@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArticleBrandCard } from "@/components/article-brand-card";
 import { H2, P, Callout } from "@/components/page-shell";
 import { bestForPath, dietPath, ingredientPath } from "@/lib/dogfood/taxonomy";
 import type { ArticleMeta } from "./types";
@@ -214,6 +215,8 @@ export function Body() {
       <P>
         If you do switch, do it gradually; our <A href="/articles/how-to-switch-dog-to-fresh-food">10-day switching plan</A> works for any food change.
       </P>
+      <ArticleBrandCard slug="spot-and-tango" />
+
 
       <H2 id="signs">What signs of DCM should you watch for?</H2>
       <P>
@@ -233,6 +236,8 @@ export function Body() {
       <P>
         We list each brand&apos;s recipes and formats in our reviews, including <A href="/reviews/the-farmers-dog">The Farmer&apos;s Dog</A>, <A href="/reviews/ollie">Ollie</A> and <A href="/reviews/spot-and-tango">Spot &amp; Tango</A>, and score every brand with the same <A href="/how-we-rank">published method</A> in our <A href="/">2026 ranking</A>.
       </P>
+
+      <ArticleBrandCard slug="the-farmers-dog" />
     </>
   );
 }

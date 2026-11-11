@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArticleBrandCard } from "@/components/article-brand-card";
 import { CalorieTable } from "@/components/data-tables";
 import { H2, P, Callout } from "@/components/page-shell";
 import { bestForPath, dietPath, BREEDS, breedMidLb } from "@/lib/dogfood/taxonomy";
@@ -91,6 +92,8 @@ export function Body() {
         Score your dog every 2-4 weeks on the 9-point body condition scale used by the WSAVA: at an ideal 4-5 out of 9 you can feel the ribs easily under a thin fat layer and see a waist from above.
         If your dog drifts above 5, reduce portions by about 10%; if it drifts below 4, increase by about 10%. Weigh monthly on the same scale.
       </P>
+      <ArticleBrandCard slug="the-farmers-dog" />
+
 
       <H2 id="special-cases">Special cases</H2>
       <ul className="mb-4 list-disc space-y-2 pl-5 text-[16px] leading-[1.7] text-gray-700">
@@ -138,6 +141,8 @@ export function Body() {
         More in our <Link href={dietPath("transitioning-to-fresh")} className="font-semibold text-[#A16207] hover:underline">transition guide</Link>, and for a sensitive dog see{" "}
         <Link href={dietPath("sensitive-stomach")} className="font-semibold text-[#A16207] hover:underline">fresh food for sensitive stomachs</Link>.
       </P>
+
+      <ArticleBrandCard slug="ollie" />
     </>
   );
 }
