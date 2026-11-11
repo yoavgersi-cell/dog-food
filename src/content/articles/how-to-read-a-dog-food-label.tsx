@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArticleBrandCard } from "@/components/article-brand-card";
 import { H2, P, Callout } from "@/components/page-shell";
 import { comparePath } from "@/lib/dogfood/pairs";
 import { bestForPath, dietPath, ingredientPath } from "@/lib/dogfood/taxonomy";
@@ -164,6 +165,8 @@ export function Body() {
       <P>
         If you want the most protein per calorie, see <A href={dietPath("high-protein")}>high-protein dog food</A>. If your vet has asked you to limit fat, see <A href={dietPath("low-fat")}>low-fat dog food</A>.
       </P>
+      <ArticleBrandCard slug="the-farmers-dog" />
+
 
       <H2 id="product-names">What do names like &quot;beef dinner&quot; or &quot;with chicken&quot; mean?</H2>
       <P>
@@ -221,6 +224,8 @@ export function Body() {
         To see the method applied, start with <A href={comparePath("the-farmers-dog-vs-ollie")}>The Farmer&apos;s Dog vs Ollie</A> or <A href={comparePath("the-farmers-dog-vs-we-feed-raw")}>The Farmer&apos;s Dog vs We Feed Raw</A>.
         Once you know your dog&apos;s calorie needs, our guide to <A href="/articles/how-much-fresh-food-to-feed-a-dog">how much fresh food to feed</A> turns the label&apos;s kcal/kg into grams per day.
       </P>
+
+      <ArticleBrandCard slug="spot-and-tango" />
     </>
   );
 }

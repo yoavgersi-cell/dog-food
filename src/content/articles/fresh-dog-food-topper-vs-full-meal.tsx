@@ -1,4 +1,5 @@
 import { H2, P, Callout } from "@/components/page-shell";
+import { ArticleBrandCard } from "@/components/article-brand-card";
 import { bestForPath, dietPath } from "@/lib/dogfood/taxonomy";
 import { kcalPerDayForLb } from "@/lib/nutrition";
 import type { ArticleMeta } from "./types";
@@ -170,6 +171,8 @@ export function Body() {
       <P>
         Calorie formulas are only a starting point anyway. The WSAVA notes individual dogs can need up to 50% more or less than the estimate, and advises adjusting amounts every 2 weeks at first to reach an ideal weight and body condition (<Ext href={WSAVA_FAQ}>WSAVA</Ext>). If weight is already a concern, see <A href={dietPath("weight-management")}>weight management</A>.
       </P>
+      <ArticleBrandCard slug="the-pets-table" />
+
 
       <H2 id="labels">How accurate are the calorie numbers on fresh dog food?</H2>
       <P>
@@ -241,6 +244,8 @@ export function Body() {
       <P>
         Compare plan menus head to head in <A href="/compare/the-farmers-dog-vs-the-pets-table">The Farmer&apos;s Dog vs The Pets Table</A> and <A href="/compare/ollie-vs-the-pets-table">Ollie vs The Pets Table</A>. Our hubs on <A href={dietPath("fresh-topper")}>fresh toppers</A> and <A href={dietPath("mixed-feeding")}>mixed feeding</A> list the options, and <A href="/articles/is-fresh-dog-food-worth-it">is fresh dog food worth it?</A> covers the cost decision.
       </P>
+
+      <ArticleBrandCard slug="ollie" />
     </>
   );
 }

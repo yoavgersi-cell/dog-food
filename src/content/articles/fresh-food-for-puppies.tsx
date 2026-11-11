@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArticleBrandCard } from "@/components/article-brand-card";
 import { H2, P, Callout } from "@/components/page-shell";
 import { bestForPath, dietPath } from "@/lib/dogfood/taxonomy";
 import { AAFCO, LIFE_STAGE_FACTORS, kcalPerDayForLb } from "@/lib/nutrition";
@@ -184,6 +185,8 @@ export function Body() {
       <P>
         Small dogs are also where fresh food costs the least per day, because total calories are low. Our <A href={bestForPath("small-breed-puppy")}>small-breed puppy guide</A> has the numbers.
       </P>
+      <ArticleBrandCard slug="spot-and-tango" />
+
 
       <H2 id="raw">Is raw food safe for puppies?</H2>
       <P>
@@ -214,6 +217,8 @@ export function Body() {
         Start with our <A href={bestForPath("puppy")}>best food for puppies</A> guide and the brand reviews for <A href="/reviews/the-farmers-dog">The Farmer&apos;s Dog</A>, <A href="/reviews/ollie">Ollie</A> and <A href="/reviews/spot-and-tango">Spot &amp; Tango</A>.
         Every brand is scored the same way in our <A href="/">2026 ranking</A> (<A href="/how-we-rank">how we rank</A>), and <A href={dietPath("fresh")}>fresh dog food explained</A> covers the format itself.
       </P>
+
+      <ArticleBrandCard slug="the-farmers-dog" />
     </>
   );
 }

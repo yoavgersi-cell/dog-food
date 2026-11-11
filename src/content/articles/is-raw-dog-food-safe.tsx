@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArticleBrandCard } from "@/components/article-brand-card";
 import { H2, P, Callout } from "@/components/page-shell";
 import { bestForPath, dietPath } from "@/lib/dogfood/taxonomy";
 import type { ArticleMeta } from "./types";
@@ -244,6 +245,8 @@ export function Body() {
         <li>Your dog visits hospitals, schools or care homes as a therapy dog, or lives with cats who might share bowls.</li>
         <li>Your dog is on immune-suppressing medication. Ask your vet first.</li>
       </ul>
+      <ArticleBrandCard slug="we-feed-raw" />
+
 
       <H2 id="lower-risk">If you feed raw, how do you lower the risk?</H2>
       <P>
@@ -271,6 +274,8 @@ export function Body() {
         Our top-rated cooked options are <A href="/reviews/the-farmers-dog">The Farmer&apos;s Dog</A> and <A href="/reviews/ollie">Ollie</A>; the <A href="/compare/the-farmers-dog-vs-ollie">head-to-head</A> covers the differences.
         If freezer space is the issue, <A href="/reviews/spot-and-tango">Spot &amp; Tango</A> makes a shelf-stable cooked option. Every brand is scored in our <A href="/">2026 ranking</A> using our <A href="/how-we-rank">published method</A>, and our <A href={dietPath("transitioning-to-fresh")}>transition plan</A> covers the switch.
       </P>
+
+      <ArticleBrandCard slug="the-farmers-dog" />
     </>
   );
 }
