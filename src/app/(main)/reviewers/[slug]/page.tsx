@@ -34,6 +34,7 @@ const fmt = (iso: string) =>
   new Date(iso).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
 
 function titleFor(path: string) {
+  if (path === "/") return "Best Fresh Dog Food: 7 Delivery Services Compared (homepage ranking)";
   const m = path.match(/^\/articles\/(.+)$/);
   return (m && ARTICLE_BY_SLUG.get(m[1])?.meta.title) || path;
 }
@@ -107,7 +108,7 @@ export default async function ReviewerPage({ params }: { params: Promise<{ slug:
       </div>
 
       <section className="mt-8 rounded-xl border border-[#F3E3A3] bg-[#FEFCE8] p-5">
-        <h2 className="mb-2 text-[16px] font-bold text-[#191919]">Content reviewed by {r.shortName}</h2>
+        <h2 className="mb-2 text-[16px] font-bold text-[#191919]">Veterinary reviewed by {r.shortName}</h2>
         {reviewed.length > 0 ? (
           <ul className="space-y-1.5 text-[15px]">
             {reviewed.map((x) => (
@@ -118,7 +119,7 @@ export default async function ReviewerPage({ params }: { params: Promise<{ slug:
             ))}
           </ul>
         ) : (
-          <p className="text-[15px] text-gray-600">Reviewed guides will be listed here as each review is completed.</p>
+          <p className="text-[15px] text-gray-600">Pages will be listed here as each veterinary review is completed.</p>
         )}
         <p className="mt-3 text-[13px] text-gray-500">
           Reviewers check health and nutrition statements against veterinary references. Brand scores come from our published <Link href="/how-we-rank" className="text-[#A16207] hover:underline">rubric</Link>, not from reviewers.

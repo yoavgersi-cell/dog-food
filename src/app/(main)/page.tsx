@@ -5,6 +5,7 @@ import { ComparisonMatrix } from "@/components/comparison-matrix";
 import { Sidebar } from "@/components/sidebar";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { Byline } from "@/components/byline";
+import { ReviewerBox } from "@/components/reviewer-box";
 import { HomeEditorial } from "@/components/home-editorial";
 import { ProductShelf } from "@/components/product-shelf";
 import { PRODUCTS } from "@/lib/dogfood/products";
@@ -120,6 +121,8 @@ export default function HomePage() {
       </section>
 
       <FaqAccordion items={HOME_FAQS} />
+
+      <ReviewerBox path="/" />
     </>
   );
 }

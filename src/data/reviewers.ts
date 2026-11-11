@@ -63,7 +63,9 @@ export const REVIEWERS: Reviewer[] = [
 ];
 
 /** path -> reviewer slug + ISO date reviewed. Add a line only once the reviewer has confirmed the review. */
-export const REVIEW_LOG: Record<string, { reviewer: string; reviewedAt: string }> = {};
+export const REVIEW_LOG: Record<string, { reviewer: string; reviewedAt: string }> = {
+  "/": { reviewer: "margarette-prudente", reviewedAt: "2026-11-11" }, // homepage ranking; confirmed by owner 2026-11-11
+};
 
 export const reviewerPath = (slug: string) => `/reviewers/${slug}`;
 export const reviewerId = (slug: string) => `${SITE_URL}${reviewerPath(slug)}#person`;
