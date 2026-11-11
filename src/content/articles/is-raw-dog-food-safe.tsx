@@ -222,7 +222,7 @@ export function Body() {
         Some raw brands use high-pressure processing (HPP) for this. If you buy raw, ask the brand directly whether every batch goes through a validated kill step, and for what pathogens.
       </P>
       <P>
-        This applies to <A href={dietPath("freeze-dried")}>freeze-dried raw</A> as much as frozen. It&apos;s more convenient, not automatically safer.
+        This applies to <A href={dietPath("freeze-dried")}>freeze-dried raw</A> as much as frozen. It&apos;s more convenient, not automatically safer; see <A href="/articles/freeze-dried-vs-air-dried-vs-fresh-frozen-dog-food">freeze-dried vs air-dried vs fresh-frozen</A> for how the formats differ.
       </P>
 
       <H2 id="benefits">Is raw food healthier than cooked food?</H2>
