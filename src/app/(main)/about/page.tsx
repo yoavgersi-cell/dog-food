@@ -26,7 +26,7 @@ export default function About() {
       </ul>
       <h2>Independence</h2>
       <p>We may earn a commission when you buy through our links. It doesn&apos;t change scores: they come from the rubric, and the ranking order is always the score order. See our <Link href="/disclosure">advertising disclosure</Link>.</p>
-      <h2>Veterinary review</h2>
+      <h2 id="veterinary-review">Veterinary review</h2>
       {REVIEWERS.length === 0 ? (
         <p>We are appointing a veterinary nutrition reviewer. Until then, health-condition pages are written from published veterinary guidelines (AAFCO, WSAVA, FDA) and tell you plainly when a condition needs a prescription diet. No page claims a veterinary review it hasn&apos;t had.</p>
       ) : (
