@@ -31,10 +31,18 @@ until the site owner approves it.**
   "game-changer", "it's important to note", "at the end of the day",
   "furry friend", "fur baby", "pupper", "doggo".
 - **Sentences:** median <= 20 words; paragraphs <= 4 sentences.
-- **Length:** 1,300-2,200 words. Stop when the data runs out; never pad.
+- **Length (owner rule, 2026-11-11):** short. 800-1,200 words of body text
+  (excluding the answer box, takeaways, FAQs and sources); about 6-8 sections.
+  Lead with tables over paragraphs. Stop when the data runs out; never pad.
+- **Provider cards (owner rule, 2026-11-11):** every article includes 1-2
+  inline provider cards via `<ArticleBrandCard slug="..." />`
+  (`src/components/article-brand-card.tsx`; it renders the chart card with
+  no rank number). Pick the brand(s) the article is about, or the best fit
+  among the 7 for the reader's situation. Place one mid-article after a
+  section and one near the end, never between a heading and its answer.
 - **Structure:** `meta` (seoTitle <= 60 chars, description 140-160 chars,
   direct answer, 3-4 key takeaways, 3-5 FAQs, relatedPaths) + `Body` with
-  >= 2 tables and >= 10 internal links to existing routes (reviews, brands,
+  >= 2 tables and >= 8 internal links to existing routes (reviews, brands,
   compare, best-for, diets, ingredients, other articles).
 - **Cross-link:** add one contextual link to the new article from at least one
   existing article.

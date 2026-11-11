@@ -1,6 +1,5 @@
 import { H2, P, Callout } from "@/components/page-shell";
-import { ComparisonCard } from "@/components/comparison-card";
-import { getBrand } from "@/lib/dogfood/brands";
+import { ArticleBrandCard } from "@/components/article-brand-card";
 import { bestForPath, dietPath } from "@/lib/dogfood/taxonomy";
 import { kcalPerDayForLb } from "@/lib/nutrition";
 import type { ArticleMeta } from "./types";
@@ -36,15 +35,6 @@ const [BEEF, , COD] = RECIPES;
 const k25 = kcalPerDayForLb(25);
 const k50 = kcalPerDayForLb(50);
 
-function SpotAndTangoCard() {
-  const b = getBrand("spot-and-tango");
-  if (!b) return null;
-  return (
-    <div className="my-8">
-      <ComparisonCard brand={b} hideRank pageType="article" sourceFlow="article_inline" />
-    </div>
-  );
-}
 
 export const meta: ArticleMeta = {
   slug: "unkibble-fresh-dry-dog-food",
@@ -131,7 +121,7 @@ export function Body() {
         Beef + Barley is the richest, with as much fat as protein. Cod + Salmon is the leanest and the only grain-free, poultry-free option. Per 1,000 kcal, protein ranges from {`${per1000(BEEF.protein, BEEF.kcalPerKg).toFixed(0)} g to ${per1000(COD.protein, COD.kcalPerKg).toFixed(0)} g`}, comfortably above AAFCO&apos;s adult minimum of 45 g.
       </P>
 
-      <SpotAndTangoCard />
+      <ArticleBrandCard slug="spot-and-tango" />
 
       <H2 id="calories">Why does UnKibble&apos;s calorie density matter?</H2>
       <P>
@@ -212,7 +202,7 @@ export function Body() {
         <strong>Our take:</strong> UnKibble is the strongest option we&apos;ve found for whole-food ingredients without a freezer. Choose Cod + Salmon or Turkey if fat is a concern, use the scoop exactly, and switch over 7-10 days.
       </Callout>
 
-      <SpotAndTangoCard />
+      <ArticleBrandCard slug="spot-and-tango" />
 
       <P>
         Read our full <A href="/reviews/spot-and-tango">Spot &amp; Tango review</A>, or see how it ranks against six other brands in our <A href="/">2026 ranking</A>. Switching from kibble? Follow our <A href="/articles/how-to-switch-dog-to-fresh-food">10-day plan</A>.
