@@ -80,11 +80,7 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={schema} />
-      <HeroSection backgroundImageUrl="" imageAlt="" sideImage={{ src: "/brand/hero-dog-wide.webp", alt: "Golden retriever with its tongue out, excited for fresh dog food", width: 1600, height: 1067 }} updatedLabel={HOME_HERO.updatedLabel} h1={<>{HOME_HERO.h1Before}<span className="text-[#A16207]">{HOME_HERO.h1Highlight}</span>{HOME_HERO.h1After}</>} h2={HOME_HERO.h2} description={<>{HOME_HERO.descriptionLead}<span className="hidden sm:inline"> {HOME_HERO.descriptionMore}</span></>} />
-
-      <section className="mx-auto max-w-[1200px] px-4 pt-3">
-        <Byline path="/" />
-      </section>
+      <HeroSection backgroundImageUrl="" imageAlt="" sideImage={{ src: "/brand/hero-dog-wide.webp", alt: "Golden retriever with its tongue out, excited for fresh dog food", width: 1600, height: 1067 }} updatedLabel={HOME_HERO.updatedLabel} h1={<>{HOME_HERO.h1Before}<span className="text-[#A16207]">{HOME_HERO.h1Highlight}</span>{HOME_HERO.h1After}</>} h2={HOME_HERO.h2} description={<>{HOME_HERO.descriptionLead}<span className="hidden sm:inline"> {HOME_HERO.descriptionMore}</span></>} footer={<Byline path="/" hideUpdated />} />
 
       <section className="mx-auto max-w-[1200px] px-4 pb-6 pt-4">
         {/* Heading sits above the two-column row so the #1 card and the sidebar share a top edge. */}

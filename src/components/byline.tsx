@@ -21,7 +21,7 @@ const linkedInIcon = (
  * "Reviewed for veterinary accuracy by ...", LinkedIn, review date, author, how we review).
  * Unreviewed pages: the editorial strip only.
  */
-export function Byline({ path, updatedAt }: { path: string; updatedAt?: string }) {
+export function Byline({ path, updatedAt, hideUpdated = false }: { path: string; updatedAt?: string; hideUpdated?: boolean }) {
   const review = getPageReview(path);
 
   if (!review) {
@@ -40,15 +40,16 @@ export function Byline({ path, updatedAt }: { path: string; updatedAt?: string }
   const linkedIn = r.sameAs.find((u) => u.includes("linkedin.com"));
   return (
     <div className="text-[13px] leading-snug">
-      <p className="text-gray-500">Updated {fmtLong(latestUpdate(updatedAt))}</p>
-      <div className="mt-2.5 flex items-start gap-2.5">
+      {!hideUpdated && <p className="text-gray-500">Updated {fmtLong(latestUpdate(updatedAt))}</p>}
+      <div className={`${hideUpdated ? "" : "mt-2.5 "}flex items-start gap-2.5`}>
         <Link href={reviewerPath(r.slug)} className="shrink-0" aria-label={`${displayName(r)} profile`}>
           <Image src={r.image} alt={displayName(r)} width={36} height={36} className="h-9 w-9 rounded-full object-cover" />
         </Link>
         <div className="min-w-0">
-          <p className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-gray-700">
+          <p className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 whitespace-nowrap text-gray-700">
             <ShieldCheck className="h-4 w-4 shrink-0 text-[#16A34A]" aria-hidden="true" />
-            <span>Reviewed for veterinary accuracy by</span>
+            <span className="sm:hidden">Vet reviewed by</span>
+            <span className="hidden sm:inline">Reviewed for veterinary accuracy by</span>
             <Link href={reviewerPath(r.slug)} className="font-bold text-[#191919] underline decoration-dotted underline-offset-2 hover:text-[#A16207]">
               {displayName(r)}
             </Link>
@@ -58,10 +59,12 @@ export function Byline({ path, updatedAt }: { path: string; updatedAt?: string }
               </a>
             )}
           </p>
-          <p className="mt-1 text-[12.5px] text-gray-500">
-            Reviewed {fmt(review.reviewedAt)} · Written by{" "}
-            <Link href="/about" className="text-[#A16207] hover:underline">Dog Food Scout Research</Link> ·{" "}
-            <Link href="/about#veterinary-review" className="text-[#A16207] hover:underline">How we review</Link>
+          <p className="mt-1 whitespace-nowrap text-[12px] text-gray-500 sm:whitespace-normal sm:text-[12.5px]">
+            <span className="hidden sm:inline">Reviewed </span>{fmt(review.reviewedAt)}
+            <span className="hidden sm:inline">
+              {" "}· Written by <Link href="/about" className="text-[#A16207] hover:underline">Dog Food Scout Research</Link>
+            </span>
+            {" "}· <Link href="/about#veterinary-review" className="text-[#A16207] hover:underline">How we review</Link>
           </p>
         </div>
       </div>
