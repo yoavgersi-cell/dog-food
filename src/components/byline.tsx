@@ -21,7 +21,7 @@ export function Byline({ path, updatedAt }: { path: string; updatedAt?: string }
       {review ? (
         <Link
           href={reviewerPath(review.reviewer.slug)}
-          className="group block shrink-0 leading-tight sm:text-right"
+          className="group block w-fit shrink-0 rounded-xl border border-gray-200 bg-white px-4 py-2.5 leading-tight shadow-sm hover:border-[#F3E3A3] sm:text-right"
           title={`Reviewed on ${fmt(review.reviewedAt)}`}
         >
           <span className="block text-[12px] text-gray-500">Veterinary Reviewed by</span>
@@ -29,7 +29,7 @@ export function Byline({ path, updatedAt }: { path: string; updatedAt?: string }
             {displayName(review.reviewer)}
             <ShieldCheck className="h-4 w-4 text-[#16A34A]" aria-label="Verified reviewer" />
           </span>
-          <span className="mt-0.5 block text-[12px] text-gray-500">{review.reviewer.jobTitle} · {fmt(review.reviewedAt)}</span>
+          <span className="mt-0.5 block text-[12px] text-gray-500">{review.reviewer.jobTitle}</span>
         </Link>
       ) : null}
     </div>
