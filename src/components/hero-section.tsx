@@ -14,6 +14,8 @@ interface HeroSectionProps {
   maxTextWidth?: string;
   /** Full-height backdrop photo bleeding in from the screen's right edge (desktop). */
   sideImage?: { src: string; alt: string; width: number; height: number };
+  /** Rendered under the icon row (e.g. the byline / reviewer line). */
+  footer?: React.ReactNode;
 }
 
 export function HeroSection({
@@ -26,9 +28,10 @@ export function HeroSection({
   textAlign = "left",
   maxTextWidth = "640px",
   sideImage,
+  footer,
 }: HeroSectionProps) {
   return (
-    <section className={cn("relative w-full overflow-hidden bg-[#FFFBEB] pb-2 pt-6 sm:pt-9", sideImage && "lg:min-h-[440px] lg:pb-6")}>
+    <section className={cn("relative w-full overflow-hidden bg-[#FFFBEB] pb-2 pt-6 sm:pt-9", sideImage && "lg:min-h-[400px] lg:pb-4")}>
       {/* Backdrop photo (desktop): anchored to the viewport's right edge at full hero
           height. Sharp but muted (lower opacity, saturation and contrast, the cream
           showing through like a wash) so the headline always reads stronger than the
@@ -68,7 +71,7 @@ export function HeroSection({
         )}
       >
         <div
-          className={cn("relative z-10 max-w-[640px]", sideImage ? "lg:max-w-[640px] lg:py-6 xl:max-w-[700px]" : "lg:max-w-[1040px]")}
+          className={cn("relative z-10 max-w-[640px]", sideImage ? "lg:max-w-[640px] lg:py-4 xl:max-w-[700px]" : "lg:max-w-[1040px]")}
           style={{ maxWidth: maxTextWidth !== "640px" ? maxTextWidth : undefined }}
         >
           {updatedLabel && (
@@ -107,6 +110,8 @@ export function HeroSection({
               </li>
             ))}
           </ul>
+
+          {footer && <div className="mt-5 border-t border-[#F3E3A3] pt-4 sm:mt-6">{footer}</div>}
         </div>
       </div>
     </section>
