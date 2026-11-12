@@ -7,4 +7,6 @@ export interface ReviewContent {
   Body: ComponentType;
   faqs: FaqItem[]; // added to the generated FAQs (and FAQPage schema)
   sources: { label: string; publisher: string; year?: number; href: string }[];
+  /** True when Body includes its own alternatives table (hides the generated one). */
+  ownAlternatives?: boolean;
 }

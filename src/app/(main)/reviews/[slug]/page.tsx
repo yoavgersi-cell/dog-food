@@ -38,8 +38,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const b = getBrand((await params).slug);
   if (!b) return {};
   return pageMeta({
-    title: `${b.name} Review (2026): Cost, Pros & Cons, Worth It?`,
-    description: `We scored ${b.name} ${b.score.toFixed(1)}/10. What it costs, what's in it, the real pros and cons, and who should (and shouldn't) buy it, compared with ${pairsForBrand(b.slug).length} rivals.`,
+    title: `${b.name} Review (2026): Honest Pros, Cons & Verdict`,
+    description: `Is ${b.name} worth it? Our ${b.score.toFixed(1)}/10 verdict, the real pros and cons${b.trustpilot ? ", what customers say" : ""}, and who should (and shouldn't) buy it vs ${pairsForBrand(b.slug).length} rivals.`,
     path: `/reviews/${b.slug}`,
   });
 }
@@ -192,7 +192,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
       )}
 
       {/* Deep editorial reviews carry their own alternatives table. */}
-      {!editorial && (
+      {!editorial?.ownAlternatives && (
         <>
           <H2 id="compare">{b.name} vs. its closest alternatives</H2>
           <FeatureTable brands={[b, ...alts]} />
@@ -249,7 +249,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
       <LinkGrid title="Diets this brand fits" columns={3} items={links.diets} />
       <LinkGrid title="By life stage and size" columns={3} items={links.lifeStages} />
       <p className="mt-8 text-[14px] text-gray-600">
-        Full specs and every recipe: <Link href={`/brands/${b.slug}`} className="font-semibold text-[#A16207] hover:underline">{b.name} spec sheet</Link>.{" "}
+        Every recipe, ingredient and nutrient: <Link href={`/brands/${b.slug}`} className="font-semibold text-[#A16207] hover:underline">{b.name} recipes &amp; nutrition</Link>.{" "}
         Back to the <Link href="/" className="font-semibold text-[#A16207] hover:underline">full ranking</Link>.
       </p>
     </PageShell>
