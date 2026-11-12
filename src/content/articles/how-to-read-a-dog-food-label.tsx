@@ -147,7 +147,7 @@ export function Body() {
 
       <H2 id="per-1000-kcal">What does protein per 1,000 kcal tell you that dry matter doesn&apos;t?</H2>
       <P>
-        It tells you how much protein your dog actually gets for the calories it eats. That is the number vets use, and it is the basis of the AAFCO minimums. Formula: <strong>g per 1,000 kcal = as-fed % x 10,000 / kcal per kg</strong>.
+        It tells you how much protein your dog actually gets for the calories it eats. That is the number vets use, and it is the basis of the AAFCO minimums (see <A href="/articles/how-much-protein-does-a-dog-need">how much protein a dog needs</A>). Formula: <strong>g per 1,000 kcal = as-fed % x 10,000 / kcal per kg</strong>.
       </P>
       <P>
         Using the same examples with illustrative calorie densities ({FRESH.kcalPerKg.toLocaleString("en-US")} kcal/kg fresh, {KIBBLE.kcalPerKg.toLocaleString("en-US")} kcal/kg kibble): the fresh food gives {per1000(FRESH.protein, FRESH.kcalPerKg)} g of protein per 1,000 kcal and the kibble {per1000(KIBBLE.protein, KIBBLE.kcalPerKg)} g.
