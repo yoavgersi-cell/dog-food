@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { ProductShelf } from "@/components/product-shelf";
+import { productsFor } from "@/lib/dogfood/products";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -28,8 +30,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const b = getBrand((await params).slug);
   if (!b) return {};
   return pageMeta({
-    title: `${b.name}: Recipes, Dry-Matter Nutrition & Cost per Day`,
-    description: `${b.name} spec sheet: formats (${b.formats.map((f) => FORMAT_LABEL[f]).join(", ")}), proteins, dry-matter nutrients, AAFCO statement, cost per day at 10-100 lb, and all 6 head-to-head comparisons.`,
+    title: `${b.name} Recipes, Ingredients & Nutrition (2026)`,
+    description: `What is in ${b.name}: every recipe and product we track, main proteins, nutrition on a dry-matter basis and per 1,000 kcal, and listed prices.`,
     path: `/brands/${b.slug}`,
   });
 }
@@ -39,6 +41,7 @@ export default async function BrandHubPage({ params }: { params: Promise<{ slug:
   if (!b) notFound();
   const path = `/brands/${b.slug}`;
   const links = brandLinks(b);
+  const products = productsFor(b.slug);
   const c25 = b.price ? fmtUsd(costPerDay(b.price, 25)) : PENDING;
 
   const schema = [
@@ -61,7 +64,7 @@ export default async function BrandHubPage({ params }: { params: Promise<{ slug:
     <PageShell>
       <JsonLd data={schema} />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Reviews", href: "/reviews" }, { label: b.name }]} />
-      <h1 className="text-[28px] font-extrabold leading-tight text-[#191919] sm:text-[34px]">{b.name} Dog Food: Specs, Nutrition &amp; Cost</h1>
+      <h1 className="text-[28px] font-extrabold leading-tight text-[#191919] sm:text-[34px]">{b.name}: Recipes, Ingredients &amp; Nutrition</h1>
       <div className="mb-5 mt-2"><Byline path={path} /></div>
 
       <QuickAnswer
@@ -77,6 +80,14 @@ export default async function BrandHubPage({ params }: { params: Promise<{ slug:
       />
 
       <div className="mt-6"><ComparisonCard brand={b} hideRank pageType="review" sourceFlow="provider_review" /></div>
+
+      {products.length > 0 && (
+        <>
+          <H2 id="products">{b.name} recipes and products we track</H2>
+          <P>Listed prices, pack sizes and sellers as captured, grouped by type. Subscription plans are priced to your dog&apos;s calories, so use the cost table below for a daily estimate.</P>
+          <ProductShelf products={products} path={path} name={`${b.name} recipes and products`} />
+        </>
+      )}
 
       <H2 id="nutrition">Nutrition spec sheet</H2>
       <P>All values convert the brand&apos;s published guaranteed analysis to a dry-matter basis and to grams per 1,000 kcal, the only fair way to compare fresh (about 70% water) with freeze-dried and air-dried food.</P>

@@ -178,6 +178,7 @@ function Body() {
 }
 
 export const content: ReviewContent = {
+  ownAlternatives: true,
   updatedAt: "2026-11-04",
   Body,
   faqs: [

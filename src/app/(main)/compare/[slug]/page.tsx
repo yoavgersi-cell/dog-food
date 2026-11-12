@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PAIR_EXTRAS } from "@/content/compare/extras";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Trophy } from "lucide-react";
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const w = getBrand(pair.overall)!;
   return pageMeta({
     title: `${a.name} vs ${b.name} (2026): Which Is Better?`,
-    description: `${a.name} vs ${b.name}: ${w.name} wins for most dogs. We compare plans, recipes, nutrition and cost side by side, and say who should pick each.`,
+    description: `${a.name} or ${b.name}? ${w.name} wins for most dogs. We compare plans, recipes, where to buy, nutrition and cost side by side.`,
     path: comparePath(pair.slug),
   });
 }
@@ -48,7 +49,8 @@ export default async function ComparePage({ params }: { params: Promise<{ slug: 
   const winner = getBrand(pair.overall)!;
   const loser = winner.slug === a.slug ? b : a;
   const path = comparePath(pair.slug);
-  const faqs = pairFaqs(pair, a, b);
+  const extra = PAIR_EXTRAS[pair.slug];
+  const faqs = [...pairFaqs(pair, a, b), ...(extra?.faqs ?? [])];
   const c = (x: typeof a) => (x.price ? fmtUsd(costPerDay(x.price, 25)) : PENDING);
   const others = [...pairsForBrand(a.slug), ...pairsForBrand(b.slug)].filter((p) => p.slug !== pair.slug);
 
@@ -110,6 +112,29 @@ export default async function ComparePage({ params }: { params: Promise<{ slug: 
           </div>
         ))}
       </div>
+
+      {extra && (
+        <>
+          <H2 id="plans">{extra.title}</H2>
+          <div className="overflow-x-auto rounded-xl border border-[#F3E3A3] bg-white">
+            <table className="w-full min-w-[520px] border-collapse text-left text-[14px]">
+              <caption className="sr-only">{`${a.name} vs ${b.name}: ${extra.title.toLowerCase()}`}</caption>
+              <thead className="bg-[#FEF3C7] text-[12px] uppercase tracking-wide text-[#713F12]">
+                <tr><th scope="col" className="px-3 py-2.5 font-bold"></th><th scope="col" className="px-3 py-2.5 font-bold">{a.name}</th><th scope="col" className="px-3 py-2.5 font-bold">{b.name}</th></tr>
+              </thead>
+              <tbody>
+                {extra.rows.map(([label, va, vb]) => (
+                  <tr key={label} className="border-t border-[#FEF3C7] align-top">
+                    <th scope="row" className="px-3 py-2.5 font-semibold text-[#191919]">{label}</th>
+                    <td className="px-3 py-2.5 text-gray-700">{va}</td>
+                    <td className="px-3 py-2.5 text-gray-700">{vb}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
 
       <H2 id="features">Features side by side</H2>
       <FeatureTable brands={[a, b]} />
