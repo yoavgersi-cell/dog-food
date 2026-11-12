@@ -13,6 +13,7 @@ import * as freshVsKibble from "./fresh-vs-kibble";
 import * as rawSafety from "./is-raw-dog-food-safe";
 import * as topperVsFull from "./fresh-dog-food-topper-vs-full-meal";
 import * as unkibble from "./unkibble-fresh-dry-dog-food";
+import * as protein from "./how-much-protein-does-a-dog-need";
 import * as dryVsFrozen from "./freeze-dried-vs-air-dried-vs-fresh-frozen-dog-food";
 
 export type { ArticleMeta } from "./types";
@@ -22,7 +23,7 @@ export interface Article {
   Body: ComponentType;
 }
 
-export const ARTICLES: Article[] = [dryVsFrozen, unkibble, topperVsFull, guide, puppies, grainFreeDcm, switchToFresh, rawSafety, freshVsKibble, worthIt, readLabel, howMuchToFeed];
+export const ARTICLES: Article[] = [protein, dryVsFrozen, unkibble, topperVsFull, guide, puppies, grainFreeDcm, switchToFresh, rawSafety, freshVsKibble, worthIt, readLabel, howMuchToFeed];
 
 export const ARTICLE_BY_SLUG = new Map(ARTICLES.map((a) => [a.meta.slug, a]));
 export const articlePath = (slug: string) => `/articles/${slug}`;

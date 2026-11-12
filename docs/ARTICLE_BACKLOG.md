@@ -59,7 +59,7 @@ until the site owner approves it.**
 - [x] Fresh food for puppies: AAFCO growth rules and calorie needs - `fresh-food-for-puppies` (2026-11-09)
 - [x] Fresh food toppers vs full fresh meals: how to split calories - `fresh-dog-food-topper-vs-full-meal` (2026-11-10)
 - [x] Freeze-dried vs air-dried vs fresh-frozen dog food - `freeze-dried-vs-air-dried-vs-fresh-frozen-dog-food` (2026-11-11)
-- [ ] How much protein does a dog need? (per 1,000 kcal explained)
+- [x] How much protein does a dog need? (per 1,000 kcal explained) - `how-much-protein-does-a-dog-need` (2026-11-12)
 - [ ] Fat in dog food: how much is too much?
 - [ ] Senior dog nutrition: calories, protein and joints
 - [ ] Body condition score: how to tell if your dog is overweight
