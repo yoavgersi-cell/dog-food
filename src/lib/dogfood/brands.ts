@@ -175,7 +175,7 @@ export const BRANDS: Brand[] = [
     badge: "Our Top Choice",
     verdict: "Best overall fresh dog food",
     tagline: "Gently cooked, pre-portioned fresh food with calorie targets set per dog",
-    offer: "60% off first box + free welcome kit",
+    offer: "50% off first box + free treats", // thefarmersdog.com homepage, checked 2026-11-13
     highlights: [
       "Personalized meal plans for your dog's needs",
       "Gently cooked fresh food",
@@ -198,7 +198,7 @@ export const BRANDS: Brand[] = [
     summary:
       "The Farmer's Dog is the reference point for gently cooked subscription food: one format, recipes portioned to each dog's calorie target, and a pause/cancel-anytime plan. It ranks #1 because it scores highest on our formulation-transparency and portion-accuracy criteria; the trade-off is storage and the lack of any shelf-stable option.",
     trustpilot: { rating: 3.9, reviewCount: 1740, url: "https://www.trustpilot.com/review/thefarmersdog.com", checked: "2026-11-04", reviews: TFD_TRUSTPILOT_REVIEWS, note: "We left out 3 reviews on this profile that are clearly about unrelated UK businesses with the same name (a pub and a raw-food brand)." },
-    toVerify: ["offer", "proteins", "delivery", "nutrition", "price", "aafcoStatement"],
+    toVerify: ["proteins", "delivery", "nutrition", "price", "aafcoStatement"],
   },
   {
     slug: "ollie",
