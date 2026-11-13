@@ -98,7 +98,7 @@ export function Sidebar({ blocks = DEFAULT_BLOCKS }: { blocks?: SidebarBlock[] }
         return (
           <SidebarCard key={id}>
             <div className="flex items-start gap-2">
-              <Info className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gray-400" strokeWidth={1.5} />
+              <Info className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gray-500" strokeWidth={1.5} />
               <p className="text-xs leading-relaxed text-gray-500">
                 We may earn a commission from brands featured on this page. Scores follow our published rubric and are never changed for payment.{" "}
                 <Link href="/disclosure" className="underline">Disclosure</Link>

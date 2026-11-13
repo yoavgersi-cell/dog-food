@@ -42,7 +42,7 @@ const TOGGLES = [
 ] as const;
 
 const bool = (v: boolean | null) =>
-  v === null ? <span className="text-gray-400">Verifying</span> : v ? <Check className="h-4 w-4 text-[#A16207]" aria-label="Yes" /> : <Minus className="h-4 w-4 text-gray-400" aria-label="No" />;
+  v === null ? <span className="text-gray-500">Verifying</span> : v ? <Check className="h-4 w-4 text-[#A16207]" aria-label="Yes" /> : <Minus className="h-4 w-4 text-gray-500" aria-label="No" />;
 
 /**
  * Homepage comparison matrix. The full table is server-rendered (all 7 rows
@@ -117,15 +117,15 @@ export function ComparisonMatrix({ rows, refLb }: { rows: MatrixRow[]; refLb: nu
                   <span className="block text-[12px] font-normal text-gray-500">{r.verdict}</span>
                 </th>
                 <td className="px-3 py-2.5 font-extrabold text-[#191919]">{r.score.toFixed(1)}</td>
-                <td className="px-3 py-2.5">{r.costPerDay !== null ? `$${r.costPerDay.toFixed(2)}` : <span className="text-gray-400">Verifying</span>}</td>
+                <td className="px-3 py-2.5">{r.costPerDay !== null ? `$${r.costPerDay.toFixed(2)}` : <span className="text-gray-500">Verifying</span>}</td>
                 <td className="px-3 py-2.5">{r.formats}</td>
                 <td className="px-3 py-2.5 capitalize">{r.proteins}</td>
-                <td className="px-3 py-2.5">{r.proteinDM !== null ? `${r.proteinDM.toFixed(1)}%` : <span className="text-gray-400">Verifying</span>}</td>
+                <td className="px-3 py-2.5">{r.proteinDM !== null ? `${r.proteinDM.toFixed(1)}%` : <span className="text-gray-500">Verifying</span>}</td>
                 <td className="px-3 py-2.5">{bool(r.customPortions)}</td>
-                <td className="px-3 py-2.5">{r.subscriptionRequired === null ? <span className="text-gray-400">Verifying</span> : r.subscriptionRequired ? "Required" : "Optional"}</td>
+                <td className="px-3 py-2.5">{r.subscriptionRequired === null ? <span className="text-gray-500">Verifying</span> : r.subscriptionRequired ? "Required" : "Optional"}</td>
                 <td className="px-3 py-2.5">{bool(r.humanGrade)}</td>
-                <td className="px-3 py-2.5">{r.aafco ?? <span className="text-gray-400">Verifying</span>}</td>
-                <td className="px-3 py-2.5">{r.delivery ?? <span className="text-gray-400">Verifying</span>}</td>
+                <td className="px-3 py-2.5">{r.aafco ?? <span className="text-gray-500">Verifying</span>}</td>
+                <td className="px-3 py-2.5">{r.delivery ?? <span className="text-gray-500">Verifying</span>}</td>
               </tr>
             ))}
             {visible.length === 0 && (

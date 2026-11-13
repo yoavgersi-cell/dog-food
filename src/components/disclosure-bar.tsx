@@ -29,7 +29,7 @@ export function DisclosureBar() {
           >
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute right-4 top-4 text-gray-400 hover:text-gray-600"
+              className="absolute right-4 top-4 text-gray-500 hover:text-gray-600"
             >
               <X className="h-5 w-5" strokeWidth={1.5} />
             </button>

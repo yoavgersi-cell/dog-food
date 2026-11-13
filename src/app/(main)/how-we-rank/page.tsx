@@ -10,7 +10,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "How We Rank Dog Food: The Scout Score Rubric, Formulas & Sources",
-  description: "The six weighted criteria behind every Scout Score, the exact dry-matter, calorie and cost-per-day formulas we use, AAFCO thresholds, and how we verify brand data.",
+  description: "The six weighted criteria behind every Scout Score, our dry-matter, calorie and cost-per-day formulas, AAFCO thresholds, and how we verify brand data.",
   path: "/how-we-rank",
 });
 

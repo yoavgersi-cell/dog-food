@@ -11,7 +11,7 @@ export const metadata = pageMeta({
 
 export default function Privacy() {
   return (
-    <TextPage crumb="Privacy" title="Privacy Policy" intro="Last updated November 1, 2026.">
+    <TextPage path="/privacy" schemaType="WebPage" crumb="Privacy" title="Privacy Policy" intro="Last updated November 1, 2026.">
       <p>Dog Food Scout (&quot;we&quot;) runs dogfoodscout.com, an independent publisher comparing dog food brands. We don&apos;t sell products and don&apos;t ask you to create an account.</p>
       <h2>What we collect</h2>
       <ul>

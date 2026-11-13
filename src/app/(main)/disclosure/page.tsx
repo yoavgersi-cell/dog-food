@@ -10,7 +10,7 @@ export const metadata = pageMeta({
 
 export default function Disclosure() {
   return (
-    <TextPage crumb="Disclosure" title="Advertising Disclosure" intro="Dog Food Scout is free to read. We're funded by affiliate commissions: when you buy through some of our links, the brand may pay us. Here's how we keep that from affecting what we publish.">
+    <TextPage path="/disclosure" schemaType="WebPage" crumb="Disclosure" title="Advertising Disclosure" intro="Dog Food Scout is free to read. We're funded by affiliate commissions: when you buy through some of our links, the brand may pay us. Here's how we keep that from affecting what we publish.">
       <h2>The rules</h2>
       <ul>
         <li>Scores come from our published rubric and are set before any commercial terms are discussed.</li>

@@ -36,7 +36,7 @@ export function ReviewBox({ brand }: { brand: Brand }) {
           <li key={p} className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-[#A16207]" strokeWidth={2.25} />{p}</li>
         ))}
         {brand.cons.slice(0, 1).map((c) => (
-          <li key={c} className="flex gap-2 text-gray-600"><X className="mt-0.5 h-4 w-4 shrink-0 text-gray-400" strokeWidth={2.25} />{c}</li>
+          <li key={c} className="flex gap-2 text-gray-600"><X className="mt-0.5 h-4 w-4 shrink-0 text-gray-500" strokeWidth={2.25} />{c}</li>
         ))}
       </ul>
 

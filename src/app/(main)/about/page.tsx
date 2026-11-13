@@ -12,7 +12,7 @@ export const metadata = pageMeta({
 
 export default function About() {
   return (
-    <TextPage
+    <TextPage path="/about" schemaType="AboutPage"
       crumb="About"
       title="About Dog Food Scout"
       intro="Dog Food Scout is an independent research site for people who want the numbers behind fresh and raw dog food: what's in it on a dry-matter basis, what it costs per day for their dog, and which brand fits which dog."

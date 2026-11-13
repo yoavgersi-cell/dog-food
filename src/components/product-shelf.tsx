@@ -28,7 +28,7 @@ function ProductCard({ p, showBrand, pageType }: { p: ProductListing; showBrand:
         <h4 className="mt-0.5 line-clamp-2 text-[15px] font-bold leading-snug text-[#191919]" title={p.name}>{p.name}</h4>
         <p className="mt-2 flex flex-wrap items-baseline gap-x-2">
           <span className="text-[20px] font-extrabold text-[#191919]">{fmtPrice(p.price)}</span>
-          {p.listPrice && <s className="text-[13.5px] text-gray-400">{fmtPrice(p.listPrice)}</s>}
+          {p.listPrice && <s className="text-[13.5px] text-gray-500">{fmtPrice(p.listPrice)}</s>}
           {p.unitPrice && <span className="text-[13px] text-gray-500">{p.unitPrice}</span>}
         </p>
         {p.size && <p className="mt-0.5 text-[13px] text-gray-600">{p.size}</p>}
