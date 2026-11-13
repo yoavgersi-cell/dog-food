@@ -45,7 +45,16 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   if (!a) notFound();
   const { meta, Body } = a;
   const path = articlePath(meta.slug);
-  const others = ARTICLES.filter((x) => x.meta.slug !== meta.slug).slice(0, 4);
+  // Related guides: the pillar guide first, then articles sharing the most relatedPaths, then newest.
+  const PILLAR = "fresh-dog-food-guide";
+  const overlap = (x: (typeof ARTICLES)[number]) => x.meta.relatedPaths.filter((p) => meta.relatedPaths.includes(p)).length;
+  const others = [
+    ...ARTICLES.filter((x) => x.meta.slug === PILLAR && meta.slug !== PILLAR),
+    ...ARTICLES.filter((x) => x.meta.slug !== meta.slug && x.meta.slug !== PILLAR)
+      .map((x, i) => ({ x, score: overlap(x), i }))
+      .sort((a, b) => b.score - a.score || a.i - b.i)
+      .map(({ x }) => x),
+  ].slice(0, 5);
   const img = articleImage(meta.slug);
 
   const schema = [

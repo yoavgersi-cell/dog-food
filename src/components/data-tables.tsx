@@ -6,7 +6,7 @@ import {
 
 const th = "px-3 py-2.5 text-left text-[12px] font-bold uppercase tracking-wide text-[#713F12]";
 const td = "px-3 py-2.5 text-left text-[14px] text-gray-700 align-top";
-const pending = <span className="text-gray-400">{PENDING}</span>;
+const pending = <span className="text-gray-500">{PENDING}</span>;
 
 function TableWrap({ caption, children, note }: { caption: string; children: React.ReactNode; note?: React.ReactNode }) {
   return (

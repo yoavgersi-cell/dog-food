@@ -53,7 +53,7 @@ export default async function IngredientPage({ params }: { params: Promise<{ slu
             author: orgRef(),
             publisher: orgRef(),
             about: { "@type": "Thing", name: ing.name },
-            ...(links.brands.length > 0 && { mentions: links.brands.map(productEntity) }),
+            ...(links.brands.length > 0 && { mentions: links.brands.map((b) => productEntity(b)) }),
           },
           breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Ingredients", path: "/ingredients" }, { name: ing.name, path }]),
         ]}

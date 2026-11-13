@@ -36,7 +36,7 @@ export function RatingBadge({ rating, label, starRating, className }: RatingBadg
           </div>
           <div className="mt-0.5 flex items-center gap-0.5">
             <span className="text-[12px] font-semibold text-gray-600">{label}</span>
-            <ChevronDown className="h-3 w-3 text-gray-400" strokeWidth={1.5} />
+            <ChevronDown className="h-3 w-3 text-gray-500" strokeWidth={1.5} />
           </div>
         </div>
       </div>

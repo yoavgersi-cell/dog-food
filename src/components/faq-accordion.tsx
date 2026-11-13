@@ -18,7 +18,7 @@ export function FaqAccordion({ items, title = "FAQs", bare = false }: { items: F
           <details key={item.question} className="group px-5">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-left text-[16px] font-semibold text-[#191919] transition-colors hover:text-[#A16207] [&::-webkit-details-marker]:hidden">
               <h3 className="text-[16px] font-semibold">{item.question}</h3>
-              <ChevronDown className="h-5 w-5 shrink-0 text-gray-400 transition-transform group-open:rotate-180" strokeWidth={1.5} />
+              <ChevronDown className="h-5 w-5 shrink-0 text-gray-500 transition-transform group-open:rotate-180" strokeWidth={1.5} />
             </summary>
             <p className="pb-5 text-[15.5px] leading-[1.7] text-gray-700">{item.answer}</p>
           </details>

@@ -11,7 +11,7 @@ export const metadata = pageMeta({
 
 export default function Terms() {
   return (
-    <TextPage crumb="Terms" title="Terms of Service" intro="Last updated November 1, 2026.">
+    <TextPage path="/terms" schemaType="WebPage" crumb="Terms" title="Terms of Service" intro="Last updated November 1, 2026.">
       <h2>Information only</h2>
       <p>Content on dogfoodscout.com is general information about dog food. It is not veterinary advice and does not create a veterinarian-client relationship. Ask your veterinarian about your own dog&apos;s diet.</p>
       <h2>Accuracy</h2>

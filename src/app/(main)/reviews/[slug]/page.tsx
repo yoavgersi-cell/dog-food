@@ -133,7 +133,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         </div>
         <div className="rounded-xl border border-[#F3E3A3] bg-white p-5">
           <p className="mb-2 font-bold text-[#191919]">Cons</p>
-          <ul className="space-y-1.5">{b.cons.map((x) => <li key={x} className="flex gap-2 text-[15px] text-gray-700"><X className="mt-0.5 h-4 w-4 shrink-0 text-gray-400" />{x}</li>)}</ul>
+          <ul className="space-y-1.5">{b.cons.map((x) => <li key={x} className="flex gap-2 text-[15px] text-gray-700"><X className="mt-0.5 h-4 w-4 shrink-0 text-gray-500" />{x}</li>)}</ul>
         </div>
       </div>
 

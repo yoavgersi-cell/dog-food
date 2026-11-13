@@ -22,7 +22,7 @@ export const revalidate = 3600;
 const TITLE = `Best Fresh Dog Food (${HERO_MONTH}): 7 Delivery Services Compared | Dog Food Scout`;
 const SOCIAL_TITLE = `Best Fresh Dog Food Delivery Services of ${HERO_MONTH}`;
 const DESCRIPTION =
-  "We compared The Farmer's Dog, Ollie, Spot & Tango and 4 more fresh and raw dog food delivery services on nutrition, cost per day and plans. See our top picks for 2026.";
+  "We compared The Farmer's Dog, Ollie, Spot & Tango and 4 more fresh and raw dog food delivery services on nutrition, cost per day and plans. Our 2026 top picks.";
 const REF_LB = 25;
 
 export const metadata: Metadata = {

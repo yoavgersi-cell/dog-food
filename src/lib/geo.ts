@@ -5,6 +5,7 @@
 // FDA and WSAVA; and the AI crawlers robots.txt names explicitly.
 import { SITE_URL, SITE_NAME, SITE_DOMAIN } from "@/lib/config";
 import type { Brand } from "@/lib/dogfood/brands";
+import { PRODUCTS } from "@/lib/dogfood/products";
 
 export { SITE_URL };
 export const ORG_ID = `${SITE_URL}/#organization`;
@@ -73,7 +74,13 @@ export function brandEntity(b: Pick<Brand, "name" | "officialSite">) {
 }
 
 /** Product entity for a brand's dog food line - the itemReviewed of a Review. */
-export function productEntity(b: Brand) {
+export function productEntity(b: Brand, opts: { withReview?: boolean } = {}) {
+  const { withReview = true } = opts;
+  // Raster images only (Google ignores SVG for product results): product photos first, then the logo.
+  const images = [
+    ...PRODUCTS.filter((x) => x.brand === b.slug).slice(0, 3).map((x) => `${SITE_URL}${x.image}`),
+    ...(b.logo.endsWith(".svg") ? [] : [`${SITE_URL}${b.logo}`]),
+  ];
   return {
     "@type": "Product",
     "@id": `${SITE_URL}/brands/${b.slug}#product`,
@@ -82,6 +89,18 @@ export function productEntity(b: Brand) {
     category: "Pet Supplies > Dog Food",
     description: b.tagline,
     url: `${SITE_URL}/brands/${b.slug}`,
+    ...(images.length ? { image: images } : {}),
+    // Our single editorial review (not user ratings), so Product is a valid rich-result item everywhere it appears.
+    ...(withReview
+      ? {
+          review: {
+            "@type": "Review",
+            url: `${SITE_URL}/reviews/${b.slug}`,
+            reviewRating: { "@type": "Rating", ratingValue: b.score, bestRating: 10, worstRating: 0 },
+            author: orgRef(),
+          },
+        }
+      : {}),
   };
 }
 
@@ -90,7 +109,7 @@ export function reviewEntity(b: Brand, path: string) {
   return {
     "@type": "Review",
     "@id": `${SITE_URL}${path}#review`,
-    itemReviewed: productEntity(b),
+    itemReviewed: productEntity(b, { withReview: false }),
     reviewRating: { "@type": "Rating", ratingValue: b.score, bestRating: 10, worstRating: 0 },
     author: orgRef(),
     publisher: orgRef(),
