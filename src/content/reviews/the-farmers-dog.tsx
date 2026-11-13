@@ -105,7 +105,7 @@ function Body() {
 
       <H2 id="cost">How much does The Farmer&apos;s Dog cost?</H2>
       <P>
-        It depends almost entirely on your dog&apos;s calorie needs. Petful&apos;s February 2026 survey testing found prices from about <strong>$2.31 to $26.77 per day</strong>, from small dogs to giant breeds (<Ext href={SRC.petfulCost}>Petful, 2026</Ext>).
+        It depends almost entirely on your dog&apos;s calorie needs. Petful&apos;s February 2026 survey testing found prices from about <strong>$2.31 to $26.77 per day</strong>, from small dogs to giant breeds (<Ext href={SRC.petfulCost}>Petful, 2026</Ext>). Our <A href="/articles/how-much-does-the-farmers-dog-cost">full cost breakdown</A> converts it to per week, month and year.
         That range is wide because calories are. Here is how much more food bigger dogs need:
       </P>
       <Table
