@@ -47,7 +47,7 @@ function Body() {
         ]}
       />
       <P>
-        Mixing fresh and baked is a practical way to cut cost while keeping some fresh food in the bowl; split by calories, as in our <A href="/articles/fresh-dog-food-topper-vs-full-meal">topper guide</A>. Comparing brands? See <A href={comparePath("the-farmers-dog-vs-ollie")}>The Farmer&apos;s Dog vs Ollie</A> and <A href={comparePath("ollie-vs-spot-and-tango")}>Ollie vs Spot &amp; Tango</A>.
+        Mixing fresh and baked is a practical way to cut cost while keeping some fresh food in the bowl (see <A href="/articles/how-much-does-ollie-cost">how much Ollie costs</A>); split by calories, as in our <A href="/articles/fresh-dog-food-topper-vs-full-meal">topper guide</A>. Comparing brands? See <A href={comparePath("the-farmers-dog-vs-ollie")}>The Farmer&apos;s Dog vs Ollie</A> and <A href={comparePath("ollie-vs-spot-and-tango")}>Ollie vs Spot &amp; Tango</A>.
       </P>
     </>
   );
