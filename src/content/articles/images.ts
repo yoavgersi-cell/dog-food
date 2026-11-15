@@ -17,6 +17,7 @@ const ALT: Record<string, string> = {
   "freeze-dried-vs-air-dried-vs-fresh-frozen-dog-food": "Three white bowls of freeze-dried, air-dried and fresh dog food on a wooden table beside a frosty glass dish, a dachshund resting its chin on the table",
   "how-much-protein-does-a-dog-need": "A vizsla watching a kitchen scale holding a dish of shredded chicken and a halved egg, with small bowls of beef and salmon on a wooden counter",
   "how-much-does-the-farmers-dog-cost": "A row of small white bowls of fresh dog food along a wooden kitchen counter beside a ceramic piggy bank, a beagle resting its chin on the counter",
+  "how-much-does-ollie-cost": "Four small white bowls of fresh dog food in a row on a wooden table beside a woven basket, a goldendoodle sitting by the table looking up",
 };
 
 export interface ArticleImage {

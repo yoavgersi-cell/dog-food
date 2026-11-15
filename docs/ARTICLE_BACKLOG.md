@@ -61,7 +61,7 @@ until the site owner approves it.**
 - [x] Freeze-dried vs air-dried vs fresh-frozen dog food - `freeze-dried-vs-air-dried-vs-fresh-frozen-dog-food` (2026-11-11)
 - [x] How much protein does a dog need? (per 1,000 kcal explained) - `how-much-protein-does-a-dog-need` (2026-11-12)
 - [x] How much does The Farmer's Dog cost? Per day, week and month - `how-much-does-the-farmers-dog-cost` (2026-11-13)
-- [ ] How much does Ollie cost per month? (priority: Search Console 2026-11-12, "how much is ollie dog food a month", "ollie pricing", "ollie dog food cost")
+- [x] How much does Ollie cost per month? - `how-much-does-ollie-cost` (2026-11-14)
 - [ ] Fat in dog food: how much is too much?
 - [ ] Senior dog nutrition: calories, protein and joints
 - [ ] Body condition score: how to tell if your dog is overweight
