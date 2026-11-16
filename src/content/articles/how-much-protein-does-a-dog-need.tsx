@@ -176,7 +176,7 @@ export function Body() {
 
       <H2 id="too-much">Can a dog eat too much protein?</H2>
       <P>
-        For a healthy dog, AAFCO sets protein minimums, not a maximum. Extra protein still carries calories, so total calories decide weight gain. Dogs with kidney or liver disease may need a vet-prescribed diet; don&apos;t switch away from one without your vet.
+        For a healthy dog, AAFCO sets protein minimums, not a maximum. Extra protein still carries calories, so total calories decide weight gain; fat matters even more (see <A href="/articles/fat-in-dog-food">fat in dog food</A>). Dogs with kidney or liver disease may need a vet-prescribed diet; don&apos;t switch away from one without your vet.
       </P>
 
       <ArticleBrandCard slug="we-feed-raw" />
