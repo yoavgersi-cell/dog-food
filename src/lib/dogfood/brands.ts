@@ -190,7 +190,10 @@ export const BRANDS: Brand[] = [
     humanGrade: true,
     storage: "freezer + fridge",
     delivery: "Contiguous US",
-    ...NOT_VERIFIED_YET,
+    nutrition: null, // guaranteed analysis and kcal are not published on public pages (behind sign-up)
+    price: null,
+    aafcoStatement: "The fresh recipes on your puppy's plan are formulated to be AAFCO complete and balanced for dogs of all life stages. We met AAFCO feeding trial requirements, then exceeded them.", // thefarmersdog.com/puppy (checked 2026-11-16)
+    feedingTrials: true,
     bestFor: ["Owners who want a fully portioned, no-math fresh diet", "Weight management (calorie-targeted packs)", "Picky eaters moving off kibble"],
     notIdealFor: ["Raw feeders", "Owners with no freezer space", "Pantry-only storage"],
     pros: ["Portions are pre-calculated to a daily calorie target", "Single, simple format - no plan-mixing decisions", "Formulated by board-certified veterinary nutritionists (brand claim)"],
@@ -198,7 +201,7 @@ export const BRANDS: Brand[] = [
     summary:
       "The Farmer's Dog is the reference point for gently cooked subscription food: one format, recipes portioned to each dog's calorie target, and a pause/cancel-anytime plan. It ranks #1 because it scores highest on our formulation-transparency and portion-accuracy criteria; the trade-off is storage and the lack of any shelf-stable option.",
     trustpilot: { rating: 3.9, reviewCount: 1740, url: "https://www.trustpilot.com/review/thefarmersdog.com", checked: "2026-11-04", reviews: TFD_TRUSTPILOT_REVIEWS, note: "We left out 3 reviews on this profile that are clearly about unrelated UK businesses with the same name (a pub and a raw-food brand)." },
-    toVerify: ["proteins", "delivery", "nutrition", "price", "aafcoStatement"],
+    toVerify: ["proteins", "delivery", "nutrition", "price"],
   },
   {
     slug: "ollie",
@@ -227,7 +230,10 @@ export const BRANDS: Brand[] = [
     humanGrade: true,
     storage: "freezer + fridge or pantry",
     delivery: "Contiguous US",
-    ...NOT_VERIFIED_YET,
+    nutrition: null, // guaranteed analysis and kcal are not published on Ollie's public pages
+    price: null,
+    aafcoStatement: "Formulated to meet the nutritional levels established by the AAFCO Dog Food Nutrient Profiles for All Life Stages, including the growth of large size dogs (70 lb or more as an adult).", // quoted for all Ollie meals at blog.ollie.com (checked 2026-11-16)
+    feedingTrials: null,
     bestFor: ["Owners who want to blend fresh with a shelf-stable baked option", "Budget-flexible plans (part fresh, part baked)", "Multi-protein rotation"],
     notIdealFor: ["Raw feeders", "Owners who want fresh food without a subscription"],
     pros: ["Fresh, baked and mixed plans in one subscription", "Baked food and jerky treats also sold at Petco.com, no subscription needed", "Satisfaction guarantee on the first box (brand claim)", "Broad protein range including lamb"],
@@ -243,7 +249,7 @@ export const BRANDS: Brand[] = [
       negativeReplyRate: 96,
       reviews: OLLIE_TRUSTPILOT_REVIEWS,
     },
-    toVerify: ["offer", "formats", "proteins", "delivery", "nutrition", "price", "aafcoStatement"],
+    toVerify: ["offer", "formats", "delivery", "nutrition", "price"],
   },
   {
     slug: "spot-and-tango",
@@ -271,7 +277,19 @@ export const BRANDS: Brand[] = [
     humanGrade: true,
     storage: "freezer + fridge or pantry",
     delivery: "Contiguous US",
-    ...NOT_VERIFIED_YET,
+    nutrition: {
+      recipe: "UnKibble Beef + Barley",
+      proteinMinPct: 27,
+      fatMinPct: 27,
+      fiberMaxPct: 5,
+      moistureMaxPct: 6,
+      kcalPerKg: 4792,
+      source: "https://www.spotandtango.com/recipes/beef-and-barley",
+      checked: "2026-11-16",
+    },
+    price: null, // brand publishes price per meal only (no kcal per meal); needs a quote with stated calories
+    aafcoStatement: "Spot & Tango's Beef & Barley UnKibble Recipe is formulated to meet the nutritional levels established by the AAFCO Dog Food Nutrient Profiles for all life stages including growth of large size dogs (70 lbs or more as an adult).",
+    feedingTrials: false, // brand FAQ: meets AAFCO "by formulation and by analysis of the finished product"
     bestFor: ["Owners without freezer space (UnKibble)", "Travel and small kitchens", "Kibble-to-fresh transitions"],
     notIdealFor: ["Raw feeders", "Owners who want retail availability"],
     pros: ["Fresh-dry UnKibble stores in the pantry", "Grain-free and grain-inclusive options (brand claim)", "Personalized portions"],
@@ -279,7 +297,7 @@ export const BRANDS: Brand[] = [
     summary:
       "Spot & Tango's edge is UnKibble: a fresh-dry format that keeps whole-food ingredients but stores like kibble. That makes it the pick when freezer space is the constraint; on fresh-frozen alone it competes directly with Ollie and The Farmer's Dog.",
     trustpilot: { rating: 4.6, reviewCount: 2878, url: "https://www.trustpilot.com/review/spotandtango.com", checked: "2026-11-04", reviews: SPOT_AND_TANGO_TRUSTPILOT_REVIEWS },
-    toVerify: ["offer", "proteins", "delivery", "nutrition", "price", "aafcoStatement"],
+    toVerify: ["offer", "proteins", "delivery", "price"],
   },
   {
     slug: "we-feed-raw",
@@ -307,14 +325,31 @@ export const BRANDS: Brand[] = [
     humanGrade: null,
     storage: "freezer + fridge or pantry",
     delivery: null,
-    ...NOT_VERIFIED_YET,
+    nutrition: {
+      recipe: "Raw Beef (frozen)",
+      proteinMinPct: 12.2,
+      fatMinPct: 10,
+      fiberMaxPct: 1,
+      moistureMaxPct: 68.8,
+      kcalPerKg: 1800,
+      source: "https://wefeedraw.com/recipes/beef",
+      checked: "2026-11-16",
+    },
+    price: {
+      usdPer1000kcal: 10.89,
+      basis: "Brand's plan starting price, $8.89 per pound (beef/chicken/turkey recipes), at 1,800 kcal/kg (816 kcal/lb)",
+      source: "https://wefeedraw.com/recipes/beef",
+      checked: "2026-11-16",
+    },
+    aafcoStatement: "This raw beef recipe is nutritionally complete and balanced, and complies with AAFCO recommendations for all of your dog's life stages.",
+    feedingTrials: null,
     bestFor: ["Committed raw feeders who want delivery", "High-protein, low-carbohydrate diets", "Owners rotating raw and freeze-dried"],
     notIdealFor: ["Homes with infants, elderly or immunocompromised people (raw-meat handling)", "Owners who want a cooked diet"],
     pros: ["Complete raw diet delivered, portioned to the dog", "Freeze-dried option for travel", "Formulated by a PhD animal nutritionist (brand claim)"],
     cons: ["Raw meat carries pathogen-handling requirements (FDA/CDC guidance)", "Freezer space required for the frozen line"],
     summary:
       "We Feed Raw is the only true raw subscription in our launch set. Pick it when you have already decided on raw; if you have not, read our cooked-vs-raw comparisons first, because the handling burden and pathogen risk are real and documented by the FDA and CDC.",
-    toVerify: ["offer", "proteins", "humanGrade", "delivery", "nutrition", "price", "aafcoStatement"],
+    toVerify: ["offer", "proteins", "humanGrade", "delivery"],
   },
   {
     slug: "maxbone",
@@ -342,14 +377,26 @@ export const BRANDS: Brand[] = [
     humanGrade: null,
     storage: "pantry",
     delivery: null,
-    ...NOT_VERIFIED_YET,
+    nutrition: {
+      recipe: "Freeze-dried Raw Beef",
+      proteinMinPct: 43,
+      fatMinPct: 30,
+      fiberMaxPct: 5,
+      moistureMaxPct: 8,
+      kcalPerKg: 4200,
+      source: "https://maxbone.com/products/freeze-dried-raw-beef-recipe",
+      checked: "2026-11-16",
+    },
+    price: null, // $34 per bag, but the bag weight is inconsistent on the brand's own pages (1 lb vs 590 g)
+    aafcoStatement: "Our recipes are complete and balanced for all life stages according to the nutritional levels established by AAFCO.",
+    feedingTrials: null,
     bestFor: ["Pantry-only storage", "Travel", "Toppers on top of kibble"],
     notIdealFor: ["Owners who want per-dog portioned packs", "Tight budgets (freeze-dried costs more per calorie in general)"],
     pros: ["No freezer or fridge needed", "Buy once - no subscription required", "Meat-and-organ first formulation (brand claim)"],
     cons: ["Rehydration step for full meals", "Fewer personalization tools than the fresh subscriptions"],
     summary:
       "Maxbone sells freeze-dried food that stores in the pantry and doesn't lock you into a subscription. It's the pick for travel, small kitchens and topping kibble; for a fully portioned daily diet, the fresh subscriptions above it do more of the work for you.",
-    toVerify: ["offer", "proteins", "subscriptionRequired", "humanGrade", "delivery", "nutrition", "price", "aafcoStatement"],
+    toVerify: ["offer", "proteins", "subscriptionRequired", "humanGrade", "delivery", "price"],
   },
   {
     slug: "the-pets-table",
@@ -377,7 +424,19 @@ export const BRANDS: Brand[] = [
     humanGrade: null,
     storage: "freezer + fridge or pantry",
     delivery: null,
-    ...NOT_VERIFIED_YET,
+    nutrition: {
+      recipe: "Fresh Chicken Casserole With Green Beans",
+      proteinMinPct: 12,
+      fatMinPct: 7.5,
+      fiberMaxPct: 1,
+      moistureMaxPct: 74,
+      kcalPerKg: 1457,
+      source: "https://www.thepetstable.com/recipes/fresh-chicken-63d3b49655ffed09cb0fe43b",
+      checked: "2026-11-16",
+    },
+    price: null, // plan catalog doesn't state its units; price per meal is given without calories per meal
+    aafcoStatement: "Formulated to meet the nutritional levels established by the AAFCO (Association of American Feed Control Officials) Dog Food Nutrient Profiles for All Life Stages, including growth of large size dogs (70 lbs. or more as an adult).",
+    feedingTrials: false,
     bestFor: ["Topper-only or part-fresh budgets", "Owners already using HelloFresh", "Mixed fresh + air-dried feeding"],
     notIdealFor: ["Raw feeders"],
     pros: ["Four plan types, including topper-only", "Two-box intro discount (brand offer)", "Large logistics backer (HelloFresh)"],
@@ -385,7 +444,7 @@ export const BRANDS: Brand[] = [
     summary:
       "The Pets Table is the most flexible plan menu in the set: full fresh, air-dried, a mix, or toppers only. That makes it the easiest way to add fresh food on a fixed budget. It ranks below the specialists because it's newer and has a shorter public formulation record.",
     trustpilot: { rating: 4.4, reviewCount: 3194, url: "https://www.trustpilot.com/review/thepetstable.com", checked: "2026-11-04", reviews: PETS_TABLE_TRUSTPILOT_REVIEWS, note: "54 of these 60 reviews are marked \u201cInvited\u201d on Trustpilot, meaning The Pets Table asked the customer to write one." },
-    toVerify: ["officialSite", "offer", "proteins", "humanGrade", "delivery", "nutrition", "price", "aafcoStatement"],
+    toVerify: ["officialSite", "offer", "proteins", "humanGrade", "delivery", "price"],
   },
   {
     slug: "redbarn",
@@ -413,14 +472,31 @@ export const BRANDS: Brand[] = [
     humanGrade: null,
     storage: "pantry",
     delivery: "US retail + online",
-    ...NOT_VERIFIED_YET,
+    nutrition: {
+      recipe: "Air Dried Powerfood High Protein Beef",
+      proteinMinPct: 35,
+      fatMinPct: 25,
+      fiberMaxPct: 6,
+      moistureMaxPct: 12,
+      kcalPerKg: 4702,
+      source: "https://redbarn.com/products/air-dried-beef-recipe-dog-food",
+      checked: "2026-11-16",
+    },
+    price: {
+      usdPer1000kcal: 7.59,
+      basis: "Air Dried Powerfood Beef, 5 lb bag at $80.99 one-time price on redbarn.com, at 4,702 kcal/kg (10,664 kcal per bag)",
+      source: "https://redbarn.com/products/air-dried-beef-recipe-dog-food",
+      checked: "2026-11-16",
+    },
+    aafcoStatement: "Redbarn Gently Air Dried Powerfood Beef Recipe is formulated to meet the nutritional levels established by the AAFCO Dog Food Nutrient Profiles for All Life Stages except for growth of large size dogs (70 lb. or more as an adult).",
+    feedingTrials: false,
     bestFor: ["Buying in a store with no subscription", "Air-dried feeding", "Rotating food with chews and treats from one brand"],
     notIdealFor: ["Owners who want pre-portioned daily packs", "Fresh-cooked diets"],
     pros: ["Available at retail - no subscription", "SQF-certified kitchens (brand claim)", "Pantry storage"],
     cons: ["No personalized portions", "Better known for chews than complete meals"],
     summary:
       "Redbarn is the retail option: air-dried, dry and rolled foods you can buy off the shelf, made in SQF-certified kitchens. It ranks last for this list because it's not a personalized delivery service. That isn't a quality judgment; for shoppers who don't want a subscription, it's the one to pick.",
-    toVerify: ["offer", "proteins", "nutrition", "price", "aafcoStatement"],
+    toVerify: ["offer", "proteins"],
   },
 ];
 
