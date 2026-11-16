@@ -62,7 +62,7 @@ until the site owner approves it.**
 - [x] How much protein does a dog need? (per 1,000 kcal explained) - `how-much-protein-does-a-dog-need` (2026-11-12)
 - [x] How much does The Farmer's Dog cost? Per day, week and month - `how-much-does-the-farmers-dog-cost` (2026-11-13)
 - [x] How much does Ollie cost per month? - `how-much-does-ollie-cost` (2026-11-14)
-- [ ] Fat in dog food: how much is too much?
+- [x] Fat in dog food: how much is too much? - `fat-in-dog-food` (2026-11-16)
 - [ ] Senior dog nutrition: calories, protein and joints
 - [ ] Body condition score: how to tell if your dog is overweight
 - [ ] Dog food for weight loss: the calorie math that works
