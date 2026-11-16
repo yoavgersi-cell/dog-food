@@ -18,6 +18,7 @@ const ALT: Record<string, string> = {
   "how-much-protein-does-a-dog-need": "A vizsla watching a kitchen scale holding a dish of shredded chicken and a halved egg, with small bowls of beef and salmon on a wooden counter",
   "how-much-does-the-farmers-dog-cost": "A row of small white bowls of fresh dog food along a wooden kitchen counter beside a ceramic piggy bank, a beagle resting its chin on the counter",
   "how-much-does-ollie-cost": "Four small white bowls of fresh dog food in a row on a wooden table beside a woven basket, a goldendoodle sitting by the table looking up",
+  "fat-in-dog-food": "A bowl of fresh dog food beside a small glass jug of golden oil and a teaspoon on a wooden counter, a border collie resting its chin on the counter",
 };
 
 export interface ArticleImage {
