@@ -63,7 +63,7 @@ until the site owner approves it.**
 - [x] How much does The Farmer's Dog cost? Per day, week and month - `how-much-does-the-farmers-dog-cost` (2026-11-13)
 - [x] How much does Ollie cost per month? - `how-much-does-ollie-cost` (2026-11-14)
 - [x] Fat in dog food: how much is too much? - `fat-in-dog-food` (2026-11-16)
-- [ ] Senior dog nutrition: calories, protein and joints
+- [x] Senior dog nutrition: calories, protein and joints - `senior-dog-nutrition` (2026-11-17)
 - [ ] Body condition score: how to tell if your dog is overweight
 - [ ] Dog food for weight loss: the calorie math that works
 - [ ] Food allergies in dogs: how an elimination diet works

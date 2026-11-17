@@ -171,7 +171,7 @@ export function Body() {
         <strong>Check muscle, not just the scale.</strong> The WSAVA asks vets to record a muscle condition score alongside body condition, noting that muscle loss is greater in sick dogs and that spotting &ldquo;mild muscle wasting&rdquo; early helps (<Ext href={WSAVA_ASSESS}>WSAVA, 2011</Ext>). Ask for it at your dog&apos;s next check-up.
       </Callout>
       <P>
-        Our <A href={bestForPath("senior-dog")}>senior dog guide</A> covers lower-calorie, higher-protein options.
+        Our <A href="/articles/senior-dog-nutrition">senior dog nutrition guide</A> covers calories and joints, and our <A href={bestForPath("senior-dog")}>senior dog picks</A> list lower-calorie, higher-protein options.
       </P>
 
       <H2 id="too-much">Can a dog eat too much protein?</H2>
