@@ -147,7 +147,7 @@ export function Body() {
 
       <H2 id="too-much">When is fat too much for a dog?</H2>
       <P>
-        When it adds calories your dog doesn&apos;t burn. Overfeeding is already the norm: 59% of dogs were classified as overweight or obese in the 2022 APOP survey (<Ext href={APOP_2022}>APOP</Ext>). Rich food makes small portion errors costlier.
+        When it adds calories your dog doesn&apos;t burn. Overfeeding is already the norm: 59% of dogs were classified as overweight or obese in the 2022 APOP survey (<Ext href={APOP_2022}>APOP</Ext>). Rich food makes small portion errors costlier; use a <A href="/articles/body-condition-score-dog">body condition score</A> check to see where your dog stands.
       </P>
       <P>
         For a 50 lb adult on about {fmt(k50)} kcal a day, a scoop just 10% too big adds about {fmt(k50 * 0.1)} kcal daily. The WSAVA notes real needs vary by up to 50% either side of formula estimates, and advises adjusting every 2 weeks at first (<Ext href={WSAVA_FAQ}>WSAVA</Ext>).
