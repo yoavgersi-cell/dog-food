@@ -172,7 +172,7 @@ export function Body() {
         ]}
       />
       <P>
-        For food options, see <A href={dietPath("weight-management")}>weight management</A> and <A href={dietPath("low-fat")}>low-fat</A> diets.
+        Our <A href="/articles/dog-food-for-weight-loss">weight-loss calorie guide</A> works through the math step by step. For food options, see <A href={dietPath("weight-management")}>weight management</A> and <A href={dietPath("low-fat")}>low-fat</A> diets.
       </P>
 
       <ArticleBrandCard slug="spot-and-tango" />

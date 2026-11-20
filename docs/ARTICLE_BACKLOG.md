@@ -65,7 +65,7 @@ until the site owner approves it.**
 - [x] Fat in dog food: how much is too much? - `fat-in-dog-food` (2026-11-16)
 - [x] Senior dog nutrition: calories, protein and joints - `senior-dog-nutrition` (2026-11-17)
 - [x] Body condition score: how to tell if your dog is overweight - `body-condition-score-dog` (2026-11-18)
-- [ ] Dog food for weight loss: the calorie math that works
+- [x] Dog food for weight loss: the calorie math that works - `dog-food-for-weight-loss` (2026-11-20)
 - [ ] Food allergies in dogs: how an elimination diet works
 - [ ] Novel proteins: duck, venison, rabbit and kangaroo compared
 - [ ] Omega-3 for dogs: EPA, DHA and fish oil explained
