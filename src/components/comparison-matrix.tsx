@@ -94,7 +94,7 @@ export function ComparisonMatrix({ rows, refLb }: { rows: MatrixRow[]; refLb: nu
       <div className="overflow-x-auto rounded-xl border border-[#F3E3A3] bg-white">
         <table className="w-full min-w-[980px] border-collapse text-left text-[13.5px]">
           <caption className="sr-only">Fresh and raw dog food brands compared on price, format, protein and plan features</caption>
-          <thead className="bg-[#FEF3C7] text-[11.5px] uppercase tracking-wide text-[#713F12]">
+          <thead className="bg-[#FEF3C7] text-[12px] uppercase tracking-wide text-[#713F12]">
             <tr>
               <th scope="col" className="sticky left-0 z-10 bg-[#FEF3C7] px-3 py-2.5">Brand</th>
               <th scope="col" className="px-3 py-2.5">Score</th>

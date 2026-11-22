@@ -50,11 +50,11 @@ export function Byline({ path, updatedAt, hideUpdated = false }: { path: string;
             <ShieldCheck className="h-4 w-4 shrink-0 text-[#16A34A]" aria-hidden="true" />
             <span className="sm:hidden">Vet reviewed by</span>
             <span className="hidden sm:inline">Reviewed for veterinary accuracy by</span>
-            <Link href={reviewerPath(r.slug)} className="font-bold text-[#191919] underline decoration-dotted underline-offset-2 hover:text-[#A16207]">
+            <Link href={reviewerPath(r.slug)} className="inline-block py-1 font-bold text-[#191919] underline decoration-dotted underline-offset-2 hover:text-[#A16207]">
               {displayName(r)}
             </Link>
             {linkedIn && (
-              <a href={linkedIn} rel="noopener me" target="_blank" aria-label={`${displayName(r)} on LinkedIn`} className="inline-flex">
+              <a href={linkedIn} rel="noopener me" target="_blank" aria-label={`${displayName(r)} on LinkedIn`} className="-m-1 inline-flex p-1">
                 {linkedInIcon}
               </a>
             )}
