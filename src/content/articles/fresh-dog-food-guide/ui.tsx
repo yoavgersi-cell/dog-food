@@ -10,11 +10,16 @@ export const Ext = ({ href, children }: { href: string; children: React.ReactNod
   <a href={href} rel="noopener" className="font-semibold text-[#A16207] hover:underline">{children}</a>
 );
 
+// Minimum table width by column count: 1-3 column tables fit a phone screen and wrap;
+// wider tables keep a minimum and scroll inside their frame.
+const TABLE_MIN_W: Record<number, string> = { 1: "", 2: "", 3: "", 4: "min-w-[440px]" };
+
 export function Table({ caption, head, rows, note }: { caption: string; head: string[]; rows: React.ReactNode[][]; note?: React.ReactNode }) {
+  const minW = TABLE_MIN_W[head.length] ?? "min-w-[520px]";
   return (
     <div className="my-5">
       <div className="overflow-x-auto rounded-xl border border-[#F3E3A3] bg-white">
-        <table className="w-full min-w-[520px] border-collapse text-left text-[14px]">
+        <table className={`w-full ${minW} border-collapse text-left text-[14px]`}>
           <caption className="sr-only">{caption}</caption>
           <thead className="bg-[#FEF3C7] text-[12px] uppercase tracking-wide text-[#713F12]">
             <tr>{head.map((h) => <th key={h} scope="col" className="px-3 py-2.5 font-bold">{h}</th>)}</tr>

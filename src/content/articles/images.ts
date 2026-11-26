@@ -18,6 +18,7 @@ const ALT: Record<string, string> = {
   "how-much-protein-does-a-dog-need": "A vizsla watching a kitchen scale holding a dish of shredded chicken and a halved egg, with small bowls of beef and salmon on a wooden counter",
   "how-much-does-the-farmers-dog-cost": "A row of small white bowls of fresh dog food along a wooden kitchen counter beside a ceramic piggy bank, a beagle resting its chin on the counter",
   "how-much-does-ollie-cost": "Four small white bowls of fresh dog food in a row on a wooden table beside a woven basket, a goldendoodle sitting by the table looking up",
+  "dog-food-allergy-elimination-diet": "A Labrador scratching behind its ear beside a white bowl of plain cooked protein and rice on a wooden table, with an open notebook and pencil for a symptom diary",
   "dog-food-for-weight-loss": "A white bowl of fresh dog food with turkey, green beans and carrots on a digital kitchen scale on a wooden counter, a beagle sitting below looking up hopefully",
   "body-condition-score-dog": "An owner's hands resting on the ribcage and side of a lean tan mixed-breed dog in a bright kitchen, checking its body condition by touch, with a tape measure and white bowl on a wooden bench",
   "senior-dog-nutrition": "An elderly golden retriever with a grey muzzle resting on a cream dog bed by a sunny window, looking at a raised white bowl of fresh dog food with turkey, carrots and green beans",

@@ -13,6 +13,7 @@ import * as freshVsKibble from "./fresh-vs-kibble";
 import * as rawSafety from "./is-raw-dog-food-safe";
 import * as topperVsFull from "./fresh-dog-food-topper-vs-full-meal";
 import * as unkibble from "./unkibble-fresh-dry-dog-food";
+import * as elimination from "./dog-food-allergy-elimination-diet";
 import * as weightLoss from "./dog-food-for-weight-loss";
 import * as bcs from "./body-condition-score-dog";
 import * as senior from "./senior-dog-nutrition";
@@ -29,7 +30,7 @@ export interface Article {
   Body: ComponentType;
 }
 
-export const ARTICLES: Article[] = [weightLoss, bcs, senior, fat, ollieCost, tfdCost, protein, dryVsFrozen, unkibble, topperVsFull, guide, puppies, grainFreeDcm, switchToFresh, rawSafety, freshVsKibble, worthIt, readLabel, howMuchToFeed];
+export const ARTICLES: Article[] = [elimination, weightLoss, bcs, senior, fat, ollieCost, tfdCost, protein, dryVsFrozen, unkibble, topperVsFull, guide, puppies, grainFreeDcm, switchToFresh, rawSafety, freshVsKibble, worthIt, readLabel, howMuchToFeed];
 
 export const ARTICLE_BY_SLUG = new Map(ARTICLES.map((a) => [a.meta.slug, a]));
 export const articlePath = (slug: string) => `/articles/${slug}`;
