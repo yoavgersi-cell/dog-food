@@ -47,9 +47,9 @@ function dataStrip(brand: Brand, refLb: number): StripItem[] {
 /** One row of 3 facts, icon and label inline on the same line. */
 function StripRow({ items, className = "" }: { items: StripItem[]; className?: string }) {
   return (
-    <ul className={`flex flex-nowrap items-center justify-between gap-x-1.5 sm:justify-start sm:gap-x-4 ${className}`}>
+    <ul className={`flex flex-nowrap items-center justify-between gap-x-1.5 max-[400px]:flex-wrap max-[400px]:justify-start max-[400px]:gap-x-3 max-[400px]:gap-y-1.5 sm:justify-start sm:gap-x-4 ${className}`}>
       {items.map(({ icon: Icon, text }) => (
-        <li key={text} className="flex min-w-0 items-center gap-1 whitespace-nowrap text-[11px] font-semibold text-[#191919] max-[370px]:text-[10.5px] sm:text-[12px]">
+        <li key={text} className="flex min-w-0 items-center gap-1 whitespace-nowrap text-[12px] font-semibold text-[#191919]">
           <Icon className="h-3.5 w-3.5 shrink-0 text-[#A16207]" strokeWidth={2} />
           {text}
         </li>

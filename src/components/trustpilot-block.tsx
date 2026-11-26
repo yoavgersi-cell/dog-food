@@ -71,9 +71,9 @@ function ReviewCard({ r }: { r: TrustpilotReview }) {
           // eslint-disable-next-line @next/next/no-img-element
           <img src={`/trustpilot/stars-${Math.round(r.rating)}.svg`} width={102} height={18} alt={`Rated ${r.rating} out of 5 stars`} />
         ) : r.issue ? (
-          <span className="rounded-full bg-[#FEF2F2] px-2.5 py-0.5 text-[11.5px] font-semibold text-[#B91C1C]">Reported a problem</span>
+          <span className="rounded-full bg-[#FEF2F2] px-2.5 py-0.5 text-[12px] font-semibold text-[#B91C1C]">Reported a problem</span>
         ) : (
-          <span className="inline-flex items-center gap-1 text-[11.5px] font-semibold text-gray-500">
+          <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-gray-500">
             <Star className="h-3.5 w-3.5" style={{ fill: TP_GREEN, color: TP_GREEN }} strokeWidth={0} aria-hidden />
             Trustpilot review
           </span>

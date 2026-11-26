@@ -97,7 +97,7 @@ export function HeroSection({
             </p>
           )}
 
-          <ul className="mt-4 flex flex-row flex-nowrap items-center gap-x-4 sm:mt-5 sm:flex-wrap sm:gap-x-8 sm:gap-y-3 lg:gap-x-5 xl:gap-x-8">
+          <ul className="mt-4 flex flex-row flex-wrap items-center gap-x-4 gap-y-2 sm:mt-5 sm:gap-x-8 sm:gap-y-3 lg:gap-x-5 xl:gap-x-8">
             {[
               { label: "Fresh Ingredients", icon: FreshIcon },
               { label: "Human-Grade Quality", icon: ChefHatIcon },
