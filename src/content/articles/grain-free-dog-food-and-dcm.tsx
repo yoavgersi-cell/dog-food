@@ -213,7 +213,7 @@ export function Body() {
         ]}
       />
       <P>
-        If you do switch, do it gradually; our <A href="/articles/how-to-switch-dog-to-fresh-food">10-day switching plan</A> works for any food change.
+        If you do switch, do it gradually; our <A href="/articles/how-to-switch-dog-to-fresh-food">10-day switching plan</A> works for any food change. If you chose grain-free for a suspected allergy, an <A href="/articles/dog-food-allergy-elimination-diet">elimination diet</A> is the way to confirm which food is the problem.
       </P>
       <ArticleBrandCard slug="spot-and-tango" />
 

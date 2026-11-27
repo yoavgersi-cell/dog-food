@@ -54,7 +54,7 @@ export function Byline({ path, updatedAt, hideUpdated = false }: { path: string;
               {displayName(r)}
             </Link>
             {linkedIn && (
-              <a href={linkedIn} rel="noopener me" target="_blank" aria-label={`${displayName(r)} on LinkedIn`} className="-m-1 inline-flex p-1">
+              <a href={linkedIn} rel="noopener me" target="_blank" aria-label={`${displayName(r)} on LinkedIn`} className="-m-[5px] inline-flex p-[5px]">
                 {linkedInIcon}
               </a>
             )}

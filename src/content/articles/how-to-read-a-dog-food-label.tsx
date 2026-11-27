@@ -192,7 +192,7 @@ export function Body() {
       </P>
       <ul className="mb-4 list-disc space-y-2 pl-5 text-[16px] leading-[1.7] text-gray-700">
         <li><strong>Look at the first five ingredients.</strong> They usually make up most of the recipe by weight.</li>
-        <li><strong>Check for named proteins.</strong> &quot;Beef&quot; or &quot;chicken liver&quot; tells you the species; &quot;meat by-products&quot; does not.</li>
+        <li><strong>Check for named proteins.</strong> &quot;Beef&quot; or &quot;chicken liver&quot; tells you the species; &quot;meat by-products&quot; does not. Labels can still miss ingredients, which matters for allergic dogs; see <A href="/articles/dog-food-allergy-elimination-diet">how an elimination diet works</A>.</li>
         <li>
           <strong>Watch for ingredient splitting.</strong> Peas, pea protein and pea fiber listed separately can add up to more than the meat. Legume-heavy recipes are the ones flagged in the FDA&apos;s DCM investigation. See <A href={ingredientPath("peas")}>peas</A>, <A href={ingredientPath("lentils")}>lentils</A> and <A href={dietPath("dcm-concerns")}>DCM concerns</A>, or read <A href="/articles/grain-free-dog-food-and-dcm">what the FDA&apos;s DCM investigation found</A>.
         </li>

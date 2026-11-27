@@ -189,7 +189,7 @@ export function Body() {
         Never swap out a prescription diet without your vet&apos;s agreement.
       </P>
       <P>
-        For dogs with delicate digestion, see <A href={dietPath("sensitive-stomach")}>fresh food for sensitive stomachs</A>. For older dogs, our <A href={bestForPath("senior-dog")}>senior dog guide</A> covers lower calorie needs.
+        For dogs with delicate digestion, see <A href={dietPath("sensitive-stomach")}>fresh food for sensitive stomachs</A>. If your vet suspects a food allergy, follow their <A href="/articles/dog-food-allergy-elimination-diet">elimination diet plan</A> instead of a routine switch. For older dogs, our <A href={bestForPath("senior-dog")}>senior dog guide</A> covers lower calorie needs.
       </P>
 
       <H2 id="puppies">How should puppies switch to fresh food?</H2>
